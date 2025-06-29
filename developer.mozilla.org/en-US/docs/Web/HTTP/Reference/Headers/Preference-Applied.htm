@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Preference-Applied header</title><link rel="alternate" title="Preference-Applied header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Preference-Applied" hreflang="de"><link rel="alternate" title="Preference-Applied header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Preference-Applied" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Preference-Applied header informs the client about which preferences from the Prefer request header were applied by the server."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Preference-Applied"><meta property="og:title" content="Preference-Applied header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Preference-Applied header informs the client about which preferences from the Prefer request header were applied by the server."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Preference-Applied"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Preference-Applied header</h1></header><div class="section-content"><p>The HTTP <strong><code>Preference-Applied</code></strong> header informs the client about which preferences from the <a href="Prefer.htm"><code>Prefer</code></a> request header were applied by the server.</p>
+<p>The server indicates if a preference is applied to a response if it would otherwise be ambiguous for the client.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td>
+        <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden header name</a></th>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <a href="https://developer.mozilla.org/en-US/docs/Glossary/CORS-safelisted_response_header">CORS-safelisted response header</a>
+      </th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Preference-Applied: &lt;preference&gt;
+</code></pre></div></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="server_applies_timezone_preferences"><h3 id="server_applies_timezone_preferences"><a href="#server_applies_timezone_preferences">Server applies timezone preferences</a></h3><div class="section-content"><p>The following request indicates that the client prefers events to be represented in a certain time zone:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>GET /events HTTP/1.1
+Host: example.com
+Prefer: timezone=America/Los_Angeles
+</code></pre></div>
+<p>The server supports the preference and sends back the content with a <code>Preference-Applied</code> header:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 200 OK
+Content-Type: application/json
+Preference-Applied: timezone=America/Los_Angeles
+
+[
+  {"t":"2023-10-18T05:37:59.611-07:00"},
+  {"t":"2023-10-18T07:37:59.611-07:00"},
+  {"t":"2023-10-18T09:37:59.611-07:00"}
+]
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://www.rfc-editor.org/rfc/rfc7240#section-3">Unknown specification<!-- --> <br><small># <!-- -->section-3</small></a></td></tr></tbody></table><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="Prefer.htm"><code>Prefer</code></a></li>
+<li><a href="https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#_Toc31358871" class="external" target="_blank">Prefer header</a> on docs.oasis-open.org</li>
+<li><a href="https://docs.postgrest.org/en/v12/references/api/preferences.html" class="external" target="_blank">Prefer header</a> on docs.postgrest.org</li>
+</ul></div></section></article></main></div></div></div></body></html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Connection header</title><link rel="alternate" title="Connection header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Connection" hreflang="de"><link rel="alternate" title="Connection" href="https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Headers/Connection" hreflang="fr"><link rel="alternate" title="Connection" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Connection" hreflang="ja"><link rel="alternate" title="Connection" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Connection" hreflang="ko"><link rel="alternate" title="Connection" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Headers/Connection" hreflang="pt"><link rel="alternate" title="Connection" href="https://developer.mozilla.org/ru/docs/Web/HTTP/Reference/Headers/Connection" hreflang="ru"><link rel="alternate" title="Connection" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Connection" hreflang="zh"><link rel="alternate" title="Connection" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Reference/Headers/Connection" hreflang="zh-Hant"><link rel="alternate" title="Connection header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Connection" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Connection header controls whether the network connection stays open after the current transaction finishes.
+If the value sent is keep-alive, the connection is persistent and not closed, allowing subsequent requests to the same server on the same connection."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Connection"><meta property="og:title" content="Connection header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Connection header controls whether the network connection stays open after the current transaction finishes.
+If the value sent is keep-alive, the connection is persistent and not closed, allowing subsequent requests to the same server on the same connection."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Connection"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Connection header</h1><details class="baseline-indicator high"><summary><span class="indicator" role="img" aria-label="Baseline Check"></span><div class="status-title">Baseline<!-- --> <span class="not-bold">Widely available</span></div><div class="browsers"><span class="engine" title="Supported in Chrome and Edge"><span class="browser chrome supported" role="img" aria-label="Chrome check"></span><span class="browser edge supported" role="img" aria-label="Edge check"></span></span><span class="engine" title="Supported in Firefox"><span class="browser firefox supported" role="img" aria-label="Firefox check"></span></span><span class="engine" title="Supported in Safari"><span class="browser safari supported" role="img" aria-label="Safari check"></span></span></div><span class="icon icon-chevron "></span></summary><div class="extra"><p>This feature is well established and works across many devices and browser versions. It’s been available across browsers since<!-- --> <!-- -->July 2015<!-- -->.</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility" data-glean="baseline_link_learn_more" target="_blank" class="learn-more">Learn more</a></li><li><a href="#browser_compatibility" data-glean="baseline_link_bcd_table">See full compatibility</a></li><li><a href="https://survey.alchemer.com/s3/7634825/MDN-baseline-feedback?page=%2Fen-US%2Fdocs%2FWeb%2FHTTP%2FReference%2FHeaders%2FConnection&amp;level=high" data-glean="baseline_link_feedback" class="feedback-link" target="_blank" rel="noreferrer">Report feedback</a></li></ul></div></details></header><div class="section-content"><p>The HTTP <strong><code>Connection</code></strong> header controls whether the network connection stays open after the current transaction finishes.
+If the value sent is <code>keep-alive</code>, the connection is persistent and not closed, allowing subsequent requests to the same server on the same connection.</p>
+<div class="notecard warning">
+<p><strong>Warning:</strong>
+Connection-specific header fields such as
+<code>Connection</code> and <a href="Keep-Alive.htm"><code>Keep-Alive</code></a> are prohibited
+in <a href="https://httpwg.org/specs/rfc9113.html#ConnectionSpecific" class="external" target="_blank">HTTP/2</a> and
+<a href="https://httpwg.org/specs/rfc9114.html#header-formatting" class="external" target="_blank">HTTP/3</a>. Chrome and
+Firefox ignore them in HTTP/2 responses, but Safari conforms to the HTTP/2
+spec requirements and does not load any response that contains them.</p>
+</div>
+<p>All <a href="/en-US/docs/Web/HTTP/Guides/Compression#hop-by-hop_compression">hop-by-hop headers</a>, including the standard hop-by-hop headers (<a href="Keep-Alive.htm"><code>Keep-Alive</code></a>,
+<a href="Transfer-Encoding.htm"><code>Transfer-Encoding</code></a>, <a href="TE.htm"><code>TE</code></a>, <code>Connection</code>,
+<a href="Trailer.htm"><code>Trailer</code></a>, <a href="Upgrade.htm"><code>Upgrade</code></a>,
+<a href="Proxy-Authorization.htm"><code>Proxy-Authorization</code></a>, and <a href="Proxy-Authenticate.htm"><code>Proxy-Authenticate</code></a>) must be listed in the <code>Connection</code>
+header, so that the first proxy knows it has to consume them and not forward them
+further.</p>
+<p>The default value of <code>Connection</code> changed between HTTP/1.0 and HTTP/1.1.
+Therefore, to ensure backwards compatibility, browsers often send <code>Connection: keep-alive</code> explicitly, even though it's the default in HTTP/1.1.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td>
+        <a href="https://developer.mozilla.org/en-US/docs/Glossary/Request_header">Request header</a>,
+        <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Connection: keep-alive
+Connection: close
+</code></pre></div></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><dl>
+<dt id="close"><a href="#close"><code>close</code></a></dt>
+<dd>
+<p>Indicates that either the client or the server would like to close the connection.
+This is the default on HTTP/1.0 requests.</p>
+</dd>
+<dt id="any_comma-separated_list_of_http_headers_usually_keep-alive_only"><a href="#any_comma-separated_list_of_http_headers_usually_keep-alive_only">any comma-separated list of HTTP headers (usually <code>keep-alive</code> only)</a></dt>
+<dd>
+<p>Indicates that the client would like to keep the connection open. Keeping a connection open
+is the default on HTTP/1.1 requests. The list of headers are the
+name of the header to be removed by the first non-transparent proxy or cache
+in-between: these headers define the connection between the emitter and the first
+entity, not the destination node.</p>
+</dd>
+</dl></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://httpwg.org/specs/rfc9110.html#field.connection">HTTP Semantics<!-- --> <br><small># <!-- -->field.connection</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="/en-US/docs/Web/HTTP/Guides/Connection_management_in_HTTP_1.x">Connection management in HTTP/1.x</a></li>
+<li><a href="/en-US/docs/Web/HTTP/Guides/Protocol_upgrade_mechanism">Protocol upgrade mechanism</a></li>
+</ul></div></section></article></main></div></div></div></body></html>

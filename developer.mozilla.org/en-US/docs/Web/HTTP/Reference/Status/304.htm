@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>304 Not Modified</title><link rel="alternate" title="304 Not Modified" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Status/304" hreflang="de"><link rel="alternate" title="304 Not Modified" href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status/304" hreflang="es"><link rel="alternate" title="304 Not Modified" href="https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Status/304" hreflang="fr"><link rel="alternate" title="304 Not Modified" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Status/304" hreflang="ja"><link rel="alternate" title="304 Not Modified" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Status/304" hreflang="ko"><link rel="alternate" title="304 Not Modified" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status/304" hreflang="pt"><link rel="alternate" title="304 Not Modified" href="https://developer.mozilla.org/ru/docs/Web/HTTP/Reference/Status/304" hreflang="ru"><link rel="alternate" title="304 Not Modified" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Status/304" hreflang="zh"><link rel="alternate" title="304 Not Modified" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Reference/Status/304" hreflang="zh-Hant"><link rel="alternate" title="304 Not Modified" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/304" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP 304 Not Modified redirection response status code indicates that there is no need to retransmit the requested resources."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/304"><meta property="og:title" content="304 Not Modified - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP 304 Not Modified redirection response status code indicates that there is no need to retransmit the requested resources."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/304"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>304 Not Modified</h1></header><div class="section-content"><p>The HTTP <strong><code>304 Not Modified</code></strong> <a href="/en-US/docs/Web/HTTP/Reference/Status#redirection_messages">redirection response</a> status code indicates that there is no need to retransmit the requested resources.</p>
+<p>This response code is sent when the request is a <a href="/en-US/docs/Web/HTTP/Guides/Conditional_requests">conditional</a> <a href="/en-US/docs/Web/HTTP/Reference/Methods/GET"><code>GET</code></a> or <a href="/en-US/docs/Web/HTTP/Reference/Methods/HEAD"><code>HEAD</code></a> request with an <a href="/en-US/docs/Web/HTTP/Reference/Headers/If-None-Match"><code>If-None-Match</code></a> or an <a href="/en-US/docs/Web/HTTP/Reference/Headers/If-Modified-Since"><code>If-Modified-Since</code></a> header and the condition evaluates to 'false'.
+It confirms that the resource cached by the client is still valid and that the server would have sent a <a href="200.htm"><code>200 OK</code></a> response with the resource if the condition evaluated to 'true'.
+See <a href="/en-US/docs/Web/HTTP/Guides/Caching">HTTP caching</a> for more information.</p>
+<p>The response must not contain a body and must include the headers that would have been sent in an equivalent <a href="200.htm"><code>200</code></a> response, such as:</p>
+<ul>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control"><code>Cache-Control</code></a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Location"><code>Content-Location</code></a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers/Date"><code>Date</code></a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers/ETag"><code>ETag</code></a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers/Expires"><code>Expires</code></a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers/Vary"><code>Vary</code></a></li>
+</ul>
+<div class="notecard note">
+<p><strong>Note:</strong>
+Many <a href="https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html" class="external" target="_blank">developer tools' network panels</a> of browsers create extraneous requests leading to <code>304</code> responses, so that access to the local cache is visible to developers.</p>
+</div></div><section aria-labelledby="status"><h2 id="status"><a href="#status">Status</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>304 Not Modified
+</code></pre></div></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="304_response_to_conditional_requests"><h3 id="304_response_to_conditional_requests"><a href="#304_response_to_conditional_requests">304 response to conditional requests</a></h3><div class="section-content"><p>The examples below show <a href="/en-US/docs/Web/HTTP/Reference/Methods/GET"><code>GET</code></a> requests made using <a href="https://curl.se/" class="external" target="_blank">curl</a> with conditional request headers.
+The <code>--http1.1</code> flag is used to force the HTTP/1.1 protocol for readability.</p>
+<p>The first request uses an <code>If-Modified-Since</code> condition with a future date of 21st November 2050.
+This must evaluate to <code>false</code>, because the resource can't have been updated after a time that hasn't happened yet:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">bash</span></div><pre class="brush: bash notranslate"><code>curl --http1.1 -I --header 'If-Modified-Since: Tue, 21 Nov 2050 08:00:00 GMT' \
+ https://developer.mozilla.org/en-US/
+</code></pre></div>
+<p>This will result in the following HTTP request:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>GET /en-US/ HTTP/1.1
+Host: developer.mozilla.org
+User-Agent: curl/8.7.1
+Accept: */*
+If-Modified-Since: Tue, 21 Nov 2050 08:00:00 GMT
+</code></pre></div>
+<p>The response would be <a href="200.htm"><code>200 OK</code></a> with the current version of the resource if the resource had been updated after the timestamp in the <a href="/en-US/docs/Web/HTTP/Reference/Headers/If-Modified-Since"><code>If-Modified-Since</code></a> header.
+Instead, we get a <code>304</code> response that includes <a href="/en-US/docs/Web/HTTP/Reference/Headers/ETag"><code>ETag</code></a>, <a href="/en-US/docs/Web/HTTP/Reference/Headers/Age"><code>Age</code></a> and <a href="/en-US/docs/Web/HTTP/Reference/Headers/Expires"><code>Expires</code></a> headers, telling us our cached version of the resource is still current:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 304 Not Modified
+Date: Wed, 28 Aug 2024 09:52:35 GMT
+Expires: Wed, 28 Aug 2024 10:01:53 GMT
+Age: 3279
+ETag: "b20a0973b226eeea30362acb81f9e0b3"
+Cache-Control: public, max-age=3600
+Vary: Accept-Encoding
+X-cache: hit
+Alt-Svc: clear
+</code></pre></div>
+<p>Now run another <code>curl</code> command using the <code>etag</code> value from the previous response with the <a href="/en-US/docs/Web/HTTP/Reference/Headers/If-None-Match"><code>If-None-Match</code></a> condition (since this <code>etag</code> is the current version of the resource on the server we expect to receive a <code>304 Not Modified</code> response):</p>
+<div class="code-example"><div class="example-header"><span class="language-name">bash</span></div><pre class="brush: bash notranslate"><code>curl --http1.1 -I --header 'If-None-Match: "b20a0973b226eeea30362acb81f9e0b3"' \
+ https://developer.mozilla.org/en-US/
+</code></pre></div>
+<p>This will result in the following HTTP request:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>GET /en-US/ HTTP/1.1
+Host: developer.mozilla.org
+User-Agent: curl/8.7.1
+Accept: */*
+If-None-Match: "b20a0973b226eeea30362acb81f9e0b3"
+</code></pre></div>
+<p>Because the <code>etag</code> value matches at the time of the request, the entity tag fails the condition, and a <code>304</code> response is returned:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 304 Not Modified
+Date: Wed, 28 Aug 2024 10:36:35 GMT
+Expires: Wed, 28 Aug 2024 11:02:17 GMT
+Age: 662
+ETag: "b20a0973b226eeea30362acb81f9e0b3"
+Cache-Control: public, max-age=3600
+Vary: Accept-Encoding
+X-cache: hit
+Alt-Svc: clear
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://www.rfc-editor.org/rfc/rfc9110#status.304">HTTP Semantics<!-- --> <br><small># <!-- -->status.304</small></a></td></tr></tbody></table><section aria-labelledby="compatibility_notes"><h2 id="compatibility_notes"><a href="#compatibility_notes">Compatibility notes</a></h2><div class="section-content"><p>Browser behavior differs if this response erroneously includes a body on persistent connections.
+See <a href="204.htm"><code>204 No Content</code></a> for more details.</p></div></section><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="/en-US/docs/Web/HTTP/Guides/Redirections">Redirections in HTTP</a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Status">HTTP response status codes</a></li>
+<li><a href="/en-US/docs/Web/HTTP/Guides/Conditional_requests">HTTP conditional requests</a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers/If-Modified-Since"><code>If-Modified-Since</code></a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers/If-None-Match"><code>If-None-Match</code></a></li>
+</ul></div></section></article></main></div></div></div></body></html>

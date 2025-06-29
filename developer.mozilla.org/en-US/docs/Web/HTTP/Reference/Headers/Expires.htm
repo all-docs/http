@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Expires header</title><link rel="alternate" title="Expires header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Expires" hreflang="de"><link rel="alternate" title="Expires" href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Headers/Expires" hreflang="es"><link rel="alternate" title="Expires" href="https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Headers/Expires" hreflang="fr"><link rel="alternate" title="Expires" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Expires" hreflang="ja"><link rel="alternate" title="Expires" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Expires" hreflang="ko"><link rel="alternate" title="Expires" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Headers/Expires" hreflang="pt"><link rel="alternate" title="Expires" href="https://developer.mozilla.org/ru/docs/Web/HTTP/Reference/Headers/Expires" hreflang="ru"><link rel="alternate" title="Expires" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Expires" hreflang="zh"><link rel="alternate" title="Expires header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Expires" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Expires response header contains the date/time after which the response is considered expired in the context of HTTP caching."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Expires"><meta property="og:title" content="Expires header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Expires response header contains the date/time after which the response is considered expired in the context of HTTP caching."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Expires"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Expires header</h1><details class="baseline-indicator high"><summary><span class="indicator" role="img" aria-label="Baseline Check"></span><div class="status-title">Baseline<!-- --> <span class="not-bold">Widely available</span></div><div class="browsers"><span class="engine" title="Supported in Chrome and Edge"><span class="browser chrome supported" role="img" aria-label="Chrome check"></span><span class="browser edge supported" role="img" aria-label="Edge check"></span></span><span class="engine" title="Supported in Firefox"><span class="browser firefox supported" role="img" aria-label="Firefox check"></span></span><span class="engine" title="Supported in Safari"><span class="browser safari supported" role="img" aria-label="Safari check"></span></span></div><span class="icon icon-chevron "></span></summary><div class="extra"><p>This feature is well established and works across many devices and browser versions. It’s been available across browsers since<!-- --> <!-- -->July 2015<!-- -->.</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility" data-glean="baseline_link_learn_more" target="_blank" class="learn-more">Learn more</a></li><li><a href="#browser_compatibility" data-glean="baseline_link_bcd_table">See full compatibility</a></li><li><a href="https://survey.alchemer.com/s3/7634825/MDN-baseline-feedback?page=%2Fen-US%2Fdocs%2FWeb%2FHTTP%2FReference%2FHeaders%2FExpires&amp;level=high" data-glean="baseline_link_feedback" class="feedback-link" target="_blank" rel="noreferrer">Report feedback</a></li></ul></div></details></header><div class="section-content"><p>The HTTP <strong><code>Expires</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">response header</a> contains the date/time after which the response is considered expired in the context of <a href="/en-US/docs/Web/HTTP/Guides/Caching">HTTP caching</a>.</p>
+<p>The value <code>0</code> is used to represent a date in the past, indicating the resource has already expired.</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+If there is a <a href="Cache-Control.htm"><code>Cache-Control</code></a> header with the <code>max-age</code> or <code>s-maxage</code> directive in the response, the <code>Expires</code> header is ignored.</p>
+</div>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <a href="https://developer.mozilla.org/en-US/docs/Glossary/CORS-safelisted_response_header">CORS-safelisted response header</a>
+      </th>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Expires: &lt;day-name&gt;, &lt;day&gt; &lt;month&gt; &lt;year&gt; &lt;hour&gt;:&lt;minute&gt;:&lt;second&gt; GMT
+</code></pre></div></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><dl>
+<dt id="day-name"><a href="#day-name"><code>&lt;day-name&gt;</code></a></dt>
+<dd>
+<p>One of <code>Mon</code>, <code>Tue</code>, <code>Wed</code>, <code>Thu</code>, <code>Fri</code>, <code>Sat</code>, or <code>Sun</code> (case-sensitive).</p>
+</dd>
+<dt id="day"><a href="#day"><code>&lt;day&gt;</code></a></dt>
+<dd>
+<p>2 digit day number, e.g., "04" or "23".</p>
+</dd>
+<dt id="month"><a href="#month"><code>&lt;month&gt;</code></a></dt>
+<dd>
+<p>One of <code>Jan</code>, <code>Feb</code>, <code>Mar</code>, <code>Apr</code>, <code>May</code>, <code>Jun</code>, <code>Jul</code>, <code>Aug</code>, <code>Sep</code>, <code>Oct</code>, <code>Nov</code>, <code>Dec</code> (case sensitive).</p>
+</dd>
+<dt id="year"><a href="#year"><code>&lt;year&gt;</code></a></dt>
+<dd>
+<p>4 digit year number, e.g., "1990" or "2016".</p>
+</dd>
+<dt id="hour"><a href="#hour"><code>&lt;hour&gt;</code></a></dt>
+<dd>
+<p>2 digit hour number, e.g., "09" or "23".</p>
+</dd>
+<dt id="minute"><a href="#minute"><code>&lt;minute&gt;</code></a></dt>
+<dd>
+<p>2 digit minute number, e.g., "04" or "59".</p>
+</dd>
+<dt id="second"><a href="#second"><code>&lt;second&gt;</code></a></dt>
+<dd>
+<p>2 digit second number, e.g., "04" or "59".</p>
+</dd>
+<dt id="gmt"><a href="#gmt">GMT</a></dt>
+<dd>
+<p>Greenwich Mean Time. HTTP dates are always expressed in GMT, never in local time.</p>
+</dd>
+</dl></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Expires: Wed, 21 Oct 2015 07:28:00 GMT
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://httpwg.org/specs/rfc9111.html#field.expires">HTTP Caching<!-- --> <br><small># <!-- -->field.expires</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="/en-US/docs/Web/HTTP/Guides/Caching">HTTP caching</a> guide</li>
+<li><a href="Cache-Control.htm"><code>Cache-Control</code></a></li>
+<li><a href="Age.htm"><code>Age</code></a></li>
+</ul></div></section></article></main></div></div></div></body></html>

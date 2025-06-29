@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>No-Vary-Search header</title><link rel="alternate" title="No-Vary-Search header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/No-Vary-Search" hreflang="de"><link rel="alternate" title="No-Vary-Search header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/No-Vary-Search" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP No-Vary-Search response header specifies a set of rules that define how a URL's query parameters will affect cache matching.
+These rules dictate whether the same URL with different URL parameters should be saved as separate browser cache entries."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/No-Vary-Search"><meta property="og:title" content="No-Vary-Search header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP No-Vary-Search response header specifies a set of rules that define how a URL's query parameters will affect cache matching.
+These rules dictate whether the same URL with different URL parameters should be saved as separate browser cache entries."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/No-Vary-Search"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>No-Vary-Search header</h1></header><div class="section-content"><div class="notecard experimental"><p><strong>Experimental:</strong> <strong>This is an <a href="https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental">experimental technology</a></strong><br>Check the <a href="#browser_compatibility">Browser compatibility table</a> carefully before using this in production.</p></div>
+<p>The HTTP <strong><code>No-Vary-Search</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">response header</a> specifies a set of rules that define how a URL's query parameters will affect cache matching.
+These rules dictate whether the same URL with different URL parameters should be saved as separate browser cache entries.</p>
+<p>This allows the browser to reuse existing resources despite mismatching URL parameters to avoid the expense of fetching the resource again, when the same content will be returned.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>No-Vary-Search: key-order
+No-Vary-Search: params
+No-Vary-Search: params=("param1" "param2")
+No-Vary-Search: params, except=("param1" "param2")
+No-Vary-Search: key-order, params, except=("param1")
+</code></pre></div></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><dl>
+<dt id="key-order"><a href="#key-order"><code>key-order</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>Indicates that URLs will not be cached as separate entries if <em>the order</em> in which parameters appear in the URL is the only difference.
+The presence of other parameters <em>will</em> cause URLs to be cached separately.</p>
+</dd>
+<dt id="params"><a href="#params"><code>params</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>Either a boolean or a list of strings:</p>
+<ul>
+<li>As a boolean (<code>params</code>), it indicates that URLs that differ only by their parameters will not be cached as separate entries.</li>
+<li>An inner list of space-separated strings (<code>params=("param1" "param2")</code>).
+Indicates that URLs that differ only by the listed parameters will not be cached as separate entries.
+The presence of other parameters <em>will</em> cause them to be cached separately.</li>
+</ul>
+</dd>
+<dt id="except"><a href="#except"><code>except</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>An inner list of space-separated strings (<code>except=("param1" "param2")</code>).
+Indicates that URLs that differ only by the listed parameters <em>will</em> be cached as separate entries.
+A boolean <code>params</code> directive has to be included for it to take effect (<code>params, except=("param1" "param2")</code>).
+The presence of other parameters that are not in the <code>except=</code> list <em>won't</em> cause URLs to be cached as separate entries.</p>
+</dd>
+</dl></div></section><section aria-labelledby="description"><h2 id="description"><a href="#description">Description</a></h2><div class="section-content"></div></section><section aria-labelledby="relationship_with_the_speculation_rules_api"><h3 id="relationship_with_the_speculation_rules_api"><a href="#relationship_with_the_speculation_rules_api">Relationship with the Speculation Rules API</a></h3><div class="section-content"><p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API">Speculation Rules API</a> supports using the <code>No-Vary-Search</code> header to reuse an existing prefetched or prerendered page for different URL parameters — if they are included in the <code>No-Vary-Search</code> header.</p>
+<div class="notecard warning">
+<p><strong>Warning:</strong>
+Additional care must be taken when using prerender with <code>No-Vary-Search</code> since the page may initially be prerendered with different URL parameters. <code>No-Vary-Search</code> is used for URL parameters that deliver the same resource from the server, but are used by the client for various reasons (client-side rendering, UTM parameters for analytics measurement, etc.). As the initial prerender may be for different URL parameters, any code depending on them should only run after prerender activation.</p>
+</div>
+<p>The Speculation Rules API can also include an <code>expects_no_vary_search</code> field, which indicates to the browser what the expected <code>No-Vary-Search</code> value will be (if any) for documents that it is receiving prefetch/prerender requests for via the speculation rules. The browser can use this to determine ahead of time whether it is more useful to wait for an existing prefetch/prerender to finish, or start a new fetch request when the speculation rule is matched. See the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script/type/speculationrules#expects_no_vary_search_example">"expects_no_vary_search" example</a> for an explanation of how this can be used.</p></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="allowing_responses_from_urls_with_differently_ordered_params_to_match_the_same_cache_entry"><h3 id="allowing_responses_from_urls_with_differently_ordered_params_to_match_the_same_cache_entry"><a href="#allowing_responses_from_urls_with_differently_ordered_params_to_match_the_same_cache_entry">Allowing responses from URLs with differently ordered params to match the same cache entry</a></h3><div class="section-content"><p>If you have for example a search page that stores its search criteria in URL parameters, and you can't guarantee that the parameters will be added to the URL in the same order each time, you can allow responses from URLs that are identical except for the order of the parameters to match the same cache entry using <code>key-order</code>:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>No-Vary-Search: key-order
+</code></pre></div>
+<p>When this header is added to the associated responses, the following URLs would be treated as equivalent when searching the cache:</p>
+<pre class="brush: plain notranslate">https://search.example.com?a=1&amp;b=2&amp;c=3
+https://search.example.com?b=2&amp;a=1&amp;c=3
+</pre>
+<p>The presence of different URL parameters, however, will cause these URLs to be cached separately. For example:</p>
+<pre class="brush: plain notranslate">https://search.example.com?a=1&amp;b=2&amp;c=3
+https://search.example.com?b=2&amp;a=1&amp;c=3&amp;d=4
+</pre>
+<p>The below examples illustrate how to control which parameters are ignored in the context of cache matching.</p></div></section><section aria-labelledby="allowing_responses_from_urls_with_a_different_param_to_match_the_same_cache_entry"><h3 id="allowing_responses_from_urls_with_a_different_param_to_match_the_same_cache_entry"><a href="#allowing_responses_from_urls_with_a_different_param_to_match_the_same_cache_entry">Allowing responses from URLs with a different param to match the same cache entry</a></h3><div class="section-content"><p>Consider a case where a user directory landing page, <code>/users</code>, has already been cached. An <code>id</code> parameter might be used to bring up information on a specific user, for example <code>/users?id=345</code>. Whether this URL should be considered identical for cache matching purposes depends on the behavior of the application:</p>
+<ul>
+<li>If this parameter has the effect of loading a completely new page containing the information for the specified user, then the response from this URL should be cached separately.</li>
+<li>If this parameter has the effect of highlighting the specified user on the same page, and perhaps revealing a pullout panel displaying their data, then it would be better for the browser to use the cached response for <code>/users</code>. This could result in performance improvements around the loading of the user pages.</li>
+</ul>
+<p>If your application behaves like the second example described above, you could cause both <code>/users</code> and <code>/users?id=345</code> to be treated as identical for caching purposes via a <code>No-Vary-Search</code> header like so:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>No-Vary-Search: params=("id")
+</code></pre></div>
+<div class="notecard note">
+<p><strong>Note:</strong>
+If a parameter is excluded from the cache key using <code>params</code>, if it is included in the URL it will be ignored for the purposes of cache matching, regardless of where it appears in the parameter list.</p>
+</div></div></section><section aria-labelledby="allowing_responses_from_urls_with_multiple_different_params_to_match_the_same_cache_entry"><h3 id="allowing_responses_from_urls_with_multiple_different_params_to_match_the_same_cache_entry"><a href="#allowing_responses_from_urls_with_multiple_different_params_to_match_the_same_cache_entry">Allowing responses from URLs with multiple different params to match the same cache entry</a></h3><div class="section-content"><p>Say you also had URL parameters that sorted the list of users on the page in ascending or descending alphabetical order, and specified the language to display the UI strings in, for example <code>/users?id=345&amp;order=asc&amp;lang=fr</code>.</p>
+<p>You could get the browser to ignore all of these when considering cache matching like so:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>No-Vary-Search: params=("id" "order" "lang")
+</code></pre></div>
+<div class="notecard note">
+<p><strong>Note:</strong>
+As a <a href="https://www.rfc-editor.org/rfc/rfc8941" class="external" target="_blank">structured field</a>, the parameters should be space-separated, quoted strings — as shown above — and not comma-separated, which developers may be more used to.</p>
+</div>
+<p>If you wanted the browser to ignore all of them <em>and</em> any others that might be present when cache matching, you could use the boolean form of <code>params</code>:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>No-Vary-Search: params
+</code></pre></div></div></section><section aria-labelledby="specifying_params_that_do_cause_cache_matching_misses"><h3 id="specifying_params_that_do_cause_cache_matching_misses"><a href="#specifying_params_that_do_cause_cache_matching_misses">Specifying params that <em>do</em> cause cache matching misses</a></h3><div class="section-content"><p>Say the app behaved differently, with <code>/users</code> pointing to the main user directory landing page and <code>/users?id=345</code> pointing to a completely separate detail page for a specific user. In this case you would want the browser to ignore all the parameters mentioned above for cache matching purposes, <em>except</em> for <code>id</code>, the presence of which would cause the browser to not match the <code>/users</code> cache entry and request <code>/users?id=345</code> from the server.</p>
+<p>This can be achieved like so:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>No-Vary-Search: params, except=("id")
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://httpwg.org/http-extensions/draft-ietf-httpbis-no-vary-search.html#section-2">No-Vary-Search<!-- --> <br><small># <!-- -->section-2</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="/en-US/docs/Web/HTTP/Guides/Caching#vary">HTTP Caching: Vary</a> and <a href="Vary.htm"><code>Vary</code></a> header</li>
+</ul></div></section></article></main></div></div></div></body></html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>DELETE request method</title><link rel="alternate" title="DELETE request method" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Methods/DELETE" hreflang="de"><link rel="alternate" title="DELETE" href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Methods/DELETE" hreflang="es"><link rel="alternate" title="DELETE" href="https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Methods/DELETE" hreflang="fr"><link rel="alternate" title="DELETE" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Methods/DELETE" hreflang="ja"><link rel="alternate" title="DELETE" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Methods/DELETE" hreflang="ko"><link rel="alternate" title="DELETE" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Methods/DELETE" hreflang="pt"><link rel="alternate" title="DELETE" href="https://developer.mozilla.org/ru/docs/Web/HTTP/Reference/Methods/DELETE" hreflang="ru"><link rel="alternate" title="DELETE" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Methods/DELETE" hreflang="zh"><link rel="alternate" title="DELETE 請求方法" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Reference/Methods/DELETE" hreflang="zh-Hant"><link rel="alternate" title="DELETE request method" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/DELETE" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The DELETE HTTP method asks the server to delete a specified resource."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/DELETE"><meta property="og:title" content="DELETE request method - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The DELETE HTTP method asks the server to delete a specified resource."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/DELETE"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>DELETE request method</h1></header><div class="section-content"><p>The <strong><code>DELETE</code></strong> HTTP method asks the server to delete a specified resource.</p>
+<p>The <code>DELETE</code> method has no defined semantics for the message body, so this should be empty.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Request has body</th>
+      <td>May</td>
+    </tr>
+    <tr>
+      <th scope="row">Successful response has body</th>
+      <td>May</td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Safe/HTTP">Safe</a></th>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Idempotent">Idempotent</a></th>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Cacheable">Cacheable</a></th>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th scope="row">
+        Allowed in <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms">HTML forms</a>
+      </th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>DELETE &lt;request-target&gt;["?"&lt;query&gt;] HTTP/1.1
+</code></pre></div>
+<dl>
+<dt id="request-target"><a href="#request-target"><code>&lt;request-target&gt;</code></a></dt>
+<dd>
+<p>Identifies the target resource of the request when combined with the information provided in the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Host"><code>Host</code></a> header.
+This is an absolute path (e.g., <code>/path/to/file.html</code>) in requests to an origin server, and an absolute URL in requests to proxies (e.g., <code>http://www.example.com/path/to/file.html</code>).</p>
+</dd>
+<dt id="query"><a href="#query"><code>&lt;query&gt;</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>An optional query component preceded by a question-mark <code>?</code>.
+Often used to carry identifying information in the form of <code>key=value</code> pairs.</p>
+</dd>
+</dl></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="successfully_deleting_a_resource"><h3 id="successfully_deleting_a_resource"><a href="#successfully_deleting_a_resource">Successfully deleting a resource</a></h3><div class="section-content"><p>The following request asks the server to delete the resource <code>file.html</code>:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>DELETE /file.html HTTP/1.1
+Host: example.com
+</code></pre></div>
+<p>If the request is successful, there are several possible <a href="/en-US/docs/Web/HTTP/Reference/Status#successful_responses">successful response status codes</a>.
+A <a href="/en-US/docs/Web/HTTP/Reference/Status/204"><code>204 No Content</code></a> response means the request was successful and no additional information needs to be sent back to the client:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 204 No Content
+Date: Wed, 04 Sep 2024 10:16:04 GMT
+</code></pre></div>
+<p>A <a href="/en-US/docs/Web/HTTP/Reference/Status/200"><code>200 OK</code></a> response means the request was successful and the response body includes a representation describing the outcome:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
+Date: Fri, 21 Jun 2024 14:18:33 GMT
+Content-Length: 1234
+
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;h1&gt;File "file.html" deleted.&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>
+<p>A <a href="/en-US/docs/Web/HTTP/Reference/Status/202"><code>202 Accepted</code></a> response means the request has been accepted and will probably succeed, but the resource has not yet been deleted by the server.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 202 Accepted
+Date: Wed, 26 Jun 2024 12:00:00 GMT
+Content-Type: text/html; charset=UTF-8
+Content-Length: 1234
+
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Deletion of "file.html" accepted.&lt;/h1&gt;
+    &lt;p&gt;See &lt;a href="http://example.com/tasks/123/status"&gt;the status monitor&lt;/a&gt; for details.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-delete">HTTP Semantics<!-- --> <br><small># <!-- -->name-delete</small></a></td></tr></tbody></table><section aria-labelledby="browser_compatibility"><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><div class="section-content"><p>The browser doesn't use the <code>DELETE</code> method for user-initiated actions, so "browser compatibility" doesn't apply.
+Developers can set this request method using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch"><code>fetch()</code></a>.</p></div></section><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li>HTTP statuses: <a href="/en-US/docs/Web/HTTP/Reference/Status/200"><code>200</code></a>, <a href="/en-US/docs/Web/HTTP/Reference/Status/202"><code>202</code></a>, <a href="/en-US/docs/Web/HTTP/Reference/Status/204"><code>204</code></a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Methods">HTTP request methods</a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Status">HTTP response status codes</a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers">HTTP headers</a></li>
+</ul></div></section></article></main></div></div></div></body></html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Priority header</title><link rel="alternate" title="Priority header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Priority" hreflang="de"><link rel="alternate" title="Priority header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Priority" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Priority header indicates a client's preference for the priority order at which the response containing the requested resource should be sent, relative to other resource requests on the same connection.
+If the header is not specified in the request, a default priority is assumed.
+The server may also include this header in responses in order to indicate it has an interest in changing the prioritization preferences the client advertized.
+In responses, this information can be used as an input to the prioritization process for caching servers and other servers that are forwarding the response."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Priority"><meta property="og:title" content="Priority header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Priority header indicates a client's preference for the priority order at which the response containing the requested resource should be sent, relative to other resource requests on the same connection.
+If the header is not specified in the request, a default priority is assumed.
+The server may also include this header in responses in order to indicate it has an interest in changing the prioritization preferences the client advertized.
+In responses, this information can be used as an input to the prioritization process for caching servers and other servers that are forwarding the response."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Priority"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Priority header</h1></header><div class="section-content"><p>The HTTP <strong><code>Priority</code></strong> header indicates a client's preference for the priority order at which the response containing the requested resource should be sent, relative to other resource requests on the same connection.
+If the header is not specified in the request, a default priority is assumed.
+The server may also include this header in responses in order to indicate it has an interest in changing the prioritization preferences the client advertized.
+In responses, this information can be used as an input to the prioritization process for caching servers and other servers that are forwarding the response.</p>
+<p>The server is not bound by client prioritization and might only use client priorities as hints for its own prioritization process.
+For example, a server may know that a specific image is vital for user experience and should be sent at the highest priority.
+Server prioritization might also be affected by factors such as network congestion.</p>
+<p>This request may be cached, and the server is expected to control the cacheability or the applicability of the cached response using the header fields that control the caching behavior, such as <a href="Cache-Control.htm"><code>Cache-Control</code></a> and <a href="Vary.htm"><code>Vary</code></a>.</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+This header is one part of the "Extensible Prioritization Scheme for HTTP" defined in <a href="https://datatracker.ietf.org/doc/html/rfc9218" class="external" target="_blank">RFC 9218</a>.
+There are also HTTP/2 and HTTP/3 <code>PRIORITY_UPDATE</code> frames that can be used to re-prioritize a resource request after it has been sent.
+The request can be sent in any HTTP version.</p>
+</div>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td>
+        <a href="https://developer.mozilla.org/en-US/docs/Glossary/Request_header">Request header</a>,
+        <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Priority: u=&lt;priority&gt;
+Priority: i
+Priority: u=&lt;priority&gt;, i
+</code></pre></div></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><dl>
+<dt id="upriority"><a href="#upriority"><code>u=&lt;priority&gt;</code></a></dt>
+<dd>
+<p>The "urgency" (<code>u</code>) parameter specifies a priority value <code>&lt;priority&gt;</code> for the resource.
+The value is an integer between 0 and 7 inclusive, in descending order of priority (0 is the highest urgency).
+The default priority value for requests is 3.
+There is no default priority value for responses: the absence of the header in a response indicates that the server has chosen not to modify the client priority.
+A priority of 7 should only be used for resources that are unlikely to affect the user experience, such as background tasks or delivery of software updates.</p>
+<p>Browsers should request documents that are likely to use other resources at the default priority level.
+The referenced resources should then be requested using values that reflect the relative impact on the user experience of their arrival time.</p>
+<p>Servers may have a different view on the priority than the client, and can respond with a different value in order to provide a priority hint to intermediate servers.
+The intermediate server may take this value into consideration along with the original request priority.
+The absence of the <code>Priority</code> header in the response indicates that the server chosen not to modify the client priority.</p>
+</dd>
+<dt id="i"><a href="#i"><code>i</code></a></dt>
+<dd>
+<p>The incremental (<code>i</code>) directive, if present, indicates than an HTTP response can be processed incrementally.</p>
+<p>Resources that can be processed incrementally are those where the recipient can potentially do something useful as soon as a chunk arrives, rather than waiting for the complete resource to be available.</p>
+<p>If a browser sets this directive then the server may choose to concurrently serve all incremental requests with the same urgency.
+This distributes the multiple requests across the connection bandwidth, with the result that all the requests start being processed earlier, but take longer in total to complete.</p>
+<p>If the browser does not set this directive then it is indicating that it will not process the resource incrementally.
+Servers should in this case send responses with the same urgency one by one, in the order in which their associated requests were generated.</p>
+</dd>
+</dl>
+<div class="notecard note">
+<p><strong>Note:</strong>
+Servers are expected to ignore directives on this header that they do not understand.
+New directives that are added in future are expected to be compatible with these existing directives so that they can be safely ignored.</p>
+</div></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="setting_resource_urgency"><h3 id="setting_resource_urgency"><a href="#setting_resource_urgency">Setting resource urgency</a></h3><div class="section-content"><p>The following example shows a request for an HTML file.
+The urgency isn't set, and so defaults to 3, with <code>i</code> being false.
+This is the normal setting for a document that owns other resources.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>:method = GET
+:scheme = https
+:authority = example.net
+:path = /index.html
+</code></pre></div>
+<p>The request below is a possible follow-on request for a CSS file used by the HTML.
+The urgency is set to 2, indicating that the browser considers it to be quite high priority, but <code>i</code> is unset because the CSS file can't be handled incrementally.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>:method = GET
+:scheme = https
+:authority = example.net
+:path = /style.css
+priority = u=2
+</code></pre></div>
+<div class="notecard note">
+<p><strong>Note:</strong>
+The requests above use the human-readable format from the HTTP/2 or HTTP/3 specifications.
+The HTTP/1.1 format used in most of this documentation would be something like:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>GET /style.css HTTP/1.1
+Host: example.net
+Priority: u=2
+</code></pre></div>
+</div>
+<p>A response might look as shown below.
+Note that in this case the <code>priority</code> is not specified, indicating that the server did not feel that it needed to change the priority for intermediate servers.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>:status: 200
+content-type: text/css
+content-length: 610
+date: [current date]
+</code></pre></div></div></section><section aria-labelledby="setting_the_incremental_directive"><h3 id="setting_the_incremental_directive"><a href="#setting_the_incremental_directive">Setting the incremental directive</a></h3><div class="section-content"><p>The header below shows a browser request for an image that can be rendered incrementally.
+In this case, the priority is set to 4 (lower than the default of 3), and <code>i</code> is set to indicate that the client can process the JPG file incrementally.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>:method = GET
+:path = /image.jpg
+:scheme = https
+:authority = example.net
+priority = u=4, i
+</code></pre></div>
+<p>The server might send a response like the one below.
+In this case the priority is set to 1, indicating that the server has an understanding that particular image should be sent at high priority.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>:status: 200
+content-type = image/jpeg
+content-length = 610
+...
+priority = u=1, i
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://httpwg.org/specs/rfc9218.html#header-field">Extensible Prioritization Scheme for HTTP<!-- --> <br><small># <!-- -->header-field</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="Cache-Control.htm"><code>Cache-Control</code></a></li>
+<li><a href="Vary.htm"><code>Vary</code></a></li>
+</ul></div></section></article></main></div></div></div></body></html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>CONNECT request method</title><link rel="alternate" title="CONNECT request method" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Methods/CONNECT" hreflang="de"><link rel="alternate" title="CONNECT" href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Methods/CONNECT" hreflang="es"><link rel="alternate" title="CONNECT" href="https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Methods/CONNECT" hreflang="fr"><link rel="alternate" title="CONNECT" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Methods/CONNECT" hreflang="ja"><link rel="alternate" title="CONNECT" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Methods/CONNECT" hreflang="ko"><link rel="alternate" title="CONNECT" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Methods/CONNECT" hreflang="pt"><link rel="alternate" title="CONNECT" href="https://developer.mozilla.org/ru/docs/Web/HTTP/Reference/Methods/CONNECT" hreflang="ru"><link rel="alternate" title="CONNECT" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Methods/CONNECT" hreflang="zh"><link rel="alternate" title="CONNECT" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Reference/Methods/CONNECT" hreflang="zh-Hant"><link rel="alternate" title="CONNECT request method" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/CONNECT" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The CONNECT HTTP method requests that a proxy establish a HTTP tunnel to a destination server, and if successful, blindly forward data in both directions until the tunnel is closed."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/CONNECT"><meta property="og:title" content="CONNECT request method - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The CONNECT HTTP method requests that a proxy establish a HTTP tunnel to a destination server, and if successful, blindly forward data in both directions until the tunnel is closed."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/CONNECT"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>CONNECT request method</h1><details class="baseline-indicator high"><summary><span class="indicator" role="img" aria-label="Baseline Check"></span><div class="status-title">Baseline<!-- --> <span class="not-bold">Widely available</span></div><div class="browsers"><span class="engine" title="Supported in Chrome and Edge"><span class="browser chrome supported" role="img" aria-label="Chrome check"></span><span class="browser edge supported" role="img" aria-label="Edge check"></span></span><span class="engine" title="Supported in Firefox"><span class="browser firefox supported" role="img" aria-label="Firefox check"></span></span><span class="engine" title="Supported in Safari"><span class="browser safari supported" role="img" aria-label="Safari check"></span></span></div><span class="icon icon-chevron "></span></summary><div class="extra"><p>This feature is well established and works across many devices and browser versions. It’s been available across browsers since<!-- --> <!-- -->July 2015<!-- -->.</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility" data-glean="baseline_link_learn_more" target="_blank" class="learn-more">Learn more</a></li><li><a href="#browser_compatibility" data-glean="baseline_link_bcd_table">See full compatibility</a></li><li><a href="https://survey.alchemer.com/s3/7634825/MDN-baseline-feedback?page=%2Fen-US%2Fdocs%2FWeb%2FHTTP%2FReference%2FMethods%2FCONNECT&amp;level=high" data-glean="baseline_link_feedback" class="feedback-link" target="_blank" rel="noreferrer">Report feedback</a></li></ul></div></details></header><div class="section-content"><p>The <strong><code>CONNECT</code></strong> HTTP method requests that a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Proxy_server">proxy</a> establish a HTTP tunnel to a destination server, and if successful, blindly forward data in both directions until the tunnel is closed.</p>
+<p>The request target is unique to this method in that it consists of only the host and port number of the tunnel destination, separated by a colon (see <a href="#syntax">Syntax</a> for details).
+Any <a href="/en-US/docs/Web/HTTP/Reference/Status#successful_responses">2XX successful response status code</a> means that the proxy will switch to 'tunnel mode' and any data in the success response body is from the server identified by the request target.</p>
+<p>If a website is behind a proxy and it's enforced via network rules that all external traffic must pass through the proxy, the <code>CONNECT</code> method allows you to establish a <a href="https://developer.mozilla.org/en-US/docs/Glossary/TLS">TLS</a> (<a href="https://developer.mozilla.org/en-US/docs/Glossary/HTTPS">HTTPS</a>) connection with that website:</p>
+<ul>
+<li>The client asks the proxy to tunnel the <a href="https://developer.mozilla.org/en-US/docs/Glossary/TCP">TCP</a> connection to the desired destination.</li>
+<li>The proxy server makes a secure connection to the server on behalf of the client.</li>
+<li>Once the connection is established, the proxy server continues to relay the TCP stream to and from the client.</li>
+</ul>
+<p>Aside from enabling secure access to websites behind proxies, a HTTP tunnel provides a way to allow traffic that would otherwise be restricted (SSH or FTP) over the HTTP(S) protocol.</p>
+<p><code>CONNECT</code> is a hop-by-hop method, meaning proxies will only forward the <code>CONNECT</code> request if there is another inbound proxy in front of the origin server since most origin servers do not implement <code>CONNECT</code>.</p>
+<div class="notecard warning">
+<p><strong>Warning:</strong>
+If you are running a proxy that supports <code>CONNECT</code>, restrict its use to a set of known ports or a configurable list of safe request targets.
+There are significant risks in establishing a tunnel to arbitrary servers, particularly when the destination is a well-known or reserved TCP port that is not intended for Web traffic.
+A loosely-configured proxy may be abused to forward traffic such as SMTP to relay spam email, for example.</p>
+</div>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Request has body</th>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th scope="row">Successful response has body</th>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Safe/HTTP">Safe</a></th>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Idempotent">Idempotent</a></th>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Cacheable">Cacheable</a></th>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th scope="row">
+        Allowed in <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms">HTML forms</a>
+      </th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>CONNECT &lt;host&gt;:&lt;port&gt; HTTP/1.1
+</code></pre></div>
+<dl>
+<dt id="host"><a href="#host"><code>&lt;host&gt;</code></a></dt>
+<dd>
+<p>A host which may be a registered hostname (e.g., <code>example.com</code>) or an IP address (IPv4, IPv6).</p>
+</dd>
+<dt id="port"><a href="#port"><code>&lt;port&gt;</code></a></dt>
+<dd>
+<p>A port number in decimal (e.g., <code>80</code>, <code>443</code>). There is no default port, so a client <strong>must</strong> send one.</p>
+</dd>
+</dl></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="proxy_authorization"><h3 id="proxy_authorization"><a href="#proxy_authorization">Proxy authorization</a></h3><div class="section-content"><p>A request for proxy servers that require authorization to create a tunnel looks as follows.
+See the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Proxy-Authorization"><code>Proxy-Authorization</code></a> header for more information.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>CONNECT server.example.com:80 HTTP/1.1
+Host: server.example.com:80
+Proxy-Authorization: basic aGVsbG86d29ybGQ=
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://httpwg.org/specs/rfc9110.html#CONNECT">HTTP Semantics<!-- --> <br><small># <!-- -->CONNECT</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Methods">HTTP request methods</a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Status">HTTP response status codes</a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers">HTTP headers</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Proxy_server">Proxy server</a> glossary entry</li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers/Proxy-Authorization"><code>Proxy-Authorization</code></a> header</li>
+<li><a href="https://www.dimoulis.net/posts/ssh-over-proxy/" class="external" target="_blank">How To Use SSH Over An HTTP Proxy</a> dimoulis.net (2023)</li>
+</ul></div></section></article></main></div></div></div></body></html>

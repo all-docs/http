@@ -1,0 +1,128 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Attribution-Reporting-Register-Trigger header</title><link rel="alternate" title="Attribution-Reporting-Register-Trigger header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Attribution-Reporting-Register-Trigger" hreflang="de"><link rel="alternate" title="Attribution-Reporting-Register-Trigger header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Attribution-Reporting-Register-Trigger" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Attribution-Reporting-Register-Trigger response header registers a page feature as an attribution trigger. This header is included as part of a response to a request that contains the Attribution-Reporting-Eligible header."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Attribution-Reporting-Register-Trigger"><meta property="og:title" content="Attribution-Reporting-Register-Trigger header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Attribution-Reporting-Register-Trigger response header registers a page feature as an attribution trigger. This header is included as part of a response to a request that contains the Attribution-Reporting-Eligible header."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Attribution-Reporting-Register-Trigger"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Attribution-Reporting-Register-Trigger header</h1><details class="baseline-indicator not"><summary><span class="indicator" role="img" aria-label="Baseline Cross"></span><div class="status-title"><span class="not-bold">Limited availability</span></div><div class="browsers"><span class="engine" title="Supported in Chrome and Edge"><span class="browser chrome supported" role="img" aria-label="Chrome check"></span><span class="browser edge supported" role="img" aria-label="Edge check"></span></span><span class="engine" title="Not widely supported in Firefox"><span class="browser firefox " role="img" aria-label="Firefox cross"></span></span><span class="engine" title="Not widely supported in Safari"><span class="browser safari " role="img" aria-label="Safari cross"></span></span></div><span class="icon icon-chevron "></span></summary><div class="extra"><p>This feature is not Baseline because it does not work in some of the most widely-used browsers.</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility" data-glean="baseline_link_learn_more" target="_blank" class="learn-more">Learn more</a></li><li><a href="#browser_compatibility" data-glean="baseline_link_bcd_table">See full compatibility</a></li><li><a href="https://survey.alchemer.com/s3/7634825/MDN-baseline-feedback?page=%2Fen-US%2Fdocs%2FWeb%2FHTTP%2FReference%2FHeaders%2FAttribution-Reporting-Register-Trigger&amp;level=not" data-glean="baseline_link_feedback" class="feedback-link" target="_blank" rel="noreferrer">Report feedback</a></li></ul></div></details></header><div class="section-content"><div class="notecard experimental"><p><strong>Experimental:</strong> <strong>This is an <a href="https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental">experimental technology</a></strong><br>Check the <a href="#browser_compatibility">Browser compatibility table</a> carefully before using this in production.</p></div>
+<p>The HTTP <strong><code>Attribution-Reporting-Register-Trigger</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">response header</a> registers a page feature as an <a href="https://developer.mozilla.org/en-US/docs/Web/API/Attribution_Reporting_API/Registering_triggers">attribution trigger</a>. This header is included as part of a response to a request that contains the <a href="Attribution-Reporting-Eligible.htm"><code>Attribution-Reporting-Eligible</code></a> header.</p>
+<p>See the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Attribution_Reporting_API">Attribution Reporting API</a> for more details.</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+If the calling site does not have the Attribution Reporting API included in a successful <a href="https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/Privacy_sandbox/Enrollment">privacy sandbox enrollment process</a>, the <code>Attribution-Reporting-Register-Trigger</code> header is ignored and attribution triggers are not registered.</p>
+</div>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <a href="https://developer.mozilla.org/en-US/docs/Glossary/CORS-safelisted_response_header">CORS-safelisted response header</a>
+      </th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Attribution-Reporting-Register-Trigger: &lt;json-string&gt;
+</code></pre></div></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><dl>
+<dt id="json-string"><a href="#json-string"><code>&lt;json-string&gt;</code></a></dt>
+<dd>
+<p>A JSON string providing data that can be included in generated reports, such as the ID of the trigger, and priority and deduplication values. Available fields are as follows:</p>
+<dl>
+<dt id="aggregatable_trigger_data"><a href="#aggregatable_trigger_data"><code>"aggregatable_trigger_data"</code></a></dt>
+<dd>
+<p>An array of objects, each one defining an aggregation key to apply to different source keys. Each object contains the following properties:</p>
+<dl>
+<dt id="key_piece"><a href="#key_piece"><code>"key_piece"</code></a></dt>
+<dd>
+<p>A hexadecimal value representing a key.</p>
+</dd>
+<dt id="source_keys"><a href="#source_keys"><code>"source_keys"</code></a></dt>
+<dd>
+<p>An array containing one or more key values for the data.</p>
+</dd>
+</dl>
+</dd>
+<dt id="aggregatable_values"><a href="#aggregatable_values"><code>"aggregatable_values"</code></a></dt>
+<dd>
+<p>An object containing properties representing a value for each data point defined in <code>"aggregatable_trigger_data"</code>. In each case, the property name is equal to the name defined in <code>"source_keys"</code>, and the property value is whatever arbitrary value you require.</p>
+</dd>
+<dt id="debug_key"><a href="#debug_key"><code>"debug_key"</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>A number representing a debug key. Set this if you want to generate a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Attribution_Reporting_API/Generating_reports#debug_reports">debug report</a> alongside the associated attribution report.</p>
+</dd>
+<dt id="debug_reporting"><a href="#debug_reporting"><code>"debug_reporting"</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>A boolean value. If a <code>debug_key</code> is set, set this to <code>true</code> to specify that the generated debug report should be a verbose debug report.</p>
+</dd>
+<dt id="filters"><a href="#filters"><code>"filters"</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>An object containing custom data that can be used to filter which triggers generate reports. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/Attribution_Reporting_API/Generating_reports#filters">Filters</a> for more details.</p>
+</dd>
+<dt id="event_trigger_data"><a href="#event_trigger_data"><code>"event_trigger_data"</code></a></dt>
+<dd>
+<p>An object representing data about the trigger. Available sub-fields are as follows:</p>
+<dl>
+<dt id="trigger_data"><a href="#trigger_data"><code>"trigger_data"</code></a></dt>
+<dd>
+<p>A string representing data that describes the trigger, which is typically used to indicate events such as "user added item to shopping cart" or "user signed up to mailing list". This value will be included in the generated event-level report, if any, although it will be subject to modification based on the attributed source's <a href="Attribution-Reporting-Register-Source.htm#trigger_data_matching"><code>"trigger_data_matching"</code></a> field.</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+The values used to represent each event, and the number of elements in the array, are completely arbitrary and defined by you as the developer. The array may contain values that are not used, but values must be present in the array to be attributed to the source by the browser when a trigger is registered.</p>
+</div>
+</dd>
+<dt id="priority"><a href="#priority"><code>"priority"</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>A string representing a priority value for the attribution trigger. By default, triggers are attributed to the most recent matching source. For both event-level and summary reports you set a higher priority number to make the trigger match older sources. For example, a value of <code>2</code> takes priority over the default value of <code>1</code>. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/Attribution_Reporting_API/Generating_reports#report_priorities_and_limits">Report priorities and limits</a> for more information.</p>
+</dd>
+<dt id="deduplication_key"><a href="#deduplication_key"><code>"deduplication_key"</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>A string representing a unique key that can be used to prevent attributions from being duplicated — for example if a user were to add the same item to a shopping cart multiple times. See <a href="https://privacysandbox.google.com/private-advertising/attribution-reporting/prevent-duplication" class="external" target="_blank">Prevent duplication in reports</a> for more information.</p>
+</dd>
+<dt id="filters_2"><a href="#filters_2"><code>"filters"</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>An object containing filters that perform selective filtering to set <code>"trigger_data"</code>, <code>"priority"</code>, and <code>"deduplication_key"</code> based on the <code>filter_data</code> set in a corresponding <a href="Attribution-Reporting-Register-Source.htm"><code>Attribution-Reporting-Register-Source</code></a> header. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/Attribution_Reporting_API/Generating_reports#filters">Filters</a> for more information.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="registering_a_trigger_for_an_event-level_report"><h3 id="registering_a_trigger_for_an_event-level_report"><a href="#registering_a_trigger_for_an_event-level_report">Registering a trigger for an event-level report</a></h3><div class="section-content"><p>A Node.js server might set the <code>Attribution-Reporting-Register-Trigger</code> response header as follows to register a trigger intended to match an event-level report attribution source:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">js</span></div><pre class="brush: js notranslate"><code>res.set(
+  "Attribution-Reporting-Register-Trigger",
+  JSON.stringify({
+    event_trigger_data: [
+      {
+        trigger_data: "4",
+        priority: "1000000000000",
+        deduplication_key: "2345698765",
+      },
+    ],
+    debug_key: "1115698977",
+  }),
+);
+</code></pre></div></div></section><section aria-labelledby="registering_a_trigger_for_a_summary_report"><h3 id="registering_a_trigger_for_a_summary_report"><a href="#registering_a_trigger_for_a_summary_report">Registering a trigger for a summary report</a></h3><div class="section-content"><p>When registering a trigger intended to match with a summary report attribution source, you need to include the following fields:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">js</span></div><pre class="brush: js notranslate"><code>res.set(
+  "Attribution-Reporting-Register-Trigger",
+  JSON.stringify({
+    aggregatable_trigger_data: [
+      {
+        key_piece: "0x400",
+        source_keys: ["campaignCounts"],
+      },
+      {
+        key_piece: "0xA80",
+        source_keys: ["geoValue", "nonMatchingKeyIdsAreIgnored"],
+      },
+    ],
+    aggregatable_values: {
+      campaignCounts: 32768,
+      geoValue: 1664,
+    },
+    debug_key: "1115698977",
+  }),
+);
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://wicg.github.io/attribution-reporting-api/#create-an-attribution-trigger">Attribution Reporting<!-- --> <br><small># <!-- -->create-an-attribution-trigger</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="Attribution-Reporting-Eligible.htm"><code>Attribution-Reporting-Eligible</code></a></li>
+<li><a href="Attribution-Reporting-Register-Source.htm"><code>Attribution-Reporting-Register-Source</code></a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Attribution_Reporting_API">Attribution Reporting API</a></li>
+</ul></div></section></article></main></div></div></div></body></html>

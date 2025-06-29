@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>HTTP range requests</title><link rel="alternate" title="HTTP-Range-Anfragen" href="https://developer.mozilla.org/de/docs/Web/HTTP/Guides/Range_requests" hreflang="de"><link rel="alternate" title="Requêtes d'intervalle en HTTP" href="https://developer.mozilla.org/fr/docs/Web/HTTP/Guides/Range_requests" hreflang="fr"><link rel="alternate" title="HTTP 範囲リクエスト" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Guides/Range_requests" hreflang="ja"><link rel="alternate" title="HTTP 범위 요청" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Guides/Range_requests" hreflang="ko"><link rel="alternate" title="HTTP 范围请求" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Guides/Range_requests" hreflang="zh"><link rel="alternate" title="HTTP range requests" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Range_requests" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="An HTTP Range request asks the server to send parts of a resource back to a client.
+Range requests are useful for various clients, including media players that support random access, data tools that require only part of a large file, and download managers that let users pause and resume a download."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Range_requests"><meta property="og:title" content="HTTP range requests - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="An HTTP Range request asks the server to send parts of a resource back to a client.
+Range requests are useful for various clients, including media players that support random access, data tools that require only part of a large file, and download managers that let users pause and resume a download."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Range_requests"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>HTTP range requests</h1></header><div class="section-content"><p>An HTTP <a href="/en-US/docs/Web/HTTP/Reference/Headers/Range"><code>Range</code></a> request asks the server to send parts of a resource back to a client.
+Range requests are useful for various clients, including media players that support random access, data tools that require only part of a large file, and download managers that let users pause and resume a download.</p></div><section aria-labelledby="checking_if_a_server_supports_partial_requests"><h2 id="checking_if_a_server_supports_partial_requests"><a href="#checking_if_a_server_supports_partial_requests">Checking if a server supports partial requests</a></h2><div class="section-content"><p>If an HTTP response includes the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Accept-Ranges"><code>Accept-Ranges</code></a> header with any value other than <code>none</code>, the server supports range requests.
+If responses omit the <code>Accept-Ranges</code> header, it indicates the server doesn't support partial requests.
+If range requests are not supported, applications can adapt to this condition; for instance, download managers can disable pause buttons that relied on range requests to resume a download.</p>
+<p>To check if a server supports range requests, you can issue a <a href="/en-US/docs/Web/HTTP/Reference/Methods/HEAD"><code>HEAD</code></a> request to inspect headers without requesting the resource in full.
+If you use <a href="https://curl.se/" class="external" target="_blank">curl</a>, you can use the <code>-I</code> flag to make a <code>HEAD</code> request:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">bash</span></div><pre class="brush: bash notranslate"><code>curl -I https://i.imgur.com/z4d4kWk.jpg
+</code></pre></div>
+<p>This will produce the following HTTP request:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HEAD /z4d4kWk.jpg HTTP/2
+Host: i.imgur.com
+User-Agent: curl/8.7.1
+Accept: */*
+</code></pre></div>
+<p>The response only contains headers and doesn't include a response body:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/2 200
+content-type: image/jpeg
+last-modified: Thu, 02 Feb 2017 11:15:53 GMT
+…
+accept-ranges: bytes
+content-length: 146515
+</code></pre></div>
+<p>In this response, <code>Accept-Ranges: bytes</code> indicates that 'bytes' can be used as units to define a range (currently, no other unit is possible).
+The <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Length"><code>Content-Length</code></a> header is also helpful as it indicates the total size of the image if you were to make the same request using the <code>GET</code> method instead.</p></div></section><section aria-labelledby="requesting_a_specific_range_from_a_server"><h2 id="requesting_a_specific_range_from_a_server"><a href="#requesting_a_specific_range_from_a_server">Requesting a specific range from a server</a></h2><div class="section-content"><p>If the server supports range requests, you can specify which part (or parts) of the document you want the server to return by including the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Range"><code>Range</code></a> header in a HTTP request.</p></div></section><section aria-labelledby="single_part_ranges"><h3 id="single_part_ranges"><a href="#single_part_ranges">Single part ranges</a></h3><div class="section-content"><p>We can request a single range from a resource using curl for illustration.
+The <code>-H</code> option appends a header line to the request, which in this case is the <code>Range</code> header requesting the first 1024 bytes.
+The last option is <code>--output -</code> which will allow printing the binary output to the terminal:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">bash</span></div><pre class="brush: bash notranslate"><code>curl https://i.imgur.com/z4d4kWk.jpg -i -H "Range: bytes=0-1023" --output -
+</code></pre></div>
+<p>The issued request looks like this:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>GET /z4d4kWk.jpg HTTP/2
+Host: i.imgur.com
+User-Agent: curl/8.7.1
+Accept: */*
+Range: bytes=0-1023
+</code></pre></div>
+<p>The server responds with a <a href="/en-US/docs/Web/HTTP/Reference/Status/206"><code>206 Partial Content</code></a> status:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/2 206
+content-type: image/jpeg
+content-length: 1024
+content-range: bytes 0-1023/146515
+…
+
+(binary content)
+</code></pre></div>
+<p>The <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Length"><code>Content-Length</code></a> header indicates the size of the requested range, not the full size of the image.
+The <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Range"><code>Content-Range</code></a> response header indicates where this partial message belongs within the full resource.</p></div></section><section aria-labelledby="multipart_ranges"><h3 id="multipart_ranges"><a href="#multipart_ranges">Multipart ranges</a></h3><div class="section-content"><p>The <a href="/en-US/docs/Web/HTTP/Reference/Headers/Range"><code>Range</code></a> header also allows you to get multiple ranges at once in a multipart document. The ranges are separated by a comma.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">bash</span></div><pre class="brush: bash notranslate"><code>curl http://www.example.com -i -H "Range: bytes=0-50, 100-150"
+</code></pre></div>
+<p>The server responds with the <a href="/en-US/docs/Web/HTTP/Reference/Status/206"><code>206 Partial Content</code></a> status as shown below.
+The response contains a <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Type"><code>Content-Type</code></a> header, indicating that a multipart byterange follows.
+The boundary string (<code>3d6b6a416f9b5</code> in this case) separates the body parts, each of which has its own <code>Content-Type</code> and <code>Content-Range</code> fields:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 206 Partial Content
+Content-Type: multipart/byteranges; boundary=3d6b6a416f9b5
+Content-Length: 282
+
+--3d6b6a416f9b5
+Content-Type: text/html
+Content-Range: bytes 0-50/1270
+
+&lt;!doctype html&gt;
+&lt;html lang="en-US"&gt;
+&lt;head&gt;
+    &lt;title&gt;Example Do
+--3d6b6a416f9b5
+Content-Type: text/html
+Content-Range: bytes 100-150/1270
+
+eta http-equiv="Content-type" content="text/html; c
+--3d6b6a416f9b5--
+</code></pre></div></div></section><section aria-labelledby="conditional_range_requests"><h3 id="conditional_range_requests"><a href="#conditional_range_requests">Conditional range requests</a></h3><div class="section-content"><p>When resuming to request more parts of a resource, you need to guarantee that the stored resource has not been modified since the last fragment has been received.</p>
+<p>The <a href="/en-US/docs/Web/HTTP/Reference/Headers/If-Range"><code>If-Range</code></a> HTTP request header makes a range request conditional: if the condition is fulfilled, the range request will be issued and the server sends back a <a href="/en-US/docs/Web/HTTP/Reference/Status/206"><code>206</code></a> <code>Partial Content</code> answer with the appropriate body. If the condition is not fulfilled, the full resource is sent back, with a <a href="/en-US/docs/Web/HTTP/Reference/Status/200"><code>200</code></a> <code>OK</code> status. This header can be used either with a <a href="/en-US/docs/Web/HTTP/Reference/Headers/Last-Modified"><code>Last-Modified</code></a> validator, or with an <a href="/en-US/docs/Web/HTTP/Reference/Headers/ETag"><code>ETag</code></a>, but not with both.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>If-Range: Wed, 21 Oct 2015 07:28:00 GMT
+</code></pre></div></div></section><section aria-labelledby="partial_request_responses"><h2 id="partial_request_responses"><a href="#partial_request_responses">Partial request responses</a></h2><div class="section-content"><p>There are three relevant statuses, when working with range requests:</p>
+<ul>
+<li>A successful range request elicits a <a href="/en-US/docs/Web/HTTP/Reference/Status/206"><code>206</code></a> <code>Partial Content</code> status from the server.</li>
+<li>A range request that is out of bounds will result in a <a href="/en-US/docs/Web/HTTP/Reference/Status/416"><code>416</code></a> <code>Requested Range Not Satisfiable</code> status, meaning that none of the range values overlap the extent of the resource. For example, the first-byte-pos of every range might be greater than the resource length.</li>
+<li>If range requests are not supported, an <a href="/en-US/docs/Web/HTTP/Reference/Status/200"><code>200</code></a> <code>OK</code> status is sent back and the entire response body is transmitted.</li>
+</ul></div></section><section aria-labelledby="comparison_to_chunked_transfer-encoding"><h2 id="comparison_to_chunked_transfer-encoding"><a href="#comparison_to_chunked_transfer-encoding">Comparison to chunked <code>Transfer-Encoding</code></a></h2><div class="section-content"><p>The <a href="/en-US/docs/Web/HTTP/Reference/Headers/Transfer-Encoding"><code>Transfer-Encoding</code></a> header allows chunked encoding, which is useful when larger amounts of data are sent to the client and the total size of the response is not known until the request has been fully processed. The server sends data to the client straight away without buffering the response or determining the exact length, which leads to improved latency. Range requests and chunking are compatible and can be used with or without each other.</p></div></section><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li>Related status codes <a href="/en-US/docs/Web/HTTP/Reference/Status/200"><code>200</code></a>, <a href="/en-US/docs/Web/HTTP/Reference/Status/206"><code>206</code></a>, <a href="/en-US/docs/Web/HTTP/Reference/Status/416"><code>416</code></a>.</li>
+<li>Related headers: <a href="/en-US/docs/Web/HTTP/Reference/Headers/Accept-Ranges"><code>Accept-Ranges</code></a>, <a href="/en-US/docs/Web/HTTP/Reference/Headers/Range"><code>Range</code></a>, <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Range"><code>Content-Range</code></a>, <a href="/en-US/docs/Web/HTTP/Reference/Headers/If-Range"><code>If-Range</code></a>, <a href="/en-US/docs/Web/HTTP/Reference/Headers/Transfer-Encoding"><code>Transfer-Encoding</code></a>.</li>
+</ul></div></section></article></main></div></div></div></body></html>

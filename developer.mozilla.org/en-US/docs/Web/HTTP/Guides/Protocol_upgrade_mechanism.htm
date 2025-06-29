@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Protocol upgrade mechanism</title><link rel="alternate" title="Mechanismus zur Protokollaktualisierung" href="https://developer.mozilla.org/de/docs/Web/HTTP/Guides/Protocol_upgrade_mechanism" hreflang="de"><link rel="alternate" title="Mecanismo de actualización del protocolo" href="https://developer.mozilla.org/es/docs/Web/HTTP/Guides/Protocol_upgrade_mechanism" hreflang="es"><link rel="alternate" title="Mécanisme de mise à niveau du protocole" href="https://developer.mozilla.org/fr/docs/Web/HTTP/Guides/Protocol_upgrade_mechanism" hreflang="fr"><link rel="alternate" title="プロトコルのアップグレードの仕組み" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Guides/Protocol_upgrade_mechanism" hreflang="ja"><link rel="alternate" title="프로토콜 업그레이드 메커니즘" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Guides/Protocol_upgrade_mechanism" hreflang="ko"><link rel="alternate" title="协议升级机制" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Guides/Protocol_upgrade_mechanism" hreflang="zh"><link rel="alternate" title="協議升級機制" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Guides/Protocol_upgrade_mechanism" hreflang="zh-Hant"><link rel="alternate" title="Protocol upgrade mechanism" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Protocol_upgrade_mechanism" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP/1.1 protocol provides a special mechanism that can be used to upgrade an already established connection to a different protocol, using the Upgrade header field."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Protocol_upgrade_mechanism"><meta property="og:title" content="Protocol upgrade mechanism - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP/1.1 protocol provides a special mechanism that can be used to upgrade an already established connection to a different protocol, using the Upgrade header field."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Protocol_upgrade_mechanism"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Protocol upgrade mechanism</h1></header><div class="section-content"><p>The <a href="/en-US/docs/Web/HTTP">HTTP/1.1 protocol</a> provides a special mechanism that can be used to upgrade an already established connection to a different protocol, using the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Upgrade"><code>Upgrade</code></a> header field.</p>
+<p>This mechanism is optional; it cannot be used to insist on a protocol change. Implementations can choose not to take advantage of an upgrade even if they support the new protocol, and in practice, this mechanism is used mostly to bootstrap a WebSockets connection.</p>
+<p>Note also that HTTP/2 explicitly disallows the use of this mechanism; it is specific to HTTP/1.1.</p></div><section aria-labelledby="upgrading_http1.1_connections"><h2 id="upgrading_http1.1_connections"><a href="#upgrading_http1.1_connections">Upgrading HTTP/1.1 Connections</a></h2><div class="section-content"><p>The <a href="/en-US/docs/Web/HTTP/Reference/Headers/Upgrade"><code>Upgrade</code></a> header field is used by clients to invite the server to switch to one of the listed protocols, in descending preference order.</p>
+<p>Because <code>Upgrade</code> is a hop-by-hop header, it also needs to be listed in the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Connection"><code>Connection</code></a> header field. This means that a typical request that includes Upgrade would look something like:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>GET /index.html HTTP/1.1
+Host: www.example.com
+Connection: upgrade
+Upgrade: example/1, foo/2
+</code></pre></div>
+<p>Other headers may be required depending on the requested protocol; for example, <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSocket">WebSocket</a> upgrades allow additional headers to configure details about the WebSocket connection as well as to offer a degree of security in opening the connection. See <a href="#upgrading_to_a_websocket_connection">Upgrading to a WebSocket connection</a> for more details.</p>
+<p>If the server decides to upgrade the connection, it sends back a <a href="/en-US/docs/Web/HTTP/Reference/Status/101"><code>101 Switching Protocols</code></a> response status with an Upgrade header that specifies the protocol(s) being switched to. If it does not (or cannot) upgrade the connection, it ignores the <code>Upgrade</code> header and sends back a regular response (for example, a <a href="/en-US/docs/Web/HTTP/Reference/Status/200"><code>200 OK</code></a>).</p>
+<p>Right after sending the <code>101</code> status code, the server can begin speaking the new protocol, performing any additional protocol-specific handshakes as necessary. Effectively, the connection becomes a two-way pipe as soon as the upgraded response is complete, and the request that initiated the upgrade can be completed over the new protocol.</p></div></section><section aria-labelledby="common_uses_for_this_mechanism"><h2 id="common_uses_for_this_mechanism"><a href="#common_uses_for_this_mechanism">Common uses for this mechanism</a></h2><div class="section-content"><p>Here we look at the most common use cases for the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Upgrade"><code>Upgrade</code></a> header.</p></div></section><section aria-labelledby="upgrading_to_a_websocket_connection"><h3 id="upgrading_to_a_websocket_connection"><a href="#upgrading_to_a_websocket_connection">Upgrading to a WebSocket connection</a></h3><div class="section-content"><p>By far, the most common use case for upgrading an HTTP connection is to use WebSockets, which are always implemented by upgrading an HTTP or HTTPS connection. Keep in mind that if you're opening a new connection using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSocket">WebSocket API</a>, or any library that does WebSockets, most or all of this is done for you. For example, opening a WebSocket connection is a single method:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">js</span></div><pre class="brush: js notranslate"><code>webSocket = new WebSocket("ws://destination.server.ext", "optionalProtocol");
+</code></pre></div>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/WebSocket" title="WebSocket()"><code>WebSocket()</code></a> constructor does all the work of creating an initial HTTP/1.1 connection then handling the handshaking and upgrade process for you.</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+You can also use the <code>"wss://"</code> URL scheme to open a secure WebSocket connection.</p>
+</div>
+<p>If you need to create a WebSocket connection from scratch, you'll have to handle the handshaking process yourself. After creating the initial HTTP/1.1 session, you need to request the upgrade by adding to a standard request the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Upgrade"><code>Upgrade</code></a> and <a href="/en-US/docs/Web/HTTP/Reference/Headers/Connection"><code>Connection</code></a> headers, as follows:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Connection: Upgrade
+Upgrade: websocket
+</code></pre></div></div></section><section aria-labelledby="websocket-specific_headers"><h3 id="websocket-specific_headers"><a href="#websocket-specific_headers">WebSocket-specific headers</a></h3><div class="section-content"><p>The following headers are involved in the WebSocket upgrade process. Other than the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Upgrade"><code>Upgrade</code></a> and <a href="/en-US/docs/Web/HTTP/Reference/Headers/Connection"><code>Connection</code></a> headers, the rest are generally optional or handled for you by the browser and server when they're talking to each other.</p>
+<h4 id="sec-websocket-extensions"><a href="/en-US/docs/Web/HTTP/Reference/Headers/Sec-WebSocket-Extensions"><code>Sec-WebSocket-Extensions</code></a></h4>
+<p>Specifies one or more protocol-level WebSocket extensions to ask the server to use. Using more than one <code>Sec-WebSocket-Extension</code> header in a request is permitted; the result is the same as if you included all of the listed extensions in one such header.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Sec-WebSocket-Extensions: extensions
+</code></pre></div>
+<dl>
+<dt id="extensions"><a href="#extensions"><code>extensions</code></a></dt>
+<dd>
+<p>A comma-separated list of extensions to request (or agree to support). These should be selected from the <a href="https://www.iana.org/assignments/websocket/websocket.xml#extension-name" class="external" target="_blank">IANA WebSocket Extension Name Registry</a>. Extensions which take parameters do so by using semicolon delineation.</p>
+</dd>
+</dl>
+<p>For example:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Sec-WebSocket-Extensions: superspeed, colormode; depth=16
+</code></pre></div>
+<h4 id="sec-websocket-key"><a href="/en-US/docs/Web/HTTP/Reference/Headers/Sec-WebSocket-Key"><code>Sec-WebSocket-Key</code></a></h4>
+<p>Provides information to the server which is needed in order to confirm that the client is entitled to request an upgrade to WebSocket. This header can be used when insecure (HTTP) clients wish to upgrade, in order to offer some degree of protection against abuse. The value of the key is computed using an algorithm defined in the WebSocket specification, so this <em>does not provide security</em>. Instead, it helps to prevent non-WebSocket clients from inadvertently, or through misuse, requesting a WebSocket connection. In essence, then, this key confirms that "Yes, I really mean to open a WebSocket connection."</p>
+<p>This header is automatically added by clients that choose to use it; it cannot be added using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch" title="fetch()"><code>fetch()</code></a> or <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/setRequestHeader"><code>XMLHttpRequest.setRequestHeader()</code></a> methods.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Sec-WebSocket-Key: key
+</code></pre></div>
+<dl>
+<dt id="key"><a href="#key"><code>key</code></a></dt>
+<dd>
+<p>The key for this request to upgrade. The client adds this if it wishes to do so, and the server will include in the response a key of its own, which the client will validate before delivering the upgrade response to you.</p>
+</dd>
+</dl>
+<p>The server's response's <a href="/en-US/docs/Web/HTTP/Reference/Headers/Sec-WebSocket-Accept"><code>Sec-WebSocket-Accept</code></a> header will have a value computed based upon the specified <code>key</code>.</p>
+<h4 id="sec-websocket-protocol"><a href="/en-US/docs/Web/HTTP/Reference/Headers/Sec-WebSocket-Protocol"><code>Sec-WebSocket-Protocol</code></a></h4>
+<p>The <code>Sec-WebSocket-Protocol</code> header specifies one or more WebSocket protocols that you wish to use, in order of preference. The first one that is supported by the server will be selected and returned by the server in a <code>Sec-WebSocket-Protocol</code> header included in the response. You can use this more than once in the header, as well; the result is the same as if you used a comma-delineated list of subprotocol identifiers in a single header.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Sec-WebSocket-Protocol: subprotocols
+</code></pre></div>
+<dl>
+<dt id="subprotocols"><a href="#subprotocols"><code>subprotocols</code></a></dt>
+<dd>
+<p>A comma-separated list of subprotocol names, in the order of preference. The subprotocols may be selected from the <a href="https://www.iana.org/assignments/websocket/websocket.xml#subprotocol-name" class="external" target="_blank">IANA WebSocket Subprotocol Name Registry</a> or may be a custom name jointly understood by the client and the server.</p>
+</dd>
+</dl>
+<h4 id="sec-websocket-version"><a href="/en-US/docs/Web/HTTP/Reference/Headers/Sec-WebSocket-Version"><code>Sec-WebSocket-Version</code></a></h4>
+<h5 id="request_header">Request header</h5>
+<p>Specifies the WebSocket protocol version the client wishes to use, so the server can confirm whether or not that version is supported on its end.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Sec-WebSocket-Version: version
+</code></pre></div>
+<dl>
+<dt id="version"><a href="#version"><code>version</code></a></dt>
+<dd>
+<p>The WebSocket protocol version the client wishes to use when communicating with the server. This number should be the most recent version possible listed in the <a href="https://www.iana.org/assignments/websocket/websocket.xml#version-number" class="external" target="_blank">IANA WebSocket Version Number Registry</a>. The most recent final version of the WebSocket protocol is version 13.</p>
+</dd>
+</dl>
+<h5 id="response_header">Response header</h5>
+<p>If the server can't communicate using the specified version of the WebSocket protocol, it will respond with an error (such as 426 Upgrade Required) that includes in its headers a <code>Sec-WebSocket-Version</code> header with a comma-separated list of the supported protocol versions. If the server does support the requested protocol version, no <code>Sec-WebSocket-Version</code> header is included in the response.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Sec-WebSocket-Version: supportedVersions
+</code></pre></div>
+<dl>
+<dt id="supportedversions"><a href="#supportedversions"><code>supportedVersions</code></a></dt>
+<dd>
+<p>A comma-delineated list of the WebSocket protocol versions supported by the server.</p>
+</dd>
+</dl></div></section><section aria-labelledby="response-only_headers"><h3 id="response-only_headers"><a href="#response-only_headers">Response-only headers</a></h3><div class="section-content"><p>The response from the server may include these.</p>
+<h4 id="sec-websocket-accept"><a href="/en-US/docs/Web/HTTP/Reference/Headers/Sec-WebSocket-Accept"><code>Sec-WebSocket-Accept</code></a></h4>
+<p>Included in the response message from the server during the opening handshake process when the server is willing to initiate a WebSocket connection. It will appear no more than once in the response headers.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Sec-WebSocket-Accept: hash
+</code></pre></div>
+<dl>
+<dt id="hash"><a href="#hash"><code>hash</code></a></dt>
+<dd>
+<p>If a <a href="/en-US/docs/Web/HTTP/Reference/Headers/Sec-WebSocket-Key"><code>Sec-WebSocket-Key</code></a> header was provided, the value of this header is computed by taking the value of the key, concatenating the string "258EAFA5-E914-47DA-95CA-C5AB0DC85B11" to it, taking the <a href="https://en.wikipedia.org/wiki/SHA-1" class="external" target="_blank">SHA-1</a> hash of that concatenated string, resulting in a 20-byte value. That value is then <a href="https://developer.mozilla.org/en-US/docs/Glossary/Base64">base64</a> encoded to obtain the value of this property.</p>
+</dd>
+</dl></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://www.rfc-editor.org/rfc/rfc6455">The WebSocket Protocol<!-- --> <br></a></td></tr><tr><td><a href="https://www.rfc-editor.org/rfc/rfc7230">Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing<!-- --> <br></a></td></tr><tr><td><a href="https://www.rfc-editor.org/rfc/rfc7540">Hypertext Transfer Protocol Version 2 (HTTP/2)<!-- --> <br></a></td></tr></tbody></table><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSocket">WebSocket API</a></li>
+<li><a href="Evolution_of_HTTP.htm">Evolution of HTTP</a></li>
+<li>Glossary terms:
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/HTTP">HTTP</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/HTTP_2">HTTP/2</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/QUIC">QUIC</a></li>
+</ul>
+</li>
+</ul></div></section></article></main></div></div></div></body></html>

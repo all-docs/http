@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>X-DNS-Prefetch-Control header</title><link rel="alternate" title="X-DNS-Prefetch-Control header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/X-DNS-Prefetch-Control" hreflang="de"><link rel="alternate" title="X-DNS-Prefetch-Control" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/X-DNS-Prefetch-Control" hreflang="ja"><link rel="alternate" title="X-DNS-Prefetch-Control" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Headers/X-DNS-Prefetch-Control" hreflang="pt"><link rel="alternate" title="X-DNS-Prefetch-Control" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/X-DNS-Prefetch-Control" hreflang="zh"><link rel="alternate" title="X-DNS-Prefetch-Control header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-DNS-Prefetch-Control" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP X-DNS-Prefetch-Control response header controls DNS prefetching, a feature by which browsers proactively perform domain name resolution on links that the user may choose to follow as well as URLs for items referenced by the document, including images, CSS, JavaScript, and so forth."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-DNS-Prefetch-Control"><meta property="og:title" content="X-DNS-Prefetch-Control header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP X-DNS-Prefetch-Control response header controls DNS prefetching, a feature by which browsers proactively perform domain name resolution on links that the user may choose to follow as well as URLs for items referenced by the document, including images, CSS, JavaScript, and so forth."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-DNS-Prefetch-Control"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>X-DNS-Prefetch-Control header</h1></header><div class="section-content"><div class="notecard nonstandard"><p><strong>Non-standard:</strong> This feature is not standardized. We do not recommend using non-standard features in production, as they have limited browser support, and may change or be removed. However, they can be a suitable alternative in specific cases where no standard option exists.</p></div>
+<p>The HTTP <strong><code>X-DNS-Prefetch-Control</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">response header</a> controls DNS prefetching, a feature by which browsers proactively perform domain name resolution on links that the user may choose to follow as well as URLs for items referenced by the document, including images, CSS, JavaScript, and so forth.</p>
+<p>The intention is that prefetching is performed in the background so that the <a href="https://developer.mozilla.org/en-US/docs/Glossary/DNS">DNS</a> resolution is complete by the time the referenced items are needed by the browser.
+This reduces latency when the user clicks a link, for example.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>X-DNS-Prefetch-Control: on
+X-DNS-Prefetch-Control: off
+</code></pre></div></div></section><section aria-labelledby="directives"><h3 id="directives"><a href="#directives">Directives</a></h3><div class="section-content"><dl>
+<dt id="on"><a href="#on"><code>on</code></a></dt>
+<dd>
+<p>Enables DNS prefetching. This is what browsers do if they support the feature when this header is not present.</p>
+</dd>
+<dt id="off"><a href="#off"><code>off</code></a></dt>
+<dd>
+<p>Disables DNS prefetching. This is useful if you don't control the link on the pages or know that you don't want to leak information to these domains.</p>
+</dd>
+</dl></div></section><section aria-labelledby="description"><h2 id="description"><a href="#description">Description</a></h2><div class="section-content"><p>DNS requests are very small in terms of bandwidth, but latency can be quite high,
+especially on mobile networks. By speculatively prefetching DNS results, latency can be
+reduced significantly at certain times, such as when the user clicks the link. In some
+cases, latency can be reduced by a second.</p>
+<p>The implementation of this prefetching in some browsers allows domain name resolution
+to occur in parallel with (instead of in serial with) the fetching of actual page
+content. By doing this, the high-latency domain name resolution process doesn't cause
+any delay while fetching content.</p>
+<p>Page load times – especially on mobile networks – can be measurably improved in this
+way. If the domain names for images can be resolved in advance of the images being
+requested, pages that load many images can see an improvement of 5% or more in the time
+of loading images.</p></div></section><section aria-labelledby="configuring_prefetching_in_the_browser"><h3 id="configuring_prefetching_in_the_browser"><a href="#configuring_prefetching_in_the_browser">Configuring prefetching in the browser</a></h3><div class="section-content"><p>In general, you don't need to do anything to manage prefetching. However, the user may
+wish to disable prefetching. On Firefox, this can be done by setting the
+<code>network.dns.disablePrefetch</code> preference to <code>true</code>.</p>
+<p>Also, by default, prefetching of embedded link hostnames is not performed on documents
+loaded over <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTTPS">HTTPS</a>. On Firefox, this can be changed by setting the
+<code>network.dns.disablePrefetchFromHTTPS</code> preference to <code>false</code>.</p></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="turning_on_and_off_prefetching"><h3 id="turning_on_and_off_prefetching"><a href="#turning_on_and_off_prefetching">Turning on and off prefetching</a></h3><div class="section-content"><p>You can either send the <code>X-DNS-Prefetch-Control</code> header server-side, or from
+individual documents, using the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta#http-equiv"><code>http-equiv</code></a> attribute on
+the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta"><code>&lt;meta&gt;</code></a> element, like this:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">html</span></div><pre class="brush: html notranslate"><code>&lt;meta http-equiv="x-dns-prefetch-control" content="off" /&gt;
+</code></pre></div>
+<p>You can reverse this setting by setting <code>content</code> to <code>"on"</code>.</p></div></section><section aria-labelledby="forcing_lookup_of_specific_hostnames"><h3 id="forcing_lookup_of_specific_hostnames"><a href="#forcing_lookup_of_specific_hostnames">Forcing lookup of specific hostnames</a></h3><div class="section-content"><p>You can force the lookup of specific hostnames without providing specific anchors using
+that hostname by using the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link#rel"><code>rel</code></a> attribute on the
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link"><code>&lt;link&gt;</code></a> element with a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel">link type</a> of <code>dns-prefetch</code>:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">html</span></div><pre class="brush: html notranslate"><code>&lt;link rel="dns-prefetch" href="https://www.mozilla.org" /&gt;
+</code></pre></div>
+<p>In this example, the domain name <code>www.mozilla.org</code> will be pre-resolved.</p>
+<p>Similarly, the link element can be used to resolve hostnames without providing a
+complete URL, but only, by preceding the hostname with two slashes:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">html</span></div><pre class="brush: html notranslate"><code>&lt;link rel="dns-prefetch" href="//www.mozilla.org" /&gt;
+</code></pre></div>
+<p>Forced prefetching of hostnames might be useful, for example, on the homepage of a site
+to force pre-resolution of domain names that are referenced frequently throughout the
+site even though they are not used on the home page itself. This will improve the
+overall performance of site even though the performance of the home page may not be
+affected.</p></div></section><section aria-labelledby="specifications"><h2 id="specifications"><a href="#specifications">Specifications</a></h2><div class="section-content"><p>Not part of any current specification.</p></div></section><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="https://bitsup.blogspot.com/2008/11/dns-prefetching-for-firefox.html" class="external" target="_blank">DNS Prefetching for Firefox (blog post)</a></li>
+<li><a href="https://www.chromium.org/developers/design-documents/dns-prefetching/" class="external" target="_blank">Google Chrome handles DNS prefetching control</a></li>
+</ul></div></section></article></main></div></div></div></body></html>

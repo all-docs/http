@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>206 Partial Content</title><link rel="alternate" title="206 Partial Content" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Status/206" hreflang="de"><link rel="alternate" title="206 Partial Content" href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status/206" hreflang="es"><link rel="alternate" title="206 Partial Content" href="https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Status/206" hreflang="fr"><link rel="alternate" title="206 Partial Content" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Status/206" hreflang="ja"><link rel="alternate" title="206 Partial Content" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Status/206" hreflang="ko"><link rel="alternate" title="206 Partial Content" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status/206" hreflang="pt"><link rel="alternate" title="206 Partial Content" href="https://developer.mozilla.org/ru/docs/Web/HTTP/Reference/Status/206" hreflang="ru"><link rel="alternate" title="206 Partial Content" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Status/206" hreflang="zh"><link rel="alternate" title="206 Partial Content" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Reference/Status/206" hreflang="zh-Hant"><link rel="alternate" title="206 Partial Content" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/206" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP 206 Partial Content successful response status code is sent in response to a range request.
+The response body contains the requested ranges of data as specified in the Range header of the request."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/206"><meta property="og:title" content="206 Partial Content - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP 206 Partial Content successful response status code is sent in response to a range request.
+The response body contains the requested ranges of data as specified in the Range header of the request."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/206"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>206 Partial Content</h1></header><div class="section-content"><p>The HTTP <strong><code>206 Partial Content</code></strong> <a href="/en-US/docs/Web/HTTP/Reference/Status#successful_responses">successful response</a> status code is sent in response to a <a href="/en-US/docs/Web/HTTP/Guides/Range_requests">range request</a>.
+The response body contains the requested ranges of data as specified in the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Range"><code>Range</code></a> header of the request.</p>
+<p>The format of the response depends on the number of ranges requested.
+If a single range is requested, the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Type"><code>Content-Type</code></a> of the entire response is set to the type of the document, and a <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Range"><code>Content-Range</code></a> is provided.
+If several ranges are requested, the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Type"><code>Content-Type</code></a> is set to <code>multipart/byteranges</code>, and each fragment covers one range, with its own <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Range"><code>Content-Range</code></a> and <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Type"><code>Content-Type</code></a> headers describing it.</p></div><section aria-labelledby="status"><h2 id="status"><a href="#status">Status</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>206 Partial Content
+</code></pre></div></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="receiving_a_206_response_for_a_single_requested_range"><h3 id="receiving_a_206_response_for_a_single_requested_range"><a href="#receiving_a_206_response_for_a_single_requested_range">Receiving a <code>206</code> response for a single requested range</a></h3><div class="section-content"><p>The following is a sample <code>206</code> response when a single range of <code>21010-</code> (bytes 21010 to the end of file) of an image file is requested.
+The response contains <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Type"><code>Content-Type</code></a> of <code>image/gif</code> and the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Range"><code>Content-Range</code></a> is provided:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>GET /z4d4kWk.gif HTTP/1.1
+Host: images.example.com
+Range: bytes=21010-
+</code></pre></div>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 206 Partial Content
+Date: Wed, 15 Nov 2015 06:25:24 GMT
+Last-Modified: Wed, 15 Nov 2015 04:58:08 GMT
+Content-Range: bytes 21010-47021/47022
+Content-Length: 26012
+Content-Type: image/gif
+ETag: "abc123"
+Accept-Ranges: bytes
+
+# 26012 bytes of partial image data…
+</code></pre></div></div></section><section aria-labelledby="receiving_a_206_response_for_multiple_requested_ranges"><h3 id="receiving_a_206_response_for_multiple_requested_ranges"><a href="#receiving_a_206_response_for_multiple_requested_ranges">Receiving a <code>206</code> response for multiple requested ranges</a></h3><div class="section-content"><p>Following is a sample <code>206</code> response when two ranges of a PDF file are requested.
+The response contains the <code>multipart/byteranges</code> <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Type"><code>Content-Type</code></a> with a separate <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Type"><code>Content-Type</code></a> (<code>application/pdf</code>) and <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Range"><code>Content-Range</code></a> for each range.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>GET /price-list.pdf HTTP/1.1
+Host: example.com
+Range: bytes=234-639,4590-7999
+</code></pre></div>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 206 Partial Content
+Date: Wed, 15 Nov 2015 06:25:24 GMT
+Last-Modified: Wed, 15 Nov 2015 04:58:08 GMT
+Content-Length: 1741
+Content-Type: multipart/byteranges; boundary=String_separator
+ETag: "abc123"
+Accept-Ranges: bytes
+
+--String_separator
+Content-Type: application/pdf
+Content-Range: bytes 234-639/8000
+
+# content of first range (406 bytes)
+--String_separator
+Content-Type: application/pdf
+Content-Range: bytes 4590-7999/8000
+
+# content of second range (3410 bytes)
+--String_separator--
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://www.rfc-editor.org/rfc/rfc9110#status.206">HTTP Semantics<!-- --> <br><small># <!-- -->status.206</small></a></td></tr></tbody></table><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers/If-Range"><code>If-Range</code></a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers/Range"><code>Range</code></a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Range"><code>Content-Range</code></a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Type"><code>Content-Type</code></a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Methods">HTTP request methods</a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Status">HTTP response status codes</a></li>
+</ul></div></section></article></main></div></div></div></body></html>

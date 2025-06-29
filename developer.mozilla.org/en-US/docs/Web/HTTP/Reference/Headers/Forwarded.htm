@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Forwarded header</title><link rel="alternate" title="Forwarded header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Forwarded" hreflang="de"><link rel="alternate" title="Forwarded" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Forwarded" hreflang="ja"><link rel="alternate" title="Forwarded" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Forwarded" hreflang="ko"><link rel="alternate" title="Forwarded" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Headers/Forwarded" hreflang="pt"><link rel="alternate" title="Forwarded" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Forwarded" hreflang="zh"><link rel="alternate" title="Forwarded header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Forwarded" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Forwarded request header contains information that may be added by reverse proxy servers (load balancers, CDNs, etc.) that would otherwise be altered or lost when proxy servers are involved in the path of the request."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Forwarded"><meta property="og:title" content="Forwarded header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Forwarded request header contains information that may be added by reverse proxy servers (load balancers, CDNs, etc.) that would otherwise be altered or lost when proxy servers are involved in the path of the request."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Forwarded"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Forwarded header</h1></header><div class="section-content"><p>The HTTP <strong><code>Forwarded</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Request_header">request header</a> contains information that may be added by <a href="/en-US/docs/Web/HTTP/Guides/Proxy_servers_and_tunneling">reverse proxy servers</a> (load balancers, CDNs, etc.) that would otherwise be altered or lost when proxy servers are involved in the path of the request.</p>
+<p>For example, if a client is connecting to a web server through an HTTP proxy (or load balancer), server logs will only contain the IP address, host address, and protocol of the proxy; this header can be used to identify the IP address, host, and protocol, of the original request.
+The header is optional and may be added to, modified, or removed, by any of the proxy servers on the path to the server.</p>
+<p>This header is used for debugging, statistics, and generating location-dependent content.
+By design, it exposes privacy sensitive information, such as the IP address of the client.
+Therefore, the user's privacy must be kept in mind when using this header.</p>
+<p>The alternative and de-facto standard versions of this header are the <a href="X-Forwarded-For.htm"><code>X-Forwarded-For</code></a>, <a href="X-Forwarded-Host.htm"><code>X-Forwarded-Host</code></a> and <a href="X-Forwarded-Proto.htm"><code>X-Forwarded-Proto</code></a> headers.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Request_header">Request header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><p>The syntax for the forwarding header from a single proxy is shown below.
+Directives are <code>key=value</code> pairs, separated by a semicolon.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Forwarded: by=&lt;identifier&gt;;for=&lt;identifier&gt;;host=&lt;host&gt;;proto=&lt;http|https&gt;
+</code></pre></div>
+<p>If there are multiple proxy servers between the client and server, they may each specify their own forwarding information.
+This can be done by adding a new <code>Forwarded</code> header to the end of the header block, or by appending the information to the end of the last <code>Forwarded</code> header in a comma-separated list.</p></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><dl>
+<dt id="by"><a href="#by"><code>by</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>The interface where the request came in to the proxy server.
+The identifier can be:</p>
+<ul>
+<li>an obfuscated identifier (such as "hidden" or "secret").
+This should be treated as the default.</li>
+<li>an IP address (v4 or v6, optionally with a port, and ipv6 quoted and enclosed in square brackets)</li>
+<li>"unknown" when the preceding entity is not known (and you still want to indicate that forwarding of the request was made)</li>
+</ul>
+</dd>
+<dt id="for"><a href="#for"><code>for</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>The client that initiated the request and subsequent proxies in a chain of proxies.
+The identifier has the same possible values as the <code>by</code> directive.</p>
+</dd>
+<dt id="host"><a href="#host"><code>host</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>The <a href="Host.htm"><code>Host</code></a> request header field as received by the proxy.</p>
+</dd>
+<dt id="proto"><a href="#proto"><code>proto</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>Indicates which protocol was used to make the request (typically "http" or "https").</p>
+</dd>
+</dl></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="using_the_forwarded_header"><h3 id="using_the_forwarded_header"><a href="#using_the_forwarded_header">Using the <code>Forwarded</code> header</a></h3><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Forwarded: for="_mdn"
+
+# case insensitive
+Forwarded: For="[2001:db8:cafe::17]:4711"
+
+# separated by semicolon
+Forwarded: for=192.0.2.60;proto=http;by=203.0.113.43
+
+# Values from multiple proxy servers can be appended using a comma
+Forwarded: for=192.0.2.43, for=198.51.100.17
+</code></pre></div></div></section><section aria-labelledby="transitioning_from_x-forwarded-for_to_forwarded"><h3 id="transitioning_from_x-forwarded-for_to_forwarded"><a href="#transitioning_from_x-forwarded-for_to_forwarded">Transitioning from <code>X-Forwarded-For</code> to <code>Forwarded</code></a></h3><div class="section-content"><p>If your application, server, or proxy supports the standardized <code>Forwarded</code> header, the <a href="X-Forwarded-For.htm"><code>X-Forwarded-For</code></a> header can be replaced.
+Note that an IPv6 address is quoted and enclosed in square brackets in <code>Forwarded</code> (unlike in the <a href="X-Forwarded-For.htm"><code>X-Forwarded-For</code></a> header).</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>X-Forwarded-For: 192.0.2.172
+Forwarded: for=192.0.2.172
+
+X-Forwarded-For: 192.0.2.43, 2001:db8:cafe::17
+Forwarded: for=192.0.2.43, for="[2001:db8:cafe::17]"
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://datatracker.ietf.org/doc/html/rfc7239">Forwarded HTTP Extension<!-- --> <br></a></td></tr></tbody></table><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="X-Forwarded-For.htm"><code>X-Forwarded-For</code></a></li>
+<li><a href="X-Forwarded-Host.htm"><code>X-Forwarded-Host</code></a></li>
+<li><a href="X-Forwarded-Proto.htm"><code>X-Forwarded-Proto</code></a></li>
+<li><a href="Via.htm"><code>Via</code></a> – provides information about the proxy itself, not about the client connecting to it.</li>
+</ul></div></section></article></main></div></div></div></body></html>

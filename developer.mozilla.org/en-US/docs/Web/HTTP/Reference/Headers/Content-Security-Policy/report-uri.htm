@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Content-Security-Policy: report-uri directive</title><link rel="alternate" title="Content-Security-Policy: report-uri Direktive" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/report-uri" hreflang="de"><link rel="alternate" title="CSP: report-uri" href="https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/report-uri" hreflang="fr"><link rel="alternate" title="CSP: report-uri" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/report-uri" hreflang="ja"><link rel="alternate" title="Content-Security-Policy: report-uri directive" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/report-uri" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The deprecated HTTP Content-Security-Policy (CSP) report-uri directive instructs the user agent to report attempts to violate the Content Security Policy.
+These violation reports consist of JSON documents sent via an HTTP POST request to the specified URI."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/report-uri"><meta property="og:title" content="Content-Security-Policy: report-uri directive - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The deprecated HTTP Content-Security-Policy (CSP) report-uri directive instructs the user agent to report attempts to violate the Content Security Policy.
+These violation reports consist of JSON documents sent via an HTTP POST request to the specified URI."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/report-uri"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Content-Security-Policy: report-uri directive</h1></header><div class="section-content"><div class="notecard deprecated"><p><strong>Deprecated:</strong> This feature is no longer recommended. Though some browsers might still support it, it may have already been removed from the relevant web standards, may be in the process of being dropped, or may only be kept for compatibility purposes. Avoid using it, and update existing code if possible; see the <a href="#browser_compatibility">compatibility table</a> at the bottom of this page to guide your decision. Be aware that this feature may cease to work at any time.</p></div>
+<div class="notecard warning">
+<p><strong>Warning:</strong>
+The <a href="report-to.htm"><code>report-to</code></a> directive is intended to replace <code>report-uri</code>, and in browsers that support <code>report-to</code>, the <code>report-uri</code> directive is ignored.</p>
+<p>However until <code>report-to</code> is broadly supported you can specify both headers as shown:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Content-Security-Policy: …; report-uri https://endpoint.example.com; report-to endpoint_name
+</code></pre></div>
+</div>
+<p>The deprecated HTTP <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy"><code>Content-Security-Policy</code></a> (CSP) <strong><code>report-uri</code></strong> directive instructs the user agent to report attempts to violate the Content Security Policy.
+These violation reports consist of <a href="#violation_report_syntax">JSON documents</a> sent via an HTTP <code>POST</code> request to the specified URI.</p>
+<p>The directive has no effect in and of itself, but only gains meaning in combination with other directives.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">CSP version</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">Directive type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Reporting_directive">Reporting directive</a></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row">
+        This directive is not supported in the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta"><code>&lt;meta&gt;</code></a> element.
+      </th>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Content-Security-Policy: report-uri &lt;uri&gt;;
+Content-Security-Policy: report-uri &lt;uri&gt; &lt;uri&gt;;
+</code></pre></div>
+<dl>
+<dt id="uri"><a href="#uri">&lt;uri&gt;</a></dt>
+<dd>
+<p>A URI indicating where the report must be sent.</p>
+</dd>
+</dl></div></section><section aria-labelledby="violation_report_syntax"><h3 id="violation_report_syntax"><a href="#violation_report_syntax">Violation report syntax</a></h3><div class="section-content"><p>The report JSON object is sent via an HTTP <code>POST</code> operation with a <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Type"><code>Content-Type</code></a> of <code>application/csp-report</code>.</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+Violation reports should be considered attacker-controlled data.
+The content should be properly sanitized before storing or rendering.
+This is particularly true of the <a href="#script-sample">script-sample</a> property, if supplied.</p>
+</div>
+<p>The report JSON object has a single top-level property, <code>"csp-report"</code>, which contains an object with the following properties:</p>
+<dl>
+<dt id="blocked-uri"><a href="#blocked-uri"><code>blocked-uri</code></a></dt>
+<dd>
+<p>The URI of the resource that was blocked from loading by the Content Security Policy.
+If the blocked URI is from a different origin than the <code>document-uri</code>, then the blocked URI is truncated to contain just the scheme, host, and port.</p>
+</dd>
+<dt id="disposition"><a href="#disposition"><code>disposition</code></a></dt>
+<dd>
+<p>Either <code>"enforce"</code> or <code>"report"</code> depending on whether the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy-Report-Only"><code>Content-Security-Policy-Report-Only</code></a> header or the <code>Content-Security-Policy</code> header is used.</p>
+</dd>
+<dt id="document-uri"><a href="#document-uri"><code>document-uri</code></a></dt>
+<dd>
+<p>The URI of the document in which the violation occurred.</p>
+</dd>
+<dt id="effective-directive"><a href="#effective-directive"><code>effective-directive</code></a></dt>
+<dd>
+<p>The directive whose enforcement caused the violation.
+Some browsers may provide different values, such as Chrome providing <code>style-src-elem</code>/<code>style-src-attr</code>, even when the enforced directive was <code>style-src</code>.</p>
+</dd>
+<dt id="original-policy"><a href="#original-policy"><code>original-policy</code></a></dt>
+<dd>
+<p>The original policy as specified by the <code>Content-Security-Policy</code> HTTP header.</p>
+</dd>
+<dt id="referrer"><a href="#referrer"><code>referrer</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites.">
+<span class="visually-hidden">Deprecated</span>
+</abbr> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using.">
+<span class="visually-hidden">Non-standard</span>
+</abbr></a></dt>
+<dd>
+<p>The referrer of the document in which the violation occurred.</p>
+</dd>
+<dt id="script-sample"><a href="#script-sample"><code>script-sample</code></a></dt>
+<dd>
+<p>The first 40 characters of the inline script, event handler, or style that caused the violation.
+Violations originating from external files are not included in the report.</p>
+<p>This is only applicable to <a href="script-src.htm"><code>script-src*</code></a> and <a href="style-src.htm"><code>style-src*</code></a> violations, when the corresponding <code>Content-Security-Policy</code> directive contains the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy#report-sample"><code>'report-sample'</code></a> keyword.</p>
+</dd>
+<dt id="status-code"><a href="#status-code"><code>status-code</code></a></dt>
+<dd>
+<p>The HTTP status code of the resource on which the global object was instantiated.</p>
+</dd>
+<dt id="violated-directive"><a href="#violated-directive"><code>violated-directive</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites.">
+<span class="visually-hidden">Deprecated</span>
+</abbr></a></dt>
+<dd>
+<p>The directive whose enforcement caused the violation. The <code>violated-directive</code> is a historic name for the <code>effective-directive</code> field and contains the same value.</p>
+</dd>
+</dl></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="csp_violation_report_with_content-security-policy"><h3 id="csp_violation_report_with_content-security-policy"><a href="#csp_violation_report_with_content-security-policy">CSP violation report with Content-Security-Policy</a></h3><div class="section-content"><p>Let's consider a page located at <code>http://example.com/signup.html</code>.
+It uses the following policy, disallowing everything except stylesheets loaded from <code>cdn.example.com</code>.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Content-Security-Policy: default-src 'none'; style-src cdn.example.com; report-uri /_/csp-reports
+</code></pre></div>
+<p>The HTML of <code>signup.html</code> looks like this:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">html</span></div><pre class="brush: html notranslate"><code>&lt;!doctype html&gt;
+&lt;html lang="en-US"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;title&gt;Sign Up&lt;/title&gt;
+    &lt;link rel="stylesheet" href="css/style.css" /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    Here be content.
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>
+<p>Can you spot the mistake? Stylesheets are allowed to be loaded only from <code>cdn.example.com</code>, yet the website tries to load one from its own origin (<code>http://example.com</code>).
+A browser capable of enforcing CSP would send the following violation report as a <code>POST</code> request to <code>http://example.com/_/csp-reports</code> when the document is visited:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">json</span></div><pre class="brush: json notranslate"><code>{
+  "csp-report": {
+    "blocked-uri": "http://example.com/css/style.css",
+    "disposition": "report",
+    "document-uri": "http://example.com/signup.html",
+    "effective-directive": "style-src-elem",
+    "original-policy": "default-src 'none'; style-src cdn.example.com; report-uri /_/csp-reports",
+    "referrer": "",
+    "status-code": 200,
+    "violated-directive": "style-src-elem"
+  }
+}
+</code></pre></div>
+<p>As you can see, the report includes the full path to the violating resource in <code>blocked-uri</code>.
+This is not always the case.
+For example, if <code>signup.html</code> attempted to load CSS from <code>http://anothercdn.example.com/stylesheet.css</code>, the browser would <em>not</em> include the full path, only the origin,
+(<code>http://anothercdn.example.com</code>) in order to prevent leaking sensitive information about cross-origin resources.
+The CSP specification <a href="https://w3c.github.io/webappsec-csp/#security-violation-reports" class="external" target="_blank">gives an explanation</a> of this behavior.</p></div></section><section aria-labelledby="csp_violation_report_with_content-security-policy-report-only"><h3 id="csp_violation_report_with_content-security-policy-report-only"><a href="#csp_violation_report_with_content-security-policy-report-only">CSP violation report with Content-Security-Policy-Report-Only</a></h3><div class="section-content"><p>The <code>report-uri</code> directive can also be used with the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy-Report-Only"><code>Content-Security-Policy-Report-Only</code></a> response header.
+This header allows the browser to report but not block on violations when testing.</p>
+<p>The HTTP header would be much the same.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Content-Security-Policy-Report-Only: default-src 'none'; style-src cdn.example.com; report-to /_/csp-reports
+</code></pre></div>
+<p>The report would be the same except for the disposition <code>"report"</code> and of course the <code>"original-policy"</code>:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">json</span></div><pre class="brush: json notranslate"><code>{
+  "csp-report": {
+    "blocked-uri": "http://example.com/css/style.css",
+    "disposition": "report",
+    "document-uri": "http://example.com/signup.html",
+    "effective-directive": "style-src-elem",
+    "original-policy": "default-src 'none'; style-src cdn.example.com; report-uri /_/csp-reports",
+    "referrer": "",
+    "status-code": 200,
+    "violated-directive": "style-src-elem"
+  }
+}
+</code></pre></div></div></section><section aria-labelledby="csp_violation_logging"><h3 id="csp_violation_logging"><a href="#csp_violation_logging">CSP violation logging</a></h3><div class="section-content"><p>Given a server that sends responses with the following <code>Content-Security-Policy</code> header:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Content-Security-Policy: default-src https:; report-uri /csp-violation-report-endpoint/
+</code></pre></div>
+<p><code>/csp-violation-report-endpoint/</code> could for example run a PHP script like the following that logs the JSON detailing the violation and, if the violation is the first one added to the log file, sends an email to an administrator:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">php</span></div><pre class="brush: php notranslate"><code>&lt;?php
+
+// Start configure
+$log_file = dirname(__FILE__) . "/csp-violations.log";
+$log_file_size_limit = 1000000; // bytes - once exceeded no further entries are added
+$email_address = "admin@example.com";
+$email_subject = "Content-Security-Policy violation";
+// End configuration
+
+$current_domain = preg_replace("/www\./i", "", $_SERVER["SERVER_NAME"]);
+$email_subject = $email_subject . " on " . $current_domain;
+
+http_response_code(204); // HTTP 204 No Content
+
+$json_data = file_get_contents("php://input");
+
+// We pretty print the JSON before adding it to the log file
+if (($json_data = json_decode($json_data))) {
+  $json_data = json_encode(
+    $json_data,
+    JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES,
+  );
+
+  if (!file_exists($log_file)) {
+    // Send an email
+    $message =
+      "The following Content-Security-Policy violation occurred on " .
+      $current_domain . ":\n\n" .
+      $json_data .
+      "\n\nFurther CPS violations will be logged to the following log file, but no further email notifications will be sent until this log file is deleted:\n\n" .
+      $log_file;
+    mail(
+      $email_address,
+      $email_subject,
+      $message,
+      "Content-Type: text/plain;charset=utf-8",
+    );
+  } else if (filesize($log_file) &gt; $log_file_size_limit) {
+    exit(0);
+  }
+
+  file_put_contents($log_file, $json_data, FILE_APPEND | LOCK_EX);
+}
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://w3c.github.io/webappsec-csp/#directive-report-uri">Content Security Policy Level 3<!-- --> <br><small># <!-- -->directive-report-uri</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy"><code>Content-Security-Policy</code></a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy-Report-Only"><code>Content-Security-Policy-Report-Only</code></a></li>
+<li><a href="report-to.htm"><code>report-to</code></a></li>
+</ul></div></section></article></main></div></div></div></body></html>

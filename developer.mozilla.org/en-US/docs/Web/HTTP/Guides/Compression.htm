@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Compression in HTTP</title><link rel="alternate" title="Kompression in HTTP" href="https://developer.mozilla.org/de/docs/Web/HTTP/Guides/Compression" hreflang="de"><link rel="alternate" title="Compression dans HTTP" href="https://developer.mozilla.org/fr/docs/Web/HTTP/Guides/Compression" hreflang="fr"><link rel="alternate" title="HTTP の圧縮" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Guides/Compression" hreflang="ja"><link rel="alternate" title="HTTP에서의 압축" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Guides/Compression" hreflang="ko"><link rel="alternate" title="Compressão em HTTP" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Guides/Compression" hreflang="pt"><link rel="alternate" title="HTTP 协议中的数据压缩" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Guides/Compression" hreflang="zh"><link rel="alternate" title="Compression in HTTP" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Compression" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="Compression is an important way to increase the performance of a website. For some documents, size reduction of up to 70% lowers the bandwidth capacity needs. Over the years, algorithms also got more efficient, and new ones are supported by clients and servers."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Compression"><meta property="og:title" content="Compression in HTTP - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="Compression is an important way to increase the performance of a website. For some documents, size reduction of up to 70% lowers the bandwidth capacity needs. Over the years, algorithms also got more efficient, and new ones are supported by clients and servers."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Compression"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Compression in HTTP</h1></header><div class="section-content"><p><strong>Compression</strong> is an important way to increase the performance of a website. For some documents, size reduction of up to 70% lowers the bandwidth capacity needs. Over the years, algorithms also got more efficient, and new ones are supported by clients and servers.</p>
+<p>In practice, web developers don't need to implement compression mechanisms, both browsers and servers have it implemented already, but they have to be sure that the server is configured adequately. Compression happens at three different levels:</p>
+<ul>
+<li>first some file formats are compressed with specific optimized methods,</li>
+<li>then general compression can happen at the HTTP level (the resource is transmitted compressed from end to end),</li>
+<li>and finally compression can be defined at the connection level, between two nodes of an HTTP connection.</li>
+</ul></div><section aria-labelledby="file_format_compression"><h2 id="file_format_compression"><a href="#file_format_compression">File format compression</a></h2><div class="section-content"><p>Each data type has some redundancy, that is <em>wasted space</em>, in it. If text can typically have as much as 60% redundancy, this rate can be much higher for some other media like audio and video. Unlike text, these other media types use a lot of space to store their data and the need to optimize storage and regain space was apparent very early. Engineers designed the optimized compression algorithm used by file formats designed for this specific purpose. Compression algorithms used for files can be grouped into two broad categories:</p>
+<ul>
+<li><em>Loss-less compression</em>, where the compression-decompression cycle doesn't alter the data that is recovered. It matches (byte to byte) with the original.
+For images, <code>gif</code> or <code>png</code> are using lossless compression.</li>
+<li><em>Lossy compression</em>, where the cycle alters the original data in a (hopefully) imperceptible way for the user.
+Video formats on the Web are lossy; the <code>jpeg</code> image format is also lossy.</li>
+</ul>
+<p>Some formats can be used for both loss-less or lossy compression, like <code>webp</code>, and usually lossy algorithm can be configured to compress more or less, which then of course leads to less or more quality. For better performance of a website, it is ideal to compress as much as possible, while keeping an acceptable level of quality. For images, an image generated by a tool could be not optimized enough for the Web; it is recommended to use tools that will compress as much as possible with the required quality. There are <a href="https://www.creativebloq.com/design/image-compression-tools-1132865" class="external" target="_blank">numerous tools</a> that are specialized for this.</p>
+<p>Lossy compression algorithms are usually more efficient than loss-less ones.</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+As compression works better on a specific kind of files, it usually provides nothing to compress them a second time. In fact, this is often counterproductive as the cost of the overhead (algorithms usually need a dictionary that adds to the initial size) can be higher than the extra gain in compression resulting in a larger file. Do not use the two following techniques for files in a compressed format.</p>
+</div></div></section><section aria-labelledby="end-to-end_compression"><h2 id="end-to-end_compression"><a href="#end-to-end_compression">End-to-end compression</a></h2><div class="section-content"><p>For compression, end-to-end compression is where the largest performance improvements of websites reside. End-to-end compression refers to a compression of the body of a message that is done by the server and will last unchanged until it reaches the client. Whatever the intermediate nodes are, they leave the body untouched.</p>
+<!-- 
+%%{init: { "sequence": { "wrap": true, "width": 175, "noteAlign": "center", "messageAlign": "left" }} }%%
+
+sequenceDiagram
+    participant Client
+    participant Proxy1 as Proxy
+    participant Proxy2 as Proxy
+    participant Server
+
+    Note over Client: Resource requested.
+    Client->>Server:
+    Note over Server: Resource is compressed and returned.
+    Server->>Client:
+    Note over Proxy1,Proxy2: Intermediate nodes do not uncompress the body.
+    Note over Client: Client decompresses the body.
+ -->
+<p><img src="Compression/httpenco1.svg" alt="A server sending a compressed HTTP body to a client via network nodes. The body is not decompressed at any hop through the network until it reaches the client." width="950" height="463" loading="lazy"></p>
+<p>All modern browsers and servers do support it and the only thing to negotiate is the compression algorithm to use. These algorithms are optimized for text. In the 1990s, compression technology was advancing at a rapid pace and numerous successive algorithms have been added to the set of possible choices. Nowadays, only two are relevant: <code>gzip</code>, the most common one, and <code>br</code> the new challenger.</p>
+<p>To select the algorithm to use, browsers and servers use <a href="Content_negotiation.htm">proactive content negotiation</a>. The browser sends an <a href="/en-US/docs/Web/HTTP/Reference/Headers/Accept-Encoding"><code>Accept-Encoding</code></a> header with the algorithm it supports and its order of precedence, the server picks one, uses it to compress the body of the response and uses the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Encoding"><code>Content-Encoding</code></a> header to tell the browser the algorithm it has chosen. As content negotiation has been used to choose a representation based on its encoding, the server must send a <a href="/en-US/docs/Web/HTTP/Reference/Headers/Vary"><code>Vary</code></a> header containing at least <a href="/en-US/docs/Web/HTTP/Reference/Headers/Accept-Encoding"><code>Accept-Encoding</code></a> alongside this header in the response; that way, caches will be able to cache the different representations of the resource.</p>
+<!-- 
+%%{init: { "sequence": { "wrap": true, "width":380, "noteAlign": "center", "messageAlign": "left" }} }%%
+
+sequenceDiagram
+    participant Client
+    participant Server
+
+    Note over Client: The client signifies its ability to understand two compression algorithms.
+    Client->>Server: GET /doc HTTP/1.1<br/>Accept-Encoding: br, gzip
+    Note over Server: The resource is sent compressed. The Vary header indicates that content negotiation has been used to select the algorithm.
+    Server->>Client: HTTP/1.1 200 OK<br/>Content-Encoding: br<br/>Vary: Accept-Encoding
+ -->
+<p><img src="Compression/httpcompression1.svg" alt="A client requesting content with an 'Accept-Encoding: br, gzip' header. The server responds with a body compressed using the Brotli algorithm and the required 'Content-Encoding' and 'Vary' headers." width="850" height="479" loading="lazy"></p>
+<p>As compression brings significant performance improvements, it is recommended to activate it for all files except already compressed ones like images, audio files and videos.</p>
+<p>Apache supports compression and uses <a href="https://httpd.apache.org/docs/current/mod/mod_deflate.html" class="external" target="_blank">mod_deflate</a>; for Nginx there is <a href="https://nginx.org/en/docs/http/ngx_http_gzip_module.html" class="external" target="_blank">ngx_http_gzip_module</a>; for IIS, the <a href="https://learn.microsoft.com/en-us/iis/configuration/system.webServer/httpCompression/" class="external" target="_blank"><code>&lt;httpCompression&gt;</code></a> element.</p></div></section><section aria-labelledby="compression_dictionary_transport"><h2 id="compression_dictionary_transport"><a href="#compression_dictionary_transport">Compression dictionary transport</a></h2><div class="section-content"><p>Modern compression formats such as <a href="https://developer.mozilla.org/en-US/docs/Glossary/Brotli_compression">Brotli compression</a> and <a href="https://developer.mozilla.org/en-US/docs/Glossary/Zstandard_compression">Zstandard compression</a> can use dictionaries of frequently used data to further increase compression over just referencing those from within the file being compressed. Typically, for HTTP responses, this uses the predefined static dictionary included in that format (for example <a href="https://github.com/google/brotli/blob/master/csharp/org/brotli/dec/Dictionary.cs" class="external" target="_blank">the Brotli static dictionary is available in the source code</a>).</p>
+<p><a href="Compression_dictionary_transport.htm">Compression Dictionary Transport</a> enables a developer to specify a resource which can be used as a dictionary for future requests. This can either be a specific dictionary file, or an existing resource (for example, using <code>app.v1.js</code> as a dictionary when downloading <code>app.v2.js</code>). This typically improves compression and therefore load time. In the <code>app.vX.js</code> example, most of the download would consist of only the delta between the two versions, and the common bytes could be referenced from the original <code>app.v1.js</code> file that is already downloaded.</p></div></section><section aria-labelledby="hop-by-hop_compression"><h2 id="hop-by-hop_compression"><a href="#hop-by-hop_compression">Hop-by-hop compression</a></h2><div class="section-content"><p>Hop-by-hop compression, though similar to end-to-end compression, differs by one fundamental element: the compression doesn't happen on the resource in the server, creating a specific representation that is then transmitted, but on the body of the message between any two nodes on the path between the client and the server. Connections between successive intermediate nodes may apply a <em>different</em> compression.</p>
+<!-- 
+%%{init: { "sequence": { "wrap": true, "width": 130, "noteAlign": "center", "messageAlign": "left" }} }%%
+
+sequenceDiagram
+    participant Client
+    participant N1 as Node
+    participant N2 as Node
+    participant N3 as Node
+    participant Server
+
+    Client->>N1: Uncompressed
+    Note left of Client: Client sends an uncompressed body.
+    Note over N1,N3: Intermediate nodes send the body with or without compression on a hop-by-hop basis.
+    N1->>N2: Uncompressed
+    N2->>N3: Compressed
+    N3->>Server: Uncompressed
+    Note right of Server: The server receives an uncompressed body.
+ -->
+<p><img src="Compression/httpte1.svg" alt="A server sending an uncompressed HTTP body to a client via network nodes. The body is compressed and decompressed by nodes on the network depending on 'Transfer-Encoding' headers before it reaches the client." width="1132" height="624" loading="lazy"></p>
+<p>To do this, HTTP uses a mechanism similar to the content negotiation for end-to-end compression: the node transmitting the request advertizes its will using the <a href="/en-US/docs/Web/HTTP/Reference/Headers/TE"><code>TE</code></a> header and the other node chooses the adequate method, applies it, and indicates its choice with the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Transfer-Encoding"><code>Transfer-Encoding</code></a> header.</p>
+<!-- 
+%%{init: { "sequence": { "wrap": true, "width": 175, "noteAlign": "center" }} }%%
+
+sequenceDiagram
+    participant Client
+    participant Node1 as Node
+    participant Node2 as Node
+    participant Server
+
+    Note over Client: Request message
+    Client->>Node1: GET /doc HTTP/1.1
+
+    Note over Node1: Shows support for compression while forwarding message.
+    Node1->>Node2: GET /doc HTTP/1.1<br/>TE: gzip, br
+
+    Note over Node2: Forwards message
+    Node2->>Server: GET /doc HTTP/1.1
+
+    Note over Server: Returns resource in an uncompressed body.
+    Server->>Node2: HTTP/1.1 200 OK
+
+    Note over Node2: Compresses body and forwards message.
+    Node2->>Node1: HTTP/1.1 200 OK<br/>Transfer-Encoding: br
+
+    Note over Node1: Decompresses resource and returns message to Client.
+    Node1->>Client: HTTP/1.1 200 OK
+ -->
+<p><img src="Compression/httpcomp2.svg" alt="A client requesting content from a server with no compression-related headers. The server responds with an uncompressed body. The body is compressed and decompressed by nodes on the network before it reaches the client." width="951" height="943" loading="lazy"></p>
+<p>In practice, hop-by-hop compression is transparent for the server and the client, and is rarely used. <a href="/en-US/docs/Web/HTTP/Reference/Headers/TE"><code>TE</code></a> and <a href="/en-US/docs/Web/HTTP/Reference/Headers/Transfer-Encoding"><code>Transfer-Encoding</code></a> are mostly used to send a response by chunks, allowing to start transmitting a resource without knowing its length.</p>
+<p>Note that using <a href="/en-US/docs/Web/HTTP/Reference/Headers/Transfer-Encoding"><code>Transfer-Encoding</code></a> and compression at the hop level is so rare that most servers, like Apache, Nginx, or IIS, have no easy way to configure it. Such configuration usually happens at the proxy level.</p></div></section><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="Compression_dictionary_transport.htm">Compression Dictionary Transport guide</a></li>
+<li>Glossary terms:
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Brotli_compression">Brotli compression</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/gzip_compression">Gzip compression</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Lossless_compression">Lossless compression</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Lossy_compression">Lossy compression</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Zstandard_compression">Zstandard compression</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Compression_dictionary_transport">Compression Dictionary Transport</a></li>
+</ul>
+</li>
+</ul></div></section></article></main></div></div></div></body></html>

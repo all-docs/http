@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Content-Digest header</title><link rel="alternate" title="Content-Digest header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Content-Digest" hreflang="de"><link rel="alternate" title="SubtleCrypto.digest()" href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Headers/Content-Digest" hreflang="es"><link rel="alternate" title="Digest" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Headers/Content-Digest" hreflang="pt"><link rel="alternate" title="Content-Digest" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Content-Digest" hreflang="zh"><link rel="alternate" title="Content-Digest header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Digest" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Content-Digest request and response header provides a digest calculated using a hashing algorithm applied to the message content.
+A recipient can use the Content-Digest to validate the HTTP message content for integrity purposes."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Digest"><meta property="og:title" content="Content-Digest header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Content-Digest request and response header provides a digest calculated using a hashing algorithm applied to the message content.
+A recipient can use the Content-Digest to validate the HTTP message content for integrity purposes."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Digest"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Content-Digest header</h1></header><div class="section-content"><p>The HTTP <strong><code>Content-Digest</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Request_header">request</a> and <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">response header</a> provides a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Hash_function">digest</a> calculated using a hashing algorithm applied to the message content.
+A recipient can use the <code>Content-Digest</code> to validate the HTTP message content for integrity purposes.</p>
+<p>The <a href="Want-Content-Digest.htm"><code>Want-Content-Digest</code></a> field lets a sender request a <code>Content-Digest</code> along with their hashing algorithm preferences.
+A content digest will differ based on <a href="Content-Encoding.htm"><code>Content-Encoding</code></a> and <a href="Content-Range.htm"><code>Content-Range</code></a>, but not <a href="Transfer-Encoding.htm"><code>Transfer-Encoding</code></a>.</p>
+<p>In certain cases, a <a href="Repr-Digest.htm"><code>Repr-Digest</code></a> can be used to validate the integrity of partial or multipart messages against the full representation.
+For example, in <a href="/en-US/docs/Web/HTTP/Guides/Range_requests">range requests</a>, a <code>Repr-Digest</code> will always have the same value if only the requested byte ranges differ, whereas the content digest will be different for each part.
+For this reason, a <code>Content-Digest</code> is identical to a <a href="Repr-Digest.htm"><code>Repr-Digest</code></a> when a representation is sent in a single message.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Request_header">Request header</a>, <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a>, <a href="https://developer.mozilla.org/en-US/docs/Glossary/Representation_header">Representation header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Content-Digest: &lt;digest-algorithm&gt;=&lt;digest-value&gt;
+
+// Multiple digest algorithms
+Content-Digest: &lt;digest-algorithm&gt;=&lt;digest-value&gt;,&lt;digest-algorithm&gt;=&lt;digest-value&gt;, …
+</code></pre></div></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><dl>
+<dt id="digest-algorithm"><a href="#digest-algorithm"><code>&lt;digest-algorithm&gt;</code></a></dt>
+<dd>
+<p>The algorithm used to create a digest of the message content.
+Only two registered digest algorithms are considered secure: <code>sha-512</code> and <code>sha-256</code>.
+The insecure (legacy) registered digest algorithms are: <code>md5</code>, <code>sha</code> (SHA-1), <code>unixsum</code>, <code>unixcksum</code>, <code>adler</code> (ADLER32) and <code>crc32c</code>.</p>
+</dd>
+<dt id="digest-value"><a href="#digest-value"><code>&lt;digest-value&gt;</code></a></dt>
+<dd>
+<p>The digest in bytes of the message content using the <code>&lt;digest-algorithm&gt;</code>.
+The choice of digest algorithm also determines the encoding to use: <code>sha-512</code> and <code>sha-256</code> use <a href="https://developer.mozilla.org/en-US/docs/Glossary/Base64">base64</a> encoding, while some legacy digest algorithms such as <code>unixsum</code> use a decimal integer.
+In contrast to earlier drafts of the specification, the standard base64-encoded digest bytes are wrapped in colons (<code>:</code>, ASCII 0x3A) as part of the <a href="https://www.rfc-editor.org/rfc/rfc8941#name-byte-sequences" class="external" target="_blank">dictionary syntax</a>.</p>
+</dd>
+</dl></div></section><section aria-labelledby="description"><h2 id="description"><a href="#description">Description</a></h2><div class="section-content"><p>A <code>Digest</code> header was defined in previous specifications, but it proved problematic as the scope of what the digest applied to was not clear.
+Specifically, it was difficult to distinguish whether a digest applied to the entire resource representation or to the specific content of a HTTP message.
+As such, two separate headers were specified (<code>Content-Digest</code> and <code>Repr-Digest</code>) to convey HTTP message content digests and resource representation digests, respectively.</p></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="user-agent_request_for_a_sha-256_content-digest"><h3 id="user-agent_request_for_a_sha-256_content-digest"><a href="#user-agent_request_for_a_sha-256_content-digest">User-agent request for a SHA-256 Content-Digest</a></h3><div class="section-content"><p>In the following example, a user-agent requests a digest of the message content with a preference for SHA-256, followed by SHA-1 at a lower preference:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>GET /items/123 HTTP/1.1
+Host: example.com
+Want-Content-Digest: sha-256=10, sha=3
+</code></pre></div>
+<p>The server responds with a <code>Content-Digest</code> of the message content using the SHA-256 algorithm:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Digest: sha-256=:RK/0qy18MlBSVnWgjwz6lZEWjP/lF5HF9bvEF8FabDg=:
+
+{"hello": "world"}
+</code></pre></div></div></section><section aria-labelledby="identical_content-digest_and_repr-digest_values"><h3 id="identical_content-digest_and_repr-digest_values"><a href="#identical_content-digest_and_repr-digest_values">Identical Content-Digest and Repr-Digest values</a></h3><div class="section-content"><p>A user-agent requests a resource without a <code>Want-Content-Digest</code> field:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>GET /items/123 HTTP/1.1
+Host: example.com
+</code></pre></div>
+<p>The server is configured to send unsolicited digest headers in responses.
+The <code>Repr-Digest</code> and <code>Content-Digest</code> fields have matching values because they are using the same algorithm, and in this case the whole resource is sent in one message:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 19
+Content-Digest: sha-256=:RK/0qy18MlBSVnWgjwz6lZEWjP/lF5HF9bvEF8FabDg=:
+Repr-Digest: sha-256=:RK/0qy18MlBSVnWgjwz6lZEWjP/lF5HF9bvEF8FabDg=:
+
+{"hello": "world"}
+</code></pre></div></div></section><section aria-labelledby="diverging_content-digest_and_repr-digest_values"><h3 id="diverging_content-digest_and_repr-digest_values"><a href="#diverging_content-digest_and_repr-digest_values">Diverging Content-Digest and Repr-Digest values</a></h3><div class="section-content"><p>If the same request is repeated as the previous example, but uses a <a href="/en-US/docs/Web/HTTP/Reference/Methods/HEAD"><code>HEAD</code></a> method instead of a <a href="/en-US/docs/Web/HTTP/Reference/Methods/GET"><code>GET</code></a>, the <code>Repr-Digest</code> and <code>Content-Digest</code> fields will be different:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>GET /items/123 HTTP/1.1
+Host: example.com
+</code></pre></div>
+<p>The <code>Repr-Digest</code> value will be the same as before, but there is no message body, so a different <code>Content-Digest</code> would be sent by the server:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Digest: sha-256=:47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=:
+Repr-Digest: sha-256=:RK/0qy18MlBSVnWgjwz6lZEWjP/lF5HF9bvEF8FabDg=:
+</code></pre></div></div></section><section aria-labelledby="user-agent_sending_a_content-digest_in_requests"><h3 id="user-agent_sending_a_content-digest_in_requests"><a href="#user-agent_sending_a_content-digest_in_requests">User-agent sending a Content-Digest in requests</a></h3><div class="section-content"><p>In the following example, a user-agent sends a digest of the message content using SHA-512.
+It sends both a <code>Content-Digest</code> and a <code>Repr-Digest</code>, which differ from each other because of the <code>Content-Encoding</code>:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>POST /bank_transfer HTTP/1.1
+Host: example.com
+Content-Encoding: zstd
+Content-Digest: sha-512=:ABC…=:
+Repr-Digest: sha-512=:DEF…=:
+
+{
+ "recipient": "Alex",
+ "amount": 900000000
+}
+</code></pre></div>
+<p>The server may calculate a digest of the content it has received and compare the result with the <code>Content-Digest</code> or <code>Repr-Digest</code> headers to validate the message integrity.
+In requests like the example above, the <code>Repr-Digest</code> is more useful to the server as this is calculated over the decoded representation and would be more consistent in different scenarios.</p></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://datatracker.ietf.org/doc/html/rfc9530#section-2">Digest Fields<!-- --> <br><small># <!-- -->section-2</small></a></td></tr></tbody></table><section aria-labelledby="browser_compatibility"><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><div class="section-content"><p>This header has no specification-defined browser integration ("browser compatibility" does not apply).
+Developers can set and get HTTP headers using <code>fetch()</code> in order to provide application-specific implementation behavior.</p></div></section><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="Want-Content-Digest.htm"><code>Want-Content-Digest</code></a> header to request a content digest</li>
+<li><a href="Repr-Digest.htm"><code>Repr-Digest</code></a>, <a href="Want-Repr-Digest.htm"><code>Want-Repr-Digest</code></a> representation digest headers</li>
+<li><a href="ETag.htm"><code>ETag</code></a></li>
+<li><a href="https://developer.ebay.com/develop/guides/digital-signatures-for-apis" class="external" target="_blank">Digital Signatures for APIs</a> SDK guide uses <code>Content-Digest</code>s for digital signatures in HTTP calls (developer.ebay.com)</li>
+</ul></div></section></article></main></div></div></div></body></html>

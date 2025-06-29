@@ -1,0 +1,197 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Cross-Origin-Opener-Policy (COOP) header</title><link rel="alternate" title="Cross-Origin-Opener-Policy (COOP) header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Cross-Origin-Opener-Policy" hreflang="de"><link rel="alternate" title="Cross-Origin-Opener-Policy (COOP) ヘッダー" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Cross-Origin-Opener-Policy" hreflang="ja"><link rel="alternate" title="Cross-Origin-Opener-Policy (COOP) header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Opener-Policy" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Cross-Origin-Opener-Policy (COOP) response header allows a website to control whether a new top-level document, opened using Window.open() or by navigating to a new page, is opened in the same browsing context group (BCG) or in a new browsing context group."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Opener-Policy"><meta property="og:title" content="Cross-Origin-Opener-Policy (COOP) header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Cross-Origin-Opener-Policy (COOP) response header allows a website to control whether a new top-level document, opened using Window.open() or by navigating to a new page, is opened in the same browsing context group (BCG) or in a new browsing context group."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Opener-Policy"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Cross-Origin-Opener-Policy (COOP) header</h1></header><div class="section-content"><p>The HTTP <strong><code>Cross-Origin-Opener-Policy</code></strong> (COOP) <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">response header</a> allows a website to control whether a new top-level document, opened using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/open"><code>Window.open()</code></a> or by navigating to a new page, is opened in the same <a href="https://developer.mozilla.org/en-US/docs/Glossary/Browsing_context">browsing context group</a> (BCG) or in a new browsing context group.</p>
+<p>When opened in a new BCG, any references between the new document and its opener are severed, and the new document may be process-isolated from its opener.
+This ensures that potential attackers can't open your documents with <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/open"><code>Window.open()</code></a> and then use the returned value to access its global object, and thereby prevents a set of cross-origin attacks referred to as <a href="https://xsleaks.dev/" class="external" target="_blank">XS-Leaks</a>.</p>
+<p>It also means that any object opened by your document in a new BCG can't access it using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/opener"><code>window.opener</code></a>.
+This allows you to have more control over references to a window than <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/noopener"><code>rel=noopener</code></a>, which affects outgoing navigations but not documents opened with <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/open"><code>Window.open()</code></a>.</p>
+<p>The behavior depends on the policies of both the new document and its opener, and whether the new document is opened following a navigation or using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/open"><code>Window.open()</code></a>.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Cross-Origin-Opener-Policy: unsafe-none
+Cross-Origin-Opener-Policy: same-origin-allow-popups
+Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Opener-Policy: noopener-allow-popups
+</code></pre></div></div></section><section aria-labelledby="directives"><h3 id="directives"><a href="#directives">Directives</a></h3><div class="section-content"><dl>
+<dt id="unsafe-none"><a href="#unsafe-none"><code>unsafe-none</code></a></dt>
+<dd>
+<p>The document permits sharing its browsing context group with any other document, and may therefore be unsafe.
+It is used to opt-out a document from using COOP for process isolation.
+This is the default value.</p>
+<p>On navigations, documents with <code>unsafe-none</code> will always open and be opened into a new BCG — unless the other document also has <code>unsafe-none</code> (or no COOP directive value).</p>
+<p>Using <code>Window.open()</code>, documents with <code>unsafe-none</code> will always open documents with any other value into a new BCG.
+However documents with <code>unsafe-none</code> can be opened in the same BCG if the opener has the directive <code>same-origin-allow-popups</code>, <code>noopener-allow-popups</code>, or <code>unsafe-none</code>.
+A document with <code>same-origin</code> will always open a document with <code>unsafe-none</code> in a new BCG.</p>
+</dd>
+<dt id="same-origin"><a href="#same-origin"><code>same-origin</code></a></dt>
+<dd>
+<p>The document permits loading into BCGs that use COOP and contain only same-origin documents.
+This is used to provide <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/crossOriginIsolated">cross-origin isolation</a> for a BCG.</p>
+<p>Documents with <code>same-origin</code> will only open and be opened in the same BCG if both documents are same-origin and have the <code>same-origin</code> directive.</p>
+</dd>
+<dt id="same-origin-allow-popups"><a href="#same-origin-allow-popups"><code>same-origin-allow-popups</code></a></dt>
+<dd>
+<p>This is similar to <a href="#same-origin"><code>same-origin</code></a> directive, except that it allows the opening of documents using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/open"><code>Window.open()</code></a> in the same BCG if they have a COOP value of <code>unsafe-none</code>.</p>
+<p>The directive is used to relax the <code>same-origin</code> restriction for integrations where a document needs the benefits of cross-origin isolation but also needs to open and retain a reference to trusted cross-origin documents.
+For example, when using a cross-origin service for OAuth or payments.</p>
+<p>A document with this directive can open a document in the same BCG using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/open"><code>Window.open()</code></a> if it has a COOP value of <code>unsafe-none</code>.
+In this case it does not matter if the opened document is cross-site or same-site.</p>
+<p>Otherwise documents with <code>same-origin-allow-popups</code> will only open and be opened in the same BCG if both documents are same-origin and have the <code>same-origin-allow-popups</code> directive.</p>
+</dd>
+<dt id="noopener-allow-popups"><a href="#noopener-allow-popups"><code>noopener-allow-popups</code></a></dt>
+<dd>
+<p>Documents with this directive are always opened into a new BCG, except when opened by navigating from a document that also has <code>noopener-allow-popups</code>.
+It is used to support cases where there is a need to process-isolate <em>same-origin</em> documents.</p>
+<p>This severs the connections between the new document and its opener, isolating the browsing context for the current document regardless of the opener document's origin.
+This ensures that the opener can't run scripts in opened documents and vice versa — even if they are same-origin.</p>
+<p>On navigations, a document with this directive will always open other documents in a new BCG unless they are same-origin and have the directive <code>noopener-allow-popups</code>.
+Using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/open"><code>Window.open()</code></a>, a document with this directive will open documents in a new BCG unless they have <code>unsafe-none</code>, and in this case it does not matter if they are same-site or cross-site.</p>
+</dd>
+</dl></div></section><section aria-labelledby="description"><h2 id="description"><a href="#description">Description</a></h2><div class="section-content"><p>Generally you should set your policies such that only same-origin and trusted cross-origin resources that need to be able to script each other should be allowed to be opened in the same browser context group.
+Other resources should be cross-origin isolated in their own group.</p>
+<p>The following sections show whether documents will be opened in the same BCG or a new BCG following a navigation or opening a window programmatically.</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+The specification uses the term "popup" to refer to any document opened using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/open"><code>Window.open()</code></a>, whether it is a popup, tab, window, or other context.</p>
+</div></div></section><section aria-labelledby="navigations"><h3 id="navigations"><a href="#navigations">Navigations</a></h3><div class="section-content"><p>When navigating between documents, the new document is opened in the same BCG if the two documents have "matching coop policies", and otherwise into a new BCG.</p>
+<p>The policies match if either both documents have the policy <code>unsafe-none</code>, or if the policies are the same and the documents are same-origin.</p>
+<p>The table below shows how this rule affects whether documents are opened in the same or a new BCG for the different directive values.</p>
+<!--  https://html.spec.whatwg.org/multipage/browsers.html#matching-coop  -->
+<figure class="table-container"><table>
+<thead>
+<tr>
+<th>Opener (↓) / Opened (→)</th>
+<th><code>unsafe-none</code></th>
+<th><code>same-origin-allow-popups</code></th>
+<th><code>same-origin</code></th>
+<th><code>noopener-allow-popups</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>unsafe-none</code></td>
+<td>Same</td>
+<td>New</td>
+<td>New</td>
+<td>New</td>
+</tr>
+<tr>
+<td><code>same-origin-allow-popups</code></td>
+<td>New</td>
+<td>Same if same-origin</td>
+<td>New</td>
+<td>New</td>
+</tr>
+<tr>
+<td><code>same-origin</code></td>
+<td>New</td>
+<td>New</td>
+<td>Same if same-origin</td>
+<td>New</td>
+</tr>
+<tr>
+<td><code>noopener-allow-popups</code></td>
+<td>New</td>
+<td>New</td>
+<td>New</td>
+<td>Same if same-origin</td>
+</tr>
+</tbody>
+</table></figure></div></section><section aria-labelledby="opening_with_window.open"><h3 id="opening_with_window.open"><a href="#opening_with_window.open">Opening with Window.open()</a></h3><div class="section-content"><p>When opening a document using <code>Window.open()</code>, the new document is opened in a new BCG according to the following rules, which are evaluated in order:</p>
+<ol>
+<li>If the new document has COOP set to <code>noopener-allow-popups</code> =&gt; open the new document in a new BCG</li>
+<li>If the new document has COOP set to <code>unsafe-none</code> and the opener document has COOP set to either <code>same-origin-allow-popups</code> or <code>noopener-allow-popups</code> =&gt; open the new document in the same BCG</li>
+<li>If the new document and the opening document have <a href="#navigations">matching COOP policies</a> =&gt; open the new document in the same BCG</li>
+<li>Otherwise, open the new document in a new BCG</li>
+</ol>
+<p>The table below shows how these rules affect whether documents are opened in the same or a new BCG for the different directive values.</p>
+<!--  https://html.spec.whatwg.org/multipage/browsers.html#check-browsing-context-group-switch-coop-value-popup  -->
+<figure class="table-container"><table>
+<thead>
+<tr>
+<th>Opener (↓) / Opened (→)</th>
+<th><code>unsafe-none</code></th>
+<th><code>same-origin-allow-popups</code></th>
+<th><code>same-origin</code></th>
+<th><code>noopener-allow-popups</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>unsafe-none</code></td>
+<td>Same</td>
+<td>New</td>
+<td>New</td>
+<td>New</td>
+</tr>
+<tr>
+<td><code>same-origin-allow-popups</code></td>
+<td>Same</td>
+<td>Same if same-origin</td>
+<td>New</td>
+<td>New</td>
+</tr>
+<tr>
+<td><code>same-origin</code></td>
+<td>New</td>
+<td>New</td>
+<td>Same if same-origin</td>
+<td>New</td>
+</tr>
+<tr>
+<td><code>noopener-allow-popups</code></td>
+<td>Same</td>
+<td>New</td>
+<td>New</td>
+<td>New</td>
+</tr>
+</tbody>
+</table></figure></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="features_that_depend_on_cross-origin_isolation"><h3 id="features_that_depend_on_cross-origin_isolation"><a href="#features_that_depend_on_cross-origin_isolation">Features that depend on cross-origin isolation</a></h3><div class="section-content"><p>Certain features, such as access to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer"><code>SharedArrayBuffer</code></a> objects or using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/now"><code>Performance.now()</code></a> with unthrottled timers, are only available if your document is <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/crossOriginIsolated" title="cross-origin isolated">cross-origin isolated</a>.</p>
+<p>To use these features in a document, you will need to set the COOP header to <code>same-origin</code> and the <a href="Cross-Origin-Embedder-Policy.htm"><code>Cross-Origin-Embedder-Policy</code></a> header to <code>require-corp</code> (or <code>credentialless</code>).
+In addition the feature must not be blocked by <a href="Permissions-Policy/cross-origin-isolated.htm"><code>Permissions-Policy: cross-origin-isolated</code></a>.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Embedder-Policy: require-corp
+</code></pre></div>
+<p>You can use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/crossOriginIsolated"><code>Window.crossOriginIsolated</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/crossOriginIsolated"><code>WorkerGlobalScope.crossOriginIsolated</code></a> properties to check if a document is cross-origin isolated, and hence whether or not the features are restricted:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">js</span></div><pre class="brush: js notranslate"><code>const myWorker = new Worker("worker.js");
+
+if (crossOriginIsolated) {
+  const buffer = new SharedArrayBuffer(16);
+  myWorker.postMessage(buffer);
+} else {
+  const buffer = new ArrayBuffer(16);
+  myWorker.postMessage(buffer);
+}
+</code></pre></div></div></section><section aria-labelledby="severing_the_opener_relationship"><h3 id="severing_the_opener_relationship"><a href="#severing_the_opener_relationship">Severing the opener relationship</a></h3><div class="section-content"><p>Consider a hypothetical origin <code>example.com</code> that has two very different applications on the same origin:</p>
+<ul>
+<li>A chat application at <code>/chat</code> that enables any user to contact any other user and send them messages.</li>
+<li>A password management application at <code>/passwords</code> that contains all of the user's passwords, across different services.</li>
+</ul>
+<p>The administrators of the "passwords" application would very much like to ensure that it can't be directly scripted by the "chat" app, which by its nature has a larger XSS surface.
+The "right way" to isolate these applications would be to host them on different origins, but in some cases that's not possible, and those two applications have to be on a single origin for historical, business, or branding reasons.</p>
+<p>The <code>Cross-Origin-Opener-Policy: noopener-allow-popups</code> header can be used to ensure that a document can't be scripted by a document that opens it.</p>
+<p>If <code>example.com/passwords</code> is served with <code>noopener-allow-popups</code> the <code>WindowProxy</code> returned by <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/open"><code>Window.open()</code></a> will indicate that the windows is closed (<a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/closed"><code>Window.closed</code></a> is <code>true</code>), so the opener can't script the passwords app:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">js</span></div><pre class="brush: js notranslate"><code>const handle = window.open("example.com/passwords", "passwordTab");
+if (windowProxy.closed) {
+  // The new window is closed so it can't be scripted.
+}
+</code></pre></div>
+<p>Note that this alone is not considered a sufficient security measure.
+The site would also need to do the following:</p>
+<ul>
+<li>Use Fetch Metadata to block same-origin requests to the more-sensitive app that are not navigation requests.</li>
+<li>Ensure their authentication cookies are all <code>HttpOnly</code>.</li>
+<li>Ensure root-level Service-Workers are not installed by the less-sensitive app.</li>
+<li>Ensure that <code>postMessage</code> or <code>BroadcastChannel</code> on the more-sensitive app don't expose any sensitive information the any other same-origin app.</li>
+<li>Ensure their login page is served on a separate origin, due to password manager autofill being applied based on origin.</li>
+<li>Understand that the browser may still allocate the more-sensitive app in the same process as the less-sensitive one, making it vulnerable to Spectre-like attacks.</li>
+</ul></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://html.spec.whatwg.org/multipage/browsers.html#the-coop-headers">HTML<!-- --> <br><small># <!-- -->the-coop-headers</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="Cross-Origin-Embedder-Policy.htm"><code>Cross-Origin-Embedder-Policy</code></a></li>
+</ul></div></section></article></main></div></div></div></body></html>

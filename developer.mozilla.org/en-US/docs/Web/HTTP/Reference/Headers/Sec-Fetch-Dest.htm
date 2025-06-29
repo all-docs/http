@@ -1,0 +1,154 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Sec-Fetch-Dest header</title><link rel="alternate" title="Sec-Fetch-Dest header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Sec-Fetch-Dest" hreflang="de"><link rel="alternate" title="Sec-Fetch-Dest" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Sec-Fetch-Dest" hreflang="zh"><link rel="alternate" title="Sec-Fetch-Dest header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Sec-Fetch-Dest" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Sec-Fetch-Dest fetch metadata request header indicates the request's destination.
+That is the initiator of the original fetch request, which is where (and how) the fetched data will be used."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Sec-Fetch-Dest"><meta property="og:title" content="Sec-Fetch-Dest header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Sec-Fetch-Dest fetch metadata request header indicates the request's destination.
+That is the initiator of the original fetch request, which is where (and how) the fetched data will be used."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Sec-Fetch-Dest"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Sec-Fetch-Dest header</h1><details class="baseline-indicator low"><summary><span class="indicator" role="img" aria-label="Baseline Check"></span><div class="status-title">Baseline<!-- --> <span class="not-bold">2023</span> *</div><div class="pill">Newly available</div><div class="browsers"><span class="engine" title="Supported in Chrome and Edge"><span class="browser chrome supported" role="img" aria-label="Chrome check"></span><span class="browser edge supported" role="img" aria-label="Edge check"></span></span><span class="engine" title="Supported in Firefox"><span class="browser firefox supported" role="img" aria-label="Firefox check"></span></span><span class="engine" title="Supported in Safari"><span class="browser safari supported" role="img" aria-label="Safari check"></span></span></div><span class="icon icon-chevron "></span></summary><div class="extra"><p>Since<!-- --> <!-- -->March 2023<!-- -->, this feature works across the latest devices and browser versions. This feature might not work in older devices or browsers.</p><p>* Some parts of this feature may have varying levels of support.</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility" data-glean="baseline_link_learn_more" target="_blank" class="learn-more">Learn more</a></li><li><a href="#browser_compatibility" data-glean="baseline_link_bcd_table">See full compatibility</a></li><li><a href="https://survey.alchemer.com/s3/7634825/MDN-baseline-feedback?page=%2Fen-US%2Fdocs%2FWeb%2FHTTP%2FReference%2FHeaders%2FSec-Fetch-Dest&amp;level=low" data-glean="baseline_link_feedback" class="feedback-link" target="_blank" rel="noreferrer">Report feedback</a></li></ul></div></details></header><div class="section-content"><p>The HTTP <strong><code>Sec-Fetch-Dest</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Fetch_metadata_request_header">fetch metadata request header</a> indicates the request's <em>destination</em>.
+That is the initiator of the original fetch request, which is where (and how) the fetched data will be used.</p>
+<p>This allows servers to determine whether to service a request based on whether it is appropriate for how it is <em>expected</em> to be used. For example, a request with an <code>audio</code> destination should request audio data, not some other type of resource (for example, a document that includes sensitive user information).</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Fetch_metadata_request_header">Fetch Metadata Request Header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>Yes (<code>Sec-</code> prefix)</td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <a href="https://developer.mozilla.org/en-US/docs/Glossary/CORS-safelisted_request_header">CORS-safelisted request header</a>
+      </th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Sec-Fetch-Dest: audio
+Sec-Fetch-Dest: audioworklet
+Sec-Fetch-Dest: document
+Sec-Fetch-Dest: embed
+Sec-Fetch-Dest: empty
+Sec-Fetch-Dest: fencedframe
+Sec-Fetch-Dest: font
+Sec-Fetch-Dest: frame
+Sec-Fetch-Dest: iframe
+Sec-Fetch-Dest: image
+Sec-Fetch-Dest: manifest
+Sec-Fetch-Dest: object
+Sec-Fetch-Dest: paintworklet
+Sec-Fetch-Dest: report
+Sec-Fetch-Dest: script
+Sec-Fetch-Dest: serviceworker
+Sec-Fetch-Dest: sharedworker
+Sec-Fetch-Dest: style
+Sec-Fetch-Dest: track
+Sec-Fetch-Dest: video
+Sec-Fetch-Dest: webidentity
+Sec-Fetch-Dest: worker
+Sec-Fetch-Dest: xslt
+</code></pre></div>
+<p>Servers should ignore this header if it contains any other value.</p></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><div class="notecard note">
+<p><strong>Note:</strong>
+These directives correspond to the values returned by <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request/destination"><code>Request.destination</code></a>.</p>
+</div>
+<dl>
+<dt id="audio"><a href="#audio"><code>audio</code></a></dt>
+<dd>
+<p>The destination is audio data. This might originate from an HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/audio"><code>&lt;audio&gt;</code></a> tag.</p>
+</dd>
+<dt id="audioworklet"><a href="#audioworklet"><code>audioworklet</code></a></dt>
+<dd>
+<p>The destination is data being fetched for use by an audio worklet. This might originate from a call to <a href="https://developer.mozilla.org/en-US/docs/Web/API/Worklet/addModule" title="audioWorklet.addModule()"><code>audioWorklet.addModule()</code></a>.</p>
+</dd>
+<dt id="document"><a href="#document"><code>document</code></a></dt>
+<dd>
+<p>The destination is a document (HTML or XML), and the request is the result of a user-initiated top-level navigation (e.g., resulting from a user clicking a link).</p>
+</dd>
+<dt id="embed"><a href="#embed"><code>embed</code></a></dt>
+<dd>
+<p>The destination is embedded content. This might originate from an HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/embed"><code>&lt;embed&gt;</code></a> tag.</p>
+</dd>
+<dt id="empty"><a href="#empty"><code>empty</code></a></dt>
+<dd>
+<p>The destination is the empty string. This is used for destinations that do not have their own value. For example: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch" title="fetch()"><code>fetch()</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon"><code>navigator.sendBeacon()</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventSource"><code>EventSource</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest"><code>XMLHttpRequest</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSocket"><code>WebSocket</code></a>, etc.</p>
+</dd>
+<dt id="fencedframe"><a href="#fencedframe"><code>fencedframe</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future.">
+<span class="visually-hidden">Experimental</span>
+</abbr></a></dt>
+<dd>
+<p>The destination is a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fenced_frame_API">fenced frame</a>.</p>
+</dd>
+<dt id="font"><a href="#font"><code>font</code></a></dt>
+<dd>
+<p>The destination is a font. This might originate from CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face"><code>@font-face</code></a>.</p>
+</dd>
+<dt id="frame"><a href="#frame"><code>frame</code></a></dt>
+<dd>
+<p>The destination is a frame. This might originate from an HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/frame"><code>&lt;frame&gt;</code></a> tag.</p>
+</dd>
+<dt id="iframe"><a href="#iframe"><code>iframe</code></a></dt>
+<dd>
+<p>The destination is an iframe. This might originate from an HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/iframe"><code>&lt;iframe&gt;</code></a> tag.</p>
+</dd>
+<dt id="image"><a href="#image"><code>image</code></a></dt>
+<dd>
+<p>The destination is an image. This might originate from an HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img"><code>&lt;img&gt;</code></a>, SVG <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/image"><code>&lt;image&gt;</code></a>, CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-image"><code>background-image</code></a>, CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/cursor"><code>cursor</code></a>, CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-image"><code>list-style-image</code></a>, etc.</p>
+</dd>
+<dt id="manifest"><a href="#manifest"><code>manifest</code></a></dt>
+<dd>
+<p>The destination is a manifest. This might originate from an HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/manifest">&lt;link rel=manifest&gt;</a>.</p>
+</dd>
+<dt id="object"><a href="#object"><code>object</code></a></dt>
+<dd>
+<p>The destination is an object. This might originate from an HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/object"><code>&lt;object&gt;</code></a> tag.</p>
+</dd>
+<dt id="paintworklet"><a href="#paintworklet"><code>paintworklet</code></a></dt>
+<dd>
+<p>The destination is a paint worklet. This might originate from a call to <a href="https://developer.mozilla.org/en-US/docs/Web/API/Worklet/addModule" title="CSS.PaintWorklet.addModule()"><code>CSS.PaintWorklet.addModule()</code></a>.</p>
+</dd>
+<dt id="report"><a href="#report"><code>report</code></a></dt>
+<dd>
+<p>The destination is a report (for example, a content security policy report).</p>
+</dd>
+<dt id="script"><a href="#script"><code>script</code></a></dt>
+<dd>
+<p>The destination is a script. This might originate from an HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script"><code>&lt;script&gt;</code></a> tag or a call to <a href="https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts"><code>WorkerGlobalScope.importScripts()</code></a>.</p>
+</dd>
+<dt id="serviceworker"><a href="#serviceworker"><code>serviceworker</code></a></dt>
+<dd>
+<p>The destination is a service worker. This might originate from a call to <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register" title="navigator.serviceWorker.register()"><code>navigator.serviceWorker.register()</code></a>.</p>
+</dd>
+<dt id="sharedworker"><a href="#sharedworker"><code>sharedworker</code></a></dt>
+<dd>
+<p>The destination is a shared worker. This might originate from a <a href="https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker"><code>SharedWorker</code></a>.</p>
+</dd>
+<dt id="style"><a href="#style"><code>style</code></a></dt>
+<dd>
+<p>The destination is a style. This might originate from an HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link">&lt;link rel=stylesheet&gt;</a> or a CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@import"><code>@import</code></a>.</p>
+</dd>
+<dt id="track"><a href="#track"><code>track</code></a></dt>
+<dd>
+<p>The destination is an HTML text track. This might originate from an HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/track"><code>&lt;track&gt;</code></a> tag.</p>
+</dd>
+<dt id="video"><a href="#video"><code>video</code></a></dt>
+<dd>
+<p>The destination is video data. This might originate from an HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video"><code>&lt;video&gt;</code></a> tag.</p>
+</dd>
+<dt id="webidentity"><a href="#webidentity"><code>webidentity</code></a></dt>
+<dd>
+<p>The destination is an endpoint associated with verifying user identify. For example, it is used in the <a href="https://developer.mozilla.org/en-US/docs/Web/API/FedCM_API">FedCM API</a> to verify the authenticity of identity provider (IdP) endpoints, guarding against <a href="https://developer.mozilla.org/en-US/docs/Glossary/CSRF">CSRF</a> attacks.</p>
+</dd>
+<dt id="worker"><a href="#worker"><code>worker</code></a></dt>
+<dd>
+<p>The destination is a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Worker"><code>Worker</code></a>.</p>
+</dd>
+<dt id="xslt"><a href="#xslt"><code>xslt</code></a></dt>
+<dd>
+<p>The destination is an XSLT transform.</p>
+</dd>
+</dl></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="using_sec-fetch-dest"><h3 id="using_sec-fetch-dest"><a href="#using_sec-fetch-dest">Using Sec-Fetch-Dest</a></h3><div class="section-content"><p>A cross-site request generated by an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img"><code>&lt;img&gt;</code></a> element would result in a request with the following HTTP request headers (note that the destination is <code>image</code>):</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Sec-Fetch-Dest: image
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Site: cross-site
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://w3c.github.io/webappsec-fetch-metadata/#sec-fetch-dest-header">Fetch Metadata Request Headers<!-- --> <br><small># <!-- -->sec-fetch-dest-header</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="Sec-Fetch-Mode.htm"><code>Sec-Fetch-Mode</code></a>, <a href="Sec-Fetch-Site.htm"><code>Sec-Fetch-Site</code></a>, <a href="Sec-Fetch-User.htm"><code>Sec-Fetch-User</code></a> fetch metadata request headers</li>
+<li><a href="https://web.dev/articles/fetch-metadata" class="external" target="_blank">Protect your resources from web attacks with Fetch Metadata</a> (web.dev)</li>
+<li><a href="https://secmetadata.appspot.com/" class="external" target="_blank">Fetch Metadata Request Headers playground</a> (secmetadata.appspot.com)</li>
+</ul></div></section></article></main></div></div></div></body></html>

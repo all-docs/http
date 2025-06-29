@@ -1,0 +1,201 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>List of default Accept values</title><link rel="alternate" title="Liste der Standard-`Accept`-Werte" href="https://developer.mozilla.org/de/docs/Web/HTTP/Guides/Content_negotiation/List_of_default_Accept_values" hreflang="de"><link rel="alternate" title="既定の Accept 値の一覧" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Guides/Content_negotiation/List_of_default_Accept_values" hreflang="ja"><link rel="alternate" title="Lista de valores padrões de Accept" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Guides/Content_negotiation/List_of_default_Accept_values" hreflang="pt"><link rel="alternate" title="Используемые по умолчанию значения заголовка Accept" href="https://developer.mozilla.org/ru/docs/Web/HTTP/Guides/Content_negotiation/List_of_default_Accept_values" hreflang="ru"><link rel="alternate" title="Accept 默认值" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Guides/Content_negotiation/List_of_default_Accept_values" hreflang="zh"><link rel="alternate" title="List of default Accept values" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Content_negotiation/List_of_default_Accept_values" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="This article documents the default values for the HTTP Accept header for specific inputs and browser versions."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Content_negotiation/List_of_default_Accept_values"><meta property="og:title" content="List of default Accept values - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="This article documents the default values for the HTTP Accept header for specific inputs and browser versions."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Content_negotiation/List_of_default_Accept_values"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>List of default Accept values</h1></header><div class="section-content"><p>This article documents the default values for the HTTP <a href="/en-US/docs/Web/HTTP/Reference/Headers/Accept"><code>Accept</code></a> header for specific inputs and browser versions.</p></div><section aria-labelledby="default_values"><h2 id="default_values"><a href="#default_values">Default values</a></h2><div class="section-content"><p>These are the values sent when the context doesn't give better information.
+Note that all browsers add the <code>*/*</code> MIME Type to cover all cases.
+This is typically used for requests initiated via the address bar of a browser, or via an HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a"><code>&lt;a&gt;</code></a> element.</p>
+<figure class="table-container"><table>
+<thead>
+<tr>
+<th>User Agent</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firefox 132 and later [1]</td>
+<td><code>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</code></td>
+</tr>
+<tr>
+<td>Firefox 128 to 131</td>
+<td><code>text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8</code></td>
+</tr>
+<tr>
+<td>Firefox 92 to 127</td>
+<td><code>text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8</code></td>
+</tr>
+<tr>
+<td>Firefox 72 to 91 [2]</td>
+<td><code>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</code></td>
+</tr>
+<tr>
+<td>Firefox 66 to 71 [2]</td>
+<td><code>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</code></td>
+</tr>
+<tr>
+<td>Firefox 65 [2]</td>
+<td><code>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</code></td>
+</tr>
+<tr>
+<td>Firefox 64 and earlier [2]</td>
+<td><code>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</code></td>
+</tr>
+<tr>
+<td>Safari 13.1 to 18.1+ [4]</td>
+<td><code>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</code></td>
+</tr>
+<tr>
+<td>Chrome 131+ [4]</td>
+<td><code>text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7</code></td>
+</tr>
+<tr>
+<td>Safari, Chrome [4]</td>
+<td><code>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8</code></td>
+</tr>
+<tr>
+<td>Safari 5 [3]</td>
+<td><code>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</code></td>
+</tr>
+<tr>
+<td>Edge</td>
+<td><code>text/html, application/xhtml+xml, image/jxr, */*</code></td>
+</tr>
+<tr>
+<td>Opera</td>
+<td><code>text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/webp, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1</code></td>
+</tr>
+</tbody>
+</table></figure>
+<p>[1] The value can be set to an arbitrary string using the <code>network.http.accept</code> preference (<code>about:config</code>).</p>
+<p>[2] The value can be set to an arbitrary string using the <a href="https://kb.mozillazine.org/Network.http.accept.default" class="external" target="_blank"><code>network.http.accept.default</code></a> preference (<code>about:config</code>).</p>
+<p>[3] This is an improvement over earlier <code>Accept</code> headers as it no longer ranks <code>image/png</code> above <code>text/html</code>.</p>
+<p>[4] Rechecked and added values for Safari 13.1 to 18.1 and Chrome 131. Values may have changed before specified versions.</p></div></section><section aria-labelledby="values_for_an_image"><h2 id="values_for_an_image"><a href="#values_for_an_image">Values for an image</a></h2><div class="section-content"><p>When requesting an image, like through an HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img"><code>&lt;img&gt;</code></a> element, user-agent often sets a specific list of media types to be welcomed.</p>
+<figure class="table-container"><table>
+<thead>
+<tr>
+<th>User Agent</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firefox 128 and later [1]</td>
+<td><code>image/avif,image/webp,image/png,image/svg+xml,image/*;q=0.8,*/*;q=0.5</code></td>
+</tr>
+<tr>
+<td>Firefox 92 to 127 [1]</td>
+<td><code>image/avif,image/webp,*/*</code></td>
+</tr>
+<tr>
+<td>Firefox 65 to 91 [1]</td>
+<td><code>image/webp,*/*</code></td>
+</tr>
+<tr>
+<td>Firefox 47 to 63 [1]</td>
+<td><code>*/*</code></td>
+</tr>
+<tr>
+<td>Firefox prior to 47 [1]</td>
+<td><code>image/png,image/*;q=0.8,*/*;q=0.5</code></td>
+</tr>
+<tr>
+<td>Safari (since Mac OS Big Sur)</td>
+<td><code>image/webp,image/png,image/svg+xml,image/*;q=0.8,video/*;q=0.8,*/*;q=0.5</code></td>
+</tr>
+<tr>
+<td>Safari (before Mac OS Big Sur)</td>
+<td><code>image/png,image/svg+xml,image/*;q=0.8,video/*;q=0.8,*/*;q=0.5</code></td>
+</tr>
+<tr>
+<td>Chrome and Edge 121 and later</td>
+<td><code>image/avif,image/webp,image/apng,image/*,*/*;q=0.8</code></td>
+</tr>
+</tbody>
+</table></figure>
+<p>[1] The value can be set to an arbitrary string using the <code>image.http.accept</code> parameter (<em><a href="https://searchfox.org/mozilla-central/search?q=image.http.accept" class="external" target="_blank">source</a></em>).</p></div></section><section aria-labelledby="values_for_a_video"><h2 id="values_for_a_video"><a href="#values_for_a_video">Values for a video</a></h2><div class="section-content"><p>When a video is requested, via the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video"><code>&lt;video&gt;</code></a> HTML element, most browsers use specific values.</p>
+<figure class="table-container"><table>
+<thead>
+<tr>
+<th>User Agent</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firefox 3.6 and later</td>
+<td><code>video/webm,video/ogg,video/*;q=0.9,application/ogg;q=0.7,audio/*;q=0.6,*/*;q=0.5</code></td>
+</tr>
+<tr>
+<td>Firefox earlier than 3.6</td>
+<td><em>no support for <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video"><code>&lt;video&gt;</code></a></em></td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td><code>*/*</code></td>
+</tr>
+</tbody>
+</table></figure></div></section><section aria-labelledby="values_for_audio_resources"><h2 id="values_for_audio_resources"><a href="#values_for_audio_resources">Values for audio resources</a></h2><div class="section-content"><p>When an audio file is requested, like via the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/audio"><code>&lt;audio&gt;</code></a> HTML element, most browsers use specific values.</p>
+<figure class="table-container"><table>
+<thead>
+<tr>
+<th>User Agent</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firefox 3.6 and later [1]</td>
+<td><code>audio/webm,audio/ogg,audio/wav,audio/*;q=0.9,application/ogg;q=0.7,video/*;q=0.6,*/*;q=0.5</code></td>
+</tr>
+<tr>
+<td>Safari, Chrome</td>
+<td><code>*/*</code></td>
+</tr>
+</tbody>
+</table></figure>
+<p>[1] See <a href="https://bugzil.la/489071" class="external" target="_blank">bug 489071</a>.</p></div></section><section aria-labelledby="values_for_scripts"><h2 id="values_for_scripts"><a href="#values_for_scripts">Values for scripts</a></h2><div class="section-content"><p>When a script is requested, like via the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script"><code>&lt;script&gt;</code></a> HTML element, some browsers use specific values.</p>
+<figure class="table-container"><table>
+<thead>
+<tr>
+<th>User Agent</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firefox [1]</td>
+<td><code>*/*</code></td>
+</tr>
+<tr>
+<td>Safari, Chrome</td>
+<td><code>*/*</code></td>
+</tr>
+</tbody>
+</table></figure>
+<p>[1] See <a href="https://bugzil.la/170789" class="external" target="_blank">bug 170789</a>.</p></div></section><section aria-labelledby="values_for_a_css_stylesheet"><h2 id="values_for_a_css_stylesheet"><a href="#values_for_a_css_stylesheet">Values for a CSS stylesheet</a></h2><div class="section-content"><p>When a CSS stylesheet is requested, via the <code>&lt;link rel="stylesheet"&gt;</code> HTML element, most browsers use specific values.</p>
+<figure class="table-container"><table>
+<thead>
+<tr>
+<th>User Agent</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firefox 4 [1]</td>
+<td><code>text/css,*/*;q=0.1</code></td>
+</tr>
+<tr>
+<td>Safari, Chrome</td>
+<td><code>text/css,*/*;q=0.1</code></td>
+</tr>
+<tr>
+<td>Opera 11.10</td>
+<td><code>text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/webp, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1</code></td>
+</tr>
+<tr>
+<td>Konqueror 4.6</td>
+<td><code>text/css,*/*;q=0.1</code></td>
+</tr>
+</tbody>
+</table></figure>
+<p>[1] See <a href="https://bugzil.la/170789" class="external" target="_blank">bug 170789</a>.</p></div></section><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="/en-US/docs/Web/HTTP/Guides/Content_negotiation">Content negotiation</a></li>
+</ul></div></section></article></main></div></div></div></body></html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Proxy servers and tunneling</title><link rel="alternate" title="Proxy-Server und Tunneling" href="https://developer.mozilla.org/de/docs/Web/HTTP/Guides/Proxy_servers_and_tunneling" hreflang="de"><link rel="alternate" title="プロキシーサーバーとトンネリング" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Guides/Proxy_servers_and_tunneling" hreflang="ja"><link rel="alternate" title="代理服务器与隧道" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Guides/Proxy_servers_and_tunneling" hreflang="zh"><link rel="alternate" title="Proxy servers and tunneling" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Proxy_servers_and_tunneling" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="When navigating through different networks of the Internet, proxy servers and HTTP tunnels are facilitating access to content on the World Wide Web. A proxy can be on the user's local computer, or anywhere between the user's computer and a destination server on the Internet. This page outlines some basics about proxies and introduces a few configuration options."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Proxy_servers_and_tunneling"><meta property="og:title" content="Proxy servers and tunneling - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="When navigating through different networks of the Internet, proxy servers and HTTP tunnels are facilitating access to content on the World Wide Web. A proxy can be on the user's local computer, or anywhere between the user's computer and a destination server on the Internet. This page outlines some basics about proxies and introduces a few configuration options."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Proxy_servers_and_tunneling"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Proxy servers and tunneling</h1></header><div class="section-content"><p>When navigating through different networks of the Internet, proxy servers and HTTP tunnels are facilitating access to content on the World Wide Web. A proxy can be on the user's local computer, or anywhere between the user's computer and a destination server on the Internet. This page outlines some basics about proxies and introduces a few configuration options.</p>
+<p>There are two types of proxies: <strong>forward proxies</strong> (or tunnel, or gateway) and <strong>reverse proxies</strong> (used to control and protect access to a server for load-balancing, authentication, decryption or caching).</p></div><section aria-labelledby="forward_proxies"><h2 id="forward_proxies"><a href="#forward_proxies">Forward proxies</a></h2><div class="section-content"><p>A forward proxy, or gateway, or just "proxy" provides proxy services to a client or a group of clients. There are likely hundreds of thousands of open forward proxies on the Internet. They store and forward Internet services (like the DNS, or web pages) to reduce and control the bandwidth used by the group.</p>
+<p>Forward proxies can also be anonymous and allow users to hide their IP address while browsing the Web or using other Internet services. For example, <a href="https://www.torproject.org/" class="external" target="_blank">Tor</a> routes internet traffic through multiple proxies for anonymity.</p></div></section><section aria-labelledby="reverse_proxies"><h2 id="reverse_proxies"><a href="#reverse_proxies">Reverse proxies</a></h2><div class="section-content"><p>As the name implies, a reverse proxy does the opposite of what a forward proxy does: A forward proxy acts on behalf of clients (or requesting hosts). Forward proxies can hide the identities of clients whereas reverse proxies can hide the identities of servers. Reverse proxies have several use cases, a few are:</p>
+<ul>
+<li>Load balancing: distribute the load to several web servers,</li>
+<li>Cache static content: offload the web servers by caching static content like pictures,</li>
+<li>Compression: compress and optimize content to speed up load time.</li>
+</ul></div></section><section aria-labelledby="forwarding_client_information_through_proxies"><h2 id="forwarding_client_information_through_proxies"><a href="#forwarding_client_information_through_proxies">Forwarding client information through proxies</a></h2><div class="section-content"><p>Proxies can make requests appear as if they originated from the proxy's IP address. This can be useful if a proxy is used to provide client anonymity, but in other cases information from the original request is lost. The IP address of the original client is often used for debugging, statistics, or generating location-dependent content. A common way to disclose this information is by using the following HTTP headers:</p>
+<p>The standardized header:</p>
+<dl>
+<dt id="forwarded"><a href="/en-US/docs/Web/HTTP/Reference/Headers/Forwarded"><code>Forwarded</code></a></dt>
+<dd>
+<p>Contains information from the client-facing side of proxy servers that is altered or lost when a proxy is involved in the path of the request.</p>
+</dd>
+</dl>
+<p>Or the de-facto standard versions:</p>
+<dl>
+<dt id="x-forwarded-for"><a href="/en-US/docs/Web/HTTP/Reference/Headers/X-Forwarded-For"><code>X-Forwarded-For</code></a> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using.">
+<span class="visually-hidden">Non-standard</span>
+</abbr></dt>
+<dd>
+<p>Identifies the originating IP addresses of a client connecting to a web server through an HTTP proxy or a load balancer.</p>
+</dd>
+<dt id="x-forwarded-host"><a href="/en-US/docs/Web/HTTP/Reference/Headers/X-Forwarded-Host"><code>X-Forwarded-Host</code></a> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using.">
+<span class="visually-hidden">Non-standard</span>
+</abbr></dt>
+<dd>
+<p>Identifies the original host requested that a client used to connect to your proxy or load balancer.</p>
+</dd>
+<dt id="x-forwarded-proto"><a href="/en-US/docs/Web/HTTP/Reference/Headers/X-Forwarded-Proto"><code>X-Forwarded-Proto</code></a> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using.">
+<span class="visually-hidden">Non-standard</span>
+</abbr></dt>
+<dd>
+<p>identifies the protocol (HTTP or HTTPS) that a client used to connect to your proxy or load balancer.</p>
+</dd>
+</dl>
+<p>To provide information about the proxy itself (not about the client connecting to it), the <code>Via</code> header can be used.</p>
+<dl>
+<dt id="via"><a href="/en-US/docs/Web/HTTP/Reference/Headers/Via"><code>Via</code></a></dt>
+<dd>
+<p>Added by proxies, both forward and reverse proxies, and can appear in the request headers and the response headers.</p>
+</dd>
+</dl></div></section><section aria-labelledby="http_tunneling"><h2 id="http_tunneling"><a href="#http_tunneling">HTTP tunneling</a></h2><div class="section-content"><p>Tunneling transmits private network data and protocol information through public network by encapsulating the data. HTTP tunneling is using a protocol of higher level (HTTP) to transport a lower level protocol (TCP).</p>
+<p>The HTTP protocol specifies a request method called <a href="/en-US/docs/Web/HTTP/Reference/Methods/CONNECT"><code>CONNECT</code></a>. It starts two-way communications with the requested resource and can be used to open a tunnel. This is how a client behind an HTTP proxy can access websites using TLS (i.e., HTTPS, port 443). Note, however, that not all proxy servers support the <code>CONNECT</code> method or limit it to port 443 only.</p>
+<p>See also the <a href="https://en.wikipedia.org/wiki/HTTP_tunnel" class="external" target="_blank">HTTP tunnel article on Wikipedia</a>.</p></div></section><section aria-labelledby="proxy_auto-configuration_pac"><h2 id="proxy_auto-configuration_pac"><a href="#proxy_auto-configuration_pac">Proxy Auto-Configuration (PAC)</a></h2><div class="section-content"><p>A <a href="Proxy_servers_and_tunneling/Proxy_Auto-Configuration_PAC_file.htm">Proxy Auto-Configuration (PAC)</a> file is a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a> function that determines whether web browser requests (HTTP, HTTPS, and FTP) go directly to the destination or are forwarded to a web proxy server. The JavaScript function contained in the PAC file defines the function:</p>
+<p>The auto-config file should be saved to a file with a <code>.pac</code> filename extension: <code>proxy.pac</code>.</p>
+<p>And the MIME type set to <code>application/x-ns-proxy-autoconfig</code>.</p>
+<p>The file consists of a function called <code>FindProxyForURL</code>. The example below will work in an environment where the internal DNS server is set up so that it can only resolve internal host names, and the goal is to use a proxy only for hosts that aren't resolvable:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">js</span></div><pre class="brush: js notranslate"><code>function FindProxyForURL(url, host) {
+  if (isResolvable(host)) {
+    return "DIRECT";
+  }
+  return "PROXY proxy.mydomain.com:8080";
+}
+</code></pre></div></div></section><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="Proxy_servers_and_tunneling/Proxy_Auto-Configuration_PAC_file.htm">Proxy Auto-Configuration (PAC) file</a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Methods/CONNECT"><code>CONNECT</code></a> method</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Proxy_server">Proxy server</a></li>
+</ul></div></section></article></main></div></div></div></body></html>

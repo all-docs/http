@@ -1,0 +1,274 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Referrer-Policy header</title><link rel="alternate" title="Referrer-Policy header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Referrer-Policy" hreflang="de"><link rel="alternate" title="Referrer-Policy" href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Headers/Referrer-Policy" hreflang="es"><link rel="alternate" title="Referrer-Policy" href="https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Headers/Referrer-Policy" hreflang="fr"><link rel="alternate" title="Referrer-Policy" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Referrer-Policy" hreflang="ja"><link rel="alternate" title="Referrer-Policy" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Headers/Referrer-Policy" hreflang="pt"><link rel="alternate" title="Referrer-Policy" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Referrer-Policy" hreflang="zh"><link rel="alternate" title="Referrer-Policy header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Referrer-Policy" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Referrer-Policy response header controls how much referrer information (sent with the Referer header) should be included with requests.
+Aside from the HTTP header, you can set this policy in HTML."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Referrer-Policy"><meta property="og:title" content="Referrer-Policy header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Referrer-Policy response header controls how much referrer information (sent with the Referer header) should be included with requests.
+Aside from the HTTP header, you can set this policy in HTML."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Referrer-Policy"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Referrer-Policy header</h1><details class="baseline-indicator high"><summary><span class="indicator" role="img" aria-label="Baseline Check"></span><div class="status-title">Baseline<!-- --> <span class="not-bold">Widely available</span> *</div><div class="browsers"><span class="engine" title="Supported in Chrome and Edge"><span class="browser chrome supported" role="img" aria-label="Chrome check"></span><span class="browser edge supported" role="img" aria-label="Edge check"></span></span><span class="engine" title="Supported in Firefox"><span class="browser firefox supported" role="img" aria-label="Firefox check"></span></span><span class="engine" title="Supported in Safari"><span class="browser safari supported" role="img" aria-label="Safari check"></span></span></div><span class="icon icon-chevron "></span></summary><div class="extra"><p>This feature is well established and works across many devices and browser versions. It’s been available across browsers since<!-- --> <!-- -->January 2020<!-- -->.</p><p>* Some parts of this feature may have varying levels of support.</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility" data-glean="baseline_link_learn_more" target="_blank" class="learn-more">Learn more</a></li><li><a href="#browser_compatibility" data-glean="baseline_link_bcd_table">See full compatibility</a></li><li><a href="https://survey.alchemer.com/s3/7634825/MDN-baseline-feedback?page=%2Fen-US%2Fdocs%2FWeb%2FHTTP%2FReference%2FHeaders%2FReferrer-Policy&amp;level=high" data-glean="baseline_link_feedback" class="feedback-link" target="_blank" rel="noreferrer">Report feedback</a></li></ul></div></details></header><div class="section-content"><p>The HTTP <strong><code>Referrer-Policy</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">response header</a> controls how much <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Referer_header:_privacy_and_security_concerns">referrer information</a> (sent with the <a href="Referer.htm"><code>Referer</code></a> header) should be included with requests.
+Aside from the HTTP header, you can <a href="#integration_with_html">set this policy in HTML</a>.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Referrer-Policy: no-referrer
+Referrer-Policy: no-referrer-when-downgrade
+Referrer-Policy: origin
+Referrer-Policy: origin-when-cross-origin
+Referrer-Policy: same-origin
+Referrer-Policy: strict-origin
+Referrer-Policy: strict-origin-when-cross-origin
+Referrer-Policy: unsafe-url
+</code></pre></div>
+<div class="notecard note">
+<p><strong>Note:</strong>
+The header name <a href="Referer.htm"><code>Referer</code></a> is a misspelling of the word "referrer". The <code>Referrer-Policy</code> header does not share this misspelling.</p>
+</div></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><dl>
+<dt id="no-referrer_2"><a href="#no-referrer_2"><code>no-referrer</code></a></dt>
+<dd>
+<p>The <a href="Referer.htm"><code>Referer</code></a> header will be omitted: sent requests do not include any referrer information.</p>
+</dd>
+<dt id="no-referrer-when-downgrade_2"><a href="#no-referrer-when-downgrade_2"><code>no-referrer-when-downgrade</code></a></dt>
+<dd>
+<p>Send the <a href="https://developer.mozilla.org/en-US/docs/Glossary/Origin">origin</a>, path, and query string in <a href="Referer.htm"><code>Referer</code></a> when the protocol security level stays the same or improves (HTTP→HTTP, HTTP→HTTPS, HTTPS→HTTPS). Don't send the <a href="Referer.htm"><code>Referer</code></a> header for requests to less secure destinations (HTTPS→HTTP, HTTPS→file).</p>
+</dd>
+<dt id="origin_2"><a href="#origin_2"><code>origin</code></a></dt>
+<dd>
+<p>Send only the <a href="https://developer.mozilla.org/en-US/docs/Glossary/Origin">origin</a> in the <a href="Referer.htm"><code>Referer</code></a> header.
+For example, a document at <code>https://example.com/page.html</code> will send the referrer <code>https://example.com/</code>.</p>
+</dd>
+<dt id="origin-when-cross-origin_2"><a href="#origin-when-cross-origin_2"><code>origin-when-cross-origin</code></a></dt>
+<dd>
+<p>When performing a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Same-origin_policy">same-origin</a> request to the same protocol level (HTTP→HTTP, HTTPS→HTTPS), send the <a href="https://developer.mozilla.org/en-US/docs/Glossary/Origin">origin</a>, path, and query string. Send only the origin for cross origin requests and requests to less secure destinations (HTTPS→HTTP).</p>
+</dd>
+<dt id="same-origin_2"><a href="#same-origin_2"><code>same-origin</code></a></dt>
+<dd>
+<p>Send the <a href="https://developer.mozilla.org/en-US/docs/Glossary/Origin">origin</a>, path, and query string for <a href="https://developer.mozilla.org/en-US/docs/Glossary/Same-origin_policy">same-origin</a> requests. Don't send the <a href="Referer.htm"><code>Referer</code></a> header for cross-origin requests.</p>
+</dd>
+<dt id="strict-origin_2"><a href="#strict-origin_2"><code>strict-origin</code></a></dt>
+<dd>
+<p>Send only the origin when the protocol security level stays the same (HTTPS→HTTPS). Don't send the <a href="Referer.htm"><code>Referer</code></a> header to less secure destinations (HTTPS→HTTP).</p>
+</dd>
+<dt id="strict-origin-when-cross-origin_2"><a href="#strict-origin-when-cross-origin_2"><code>strict-origin-when-cross-origin</code> (default)</a></dt>
+<dd>
+<p>Send the origin, path, and query string when performing a same-origin request. For cross-origin requests send the origin (only) when the protocol security level stays same (HTTPS→HTTPS). Don't send the <a href="Referer.htm"><code>Referer</code></a> header to less secure destinations (HTTPS→HTTP).</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+This is the default policy if no policy is specified, or if the provided value is invalid (see spec revision <a href="https://github.com/whatwg/fetch/pull/1066" class="external" target="_blank">November 2020</a>). Previously the default was <code>no-referrer-when-downgrade</code>.</p>
+</div>
+</dd>
+<dt id="unsafe-url_2"><a href="#unsafe-url_2"><code>unsafe-url</code></a></dt>
+<dd>
+<p>Send the origin, path, and query string when performing any request, regardless of security.</p>
+<div class="notecard warning">
+<p><strong>Warning:</strong>
+This policy will leak potentially-private information from HTTPS resource URLs to insecure origins. Carefully consider the impact of this setting.</p>
+</div>
+</dd>
+</dl></div></section><section aria-labelledby="integration_with_html"><h2 id="integration_with_html"><a href="#integration_with_html">Integration with HTML</a></h2><div class="section-content"><p>You can also set referrer policies inside HTML. For example, you can set the referrer policy for the entire document with a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta"><code>&lt;meta&gt;</code></a> element with a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta/name">name</a> of <code>referrer</code>:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">html</span></div><pre class="brush: html notranslate"><code>&lt;meta name="referrer" content="origin" /&gt;
+</code></pre></div>
+<p>You can specify the <code>referrerpolicy</code> attribute on <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a"><code>&lt;a&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/area"><code>&lt;area&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img"><code>&lt;img&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/iframe"><code>&lt;iframe&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script"><code>&lt;script&gt;</code></a>, or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link"><code>&lt;link&gt;</code></a> elements to set referrer policies for individual requests:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">html</span></div><pre class="brush: html notranslate"><code>&lt;a href="http://example.com" referrerpolicy="origin"&gt;…&lt;/a&gt;
+</code></pre></div>
+<p>Alternatively, you can set a <code>noreferrer</code> <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel">link relation</a> on an <code>a</code>, <code>area</code>, or <code>link</code> elements:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">html</span></div><pre class="brush: html notranslate"><code>&lt;a href="http://example.com" rel="noreferrer"&gt;…&lt;/a&gt;
+</code></pre></div>
+<div class="notecard warning">
+<p><strong>Warning:</strong>
+As seen above, the <code>noreferrer</code> link relation is written without a dash. When you specify the referrer policy for the entire document with a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta"><code>&lt;meta&gt;</code></a> element, it should be written <em>with</em> a dash: <code>&lt;meta name="referrer" content="no-referrer"&gt;</code>.</p>
+</div></div></section><section aria-labelledby="integration_with_css"><h2 id="integration_with_css"><a href="#integration_with_css">Integration with CSS</a></h2><div class="section-content"><p>CSS can fetch resources referenced from stylesheets. These resources follow a referrer policy as well:</p>
+<ul>
+<li>External CSS stylesheets use the default policy (<code>strict-origin-when-cross-origin</code>), unless it's overwritten by a <code>Referrer-Policy</code> HTTP header on the CSS stylesheet's response.</li>
+<li>For <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/style"><code>&lt;style&gt;</code></a> elements or <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style"><code>style</code> attributes</a>, the owner document's referrer policy is used.</li>
+</ul></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="no-referrer"><h3 id="no-referrer"><a href="#no-referrer"><code>no-referrer</code></a></h3><div class="section-content"><figure class="table-container"><table>
+<thead>
+<tr>
+<th>From document</th>
+<th>Navigation to</th>
+<th>Referrer used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>https://example.com/page</code></td>
+<td><em>anywhere</em></td>
+<td><em>(no referrer)</em></td>
+</tr>
+</tbody>
+</table></figure></div></section><section aria-labelledby="no-referrer-when-downgrade"><h3 id="no-referrer-when-downgrade"><a href="#no-referrer-when-downgrade"><code>no-referrer-when-downgrade</code></a></h3><div class="section-content"><figure class="table-container"><table>
+<thead>
+<tr>
+<th>From document</th>
+<th>Navigation to</th>
+<th>Referrer used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>https://example.com/page</code></td>
+<td><code>https://example.com/otherpage</code></td>
+<td><code>https://example.com/page</code></td>
+</tr>
+<tr>
+<td><code>https://example.com/page</code></td>
+<td><code>https://mozilla.org</code></td>
+<td><code>https://example.com/page</code></td>
+</tr>
+<tr>
+<td><code>https://example.com/page</code></td>
+<td><strong>http</strong>://example.com</td>
+<td><em>(no referrer)</em></td>
+</tr>
+<tr>
+<td><strong>http</strong>://example.com/page</td>
+<td><em>anywhere</em></td>
+<td><code>http://example.com/page</code></td>
+</tr>
+</tbody>
+</table></figure></div></section><section aria-labelledby="origin"><h3 id="origin"><a href="#origin"><code>origin</code></a></h3><div class="section-content"><figure class="table-container"><table>
+<thead>
+<tr>
+<th>From document</th>
+<th>Navigation to</th>
+<th>Referrer used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>https://example.com/page</code></td>
+<td><em>anywhere</em></td>
+<td><code>https://example.com/</code></td>
+</tr>
+</tbody>
+</table></figure></div></section><section aria-labelledby="origin-when-cross-origin"><h3 id="origin-when-cross-origin"><a href="#origin-when-cross-origin"><code>origin-when-cross-origin</code></a></h3><div class="section-content"><figure class="table-container"><table>
+<thead>
+<tr>
+<th>From document</th>
+<th>Navigation to</th>
+<th>Referrer used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>https://example.com/page</code></td>
+<td><code>https://example.com/otherpage</code></td>
+<td><code>https://example.com/page</code></td>
+</tr>
+<tr>
+<td><code>https://example.com/page</code></td>
+<td><code>https://mozilla.org</code></td>
+<td><code>https://example.com/</code></td>
+</tr>
+<tr>
+<td><code>https://example.com/page</code></td>
+<td><strong>http</strong>://example.com/page</td>
+<td><code>https://example.com/</code></td>
+</tr>
+</tbody>
+</table></figure></div></section><section aria-labelledby="same-origin"><h3 id="same-origin"><a href="#same-origin"><code>same-origin</code></a></h3><div class="section-content"><figure class="table-container"><table>
+<thead>
+<tr>
+<th>From document</th>
+<th>Navigation to</th>
+<th>Referrer used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>https://example.com/page</code></td>
+<td><code>https://example.com/otherpage</code></td>
+<td><code>https://example.com/page</code></td>
+</tr>
+<tr>
+<td><code>https://example.com/page</code></td>
+<td><code>https://mozilla.org</code></td>
+<td><em>(no referrer)</em></td>
+</tr>
+</tbody>
+</table></figure></div></section><section aria-labelledby="strict-origin"><h3 id="strict-origin"><a href="#strict-origin"><code>strict-origin</code></a></h3><div class="section-content"><figure class="table-container"><table>
+<thead>
+<tr>
+<th>From document</th>
+<th>Navigation to</th>
+<th>Referrer used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>https://example.com/page</code></td>
+<td><code>https://mozilla.org</code></td>
+<td><code>https://example.com/</code></td>
+</tr>
+<tr>
+<td><code>https://example.com/page</code></td>
+<td><strong>http</strong>://example.com</td>
+<td><em>(no referrer)</em></td>
+</tr>
+<tr>
+<td><strong>http</strong>://example.com/page</td>
+<td><em>anywhere</em></td>
+<td><code>http://example.com/</code></td>
+</tr>
+</tbody>
+</table></figure></div></section><section aria-labelledby="strict-origin-when-cross-origin"><h3 id="strict-origin-when-cross-origin"><a href="#strict-origin-when-cross-origin"><code>strict-origin-when-cross-origin</code></a></h3><div class="section-content"><figure class="table-container"><table>
+<thead>
+<tr>
+<th>From document</th>
+<th>Navigation to</th>
+<th>Referrer used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>https://example.com/page</code></td>
+<td><code>https://example.com/otherpage</code></td>
+<td><code>https://example.com/page</code></td>
+</tr>
+<tr>
+<td><code>https://example.com/page</code></td>
+<td><code>https://mozilla.org</code></td>
+<td><code>https://example.com/</code></td>
+</tr>
+<tr>
+<td><code>https://example.com/page</code></td>
+<td><strong>http</strong>://example.com</td>
+<td><em>(no referrer)</em></td>
+</tr>
+</tbody>
+</table></figure></div></section><section aria-labelledby="unsafe-url"><h3 id="unsafe-url"><a href="#unsafe-url"><code>unsafe-url</code></a></h3><div class="section-content"><figure class="table-container"><table>
+<thead>
+<tr>
+<th>From document</th>
+<th>Navigation to</th>
+<th>Referrer used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>https://example.com/page?q=123</code></td>
+<td><em>anywhere</em></td>
+<td><code>https://example.com/page?q=123</code></td>
+</tr>
+</tbody>
+</table></figure></div></section><section aria-labelledby="specify_a_fallback_policy"><h3 id="specify_a_fallback_policy"><a href="#specify_a_fallback_policy">Specify a fallback policy</a></h3><div class="section-content"><p>If you want to specify a fallback policy in case the desired policy hasn't got wide enough browser support, use a comma-separated list with the desired policy specified last:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Referrer-Policy: no-referrer, strict-origin-when-cross-origin
+</code></pre></div>
+<p>In the above scenario, <code>no-referrer</code> is used only if the browser does not support the <code>strict-origin-when-cross-origin</code> policy.</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+Specifying multiple values is only supported in the <code>Referrer-Policy</code> HTTP header, and not in the <code>referrerpolicy</code> attribute.</p>
+</div></div></section><section aria-labelledby="browser-specific_preferencessettings"><h2 id="browser-specific_preferencessettings"><a href="#browser-specific_preferencessettings">Browser-specific preferences/settings</a></h2><div class="section-content"></div></section><section aria-labelledby="firefox_preferences"><h3 id="firefox_preferences"><a href="#firefox_preferences">Firefox preferences</a></h3><div class="section-content"><p>You can configure the <em>default</em> referrer policy in Firefox preferences. The preference names are version specific:</p>
+<ul>
+<li>Firefox version 59 and later: <code>network.http.referer.defaultPolicy</code> (and <code>network.http.referer.defaultPolicy.pbmode</code> for private networks)</li>
+<li>Firefox versions 53 to 58: <code>network.http.referer.userControlPolicy</code></li>
+</ul>
+<p>All of these settings take the same set of values: <code>0 = no-referrer</code>, <code>1 = same-origin</code>, <code>2 = strict-origin-when-cross-origin</code>, <code>3 = no-referrer-when-downgrade</code>.</p></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://w3c.github.io/webappsec-referrer-policy/#referrer-policy-header">Referrer Policy<!-- --> <br><small># <!-- -->referrer-policy-header</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Security/Referer_header:_privacy_and_security_concerns">Web security &gt; Referer header: privacy and security concerns</a></li>
+<li>When using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch</a>: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request/referrerPolicy"><code>Request.referrerPolicy</code></a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">Same-origin policy</a></li>
+<li><a href="https://en.wikipedia.org/wiki/HTTP_referer" class="external" target="_blank">HTTP referer on Wikipedia</a></li>
+<li><a href="https://blog.mozilla.org/security/2015/01/21/meta-referrer/" class="external" target="_blank">Tighter Control Over Your Referrers – Mozilla Security Blog</a></li>
+</ul></div></section></article></main></div></div></div></body></html>

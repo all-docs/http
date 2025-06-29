@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>HTTP request methods</title><link rel="alternate" title="HTTP-Anfragemethoden" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Methods" hreflang="de"><link rel="alternate" title="Métodos de petición HTTP" href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Methods" hreflang="es"><link rel="alternate" title="Méthodes de requête HTTP" href="https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Methods" hreflang="fr"><link rel="alternate" title="HTTP リクエストメソッド" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Methods" hreflang="ja"><link rel="alternate" title="HTTP 요청 메서드" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Methods" hreflang="ko"><link rel="alternate" title="Métodos de requisição HTTP" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Methods" hreflang="pt"><link rel="alternate" title="Методы HTTP запроса" href="https://developer.mozilla.org/ru/docs/Web/HTTP/Reference/Methods" hreflang="ru"><link rel="alternate" title="HTTP 请求方法" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Methods" hreflang="zh"><link rel="alternate" title="HTTP 請求方法" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Reference/Methods" hreflang="zh-Hant"><link rel="alternate" title="HTTP request methods" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="HTTP defines a set of request methods to indicate the purpose of the request and what is expected if the request is successful.
+Although they can also be nouns, these request methods are sometimes referred to as HTTP verbs.
+Each request method has its own semantics, but some characteristics are shared across multiple methods, specifically request methods can be safe, idempotent, or cacheable."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods"><meta property="og:title" content="HTTP request methods - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="HTTP defines a set of request methods to indicate the purpose of the request and what is expected if the request is successful.
+Although they can also be nouns, these request methods are sometimes referred to as HTTP verbs.
+Each request method has its own semantics, but some characteristics are shared across multiple methods, specifically request methods can be safe, idempotent, or cacheable."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>HTTP request methods</h1></header><div class="section-content"><p>HTTP defines a set of <strong>request methods</strong> to indicate the purpose of the request and what is expected if the request is successful.
+Although they can also be nouns, these request methods are sometimes referred to as <em>HTTP verbs</em>.
+Each request method has its own semantics, but some characteristics are shared across multiple methods, specifically request methods can be <a href="https://developer.mozilla.org/en-US/docs/Glossary/Safe/HTTP">safe</a>, <a href="https://developer.mozilla.org/en-US/docs/Glossary/Idempotent">idempotent</a>, or <a href="https://developer.mozilla.org/en-US/docs/Glossary/Cacheable">cacheable</a>.</p>
+<dl>
+<dt id="get"><a href="Methods/GET.htm"><code>GET</code></a></dt>
+<dd>
+<p>The <code>GET</code> method requests a representation of the specified resource.
+Requests using <code>GET</code> should only retrieve data and should not contain a request <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTTP_Content">content</a>.</p>
+</dd>
+<dt id="head"><a href="Methods/HEAD.htm"><code>HEAD</code></a></dt>
+<dd>
+<p>The <code>HEAD</code> method asks for a response identical to a <code>GET</code> request, but without a response body.</p>
+</dd>
+<dt id="post"><a href="Methods/POST.htm"><code>POST</code></a></dt>
+<dd>
+<p>The <code>POST</code> method submits an entity to the specified resource, often causing a change in state or side effects on the server.</p>
+</dd>
+<dt id="put"><a href="Methods/PUT.htm"><code>PUT</code></a></dt>
+<dd>
+<p>The <code>PUT</code> method replaces all current representations of the target resource with the request <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTTP_Content">content</a>.</p>
+</dd>
+<dt id="delete"><a href="Methods/DELETE.htm"><code>DELETE</code></a></dt>
+<dd>
+<p>The <code>DELETE</code> method deletes the specified resource.</p>
+</dd>
+<dt id="connect"><a href="Methods/CONNECT.htm"><code>CONNECT</code></a></dt>
+<dd>
+<p>The <code>CONNECT</code> method establishes a tunnel to the server identified by the target resource.</p>
+</dd>
+<dt id="options"><a href="Methods/OPTIONS.htm"><code>OPTIONS</code></a></dt>
+<dd>
+<p>The <code>OPTIONS</code> method describes the communication options for the target resource.</p>
+</dd>
+<dt id="trace"><a href="Methods/TRACE.htm"><code>TRACE</code></a></dt>
+<dd>
+<p>The <code>TRACE</code> method performs a message loop-back test along the path to the target resource.</p>
+</dd>
+<dt id="patch"><a href="Methods/PATCH.htm"><code>PATCH</code></a></dt>
+<dd>
+<p>The <code>PATCH</code> method applies partial modifications to a resource.</p>
+</dd>
+</dl></div><section aria-labelledby="safe_idempotent_and_cacheable_request_methods"><h2 id="safe_idempotent_and_cacheable_request_methods"><a href="#safe_idempotent_and_cacheable_request_methods">Safe, idempotent, and cacheable request methods</a></h2><div class="section-content"><p>The following table lists HTTP request methods and their categorization in terms of safety, cacheability, and idempotency.</p>
+<figure class="table-container"><table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Safe</th>
+<th>Idempotent</th>
+<th>Cacheable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Methods/GET.htm"><code>GET</code></a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><a href="Methods/HEAD.htm"><code>HEAD</code></a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><a href="Methods/OPTIONS.htm"><code>OPTIONS</code></a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td><a href="Methods/TRACE.htm"><code>TRACE</code></a></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td><a href="Methods/PUT.htm"><code>PUT</code></a></td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td><a href="Methods/DELETE.htm"><code>DELETE</code></a></td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td><a href="Methods/POST.htm"><code>POST</code></a></td>
+<td>No</td>
+<td>No</td>
+<td>Conditional*</td>
+</tr>
+<tr>
+<td><a href="Methods/PATCH.htm"><code>PATCH</code></a></td>
+<td>No</td>
+<td>No</td>
+<td>Conditional*</td>
+</tr>
+<tr>
+<td><a href="Methods/CONNECT.htm"><code>CONNECT</code></a></td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+</tbody>
+</table></figure>
+<p>* <code>POST</code> and <code>PATCH</code> are cacheable when responses explicitly include <a href="/en-US/docs/Web/HTTP/Guides/Caching">freshness</a> information and a matching <a href="Headers/Content-Location.htm"><code>Content-Location</code></a> header.</p></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://httpwg.org/specs/rfc9110.html#CONNECT">HTTP Semantics<!-- --> <br><small># <!-- -->CONNECT</small></a></td></tr><tr><td><a href="https://httpwg.org/specs/rfc9110.html#GET">HTTP Semantics<!-- --> <br><small># <!-- -->GET</small></a></td></tr><tr><td><a href="https://httpwg.org/specs/rfc9110.html#PUT">HTTP Semantics<!-- --> <br><small># <!-- -->PUT</small></a></td></tr><tr><td><a href="https://httpwg.org/specs/rfc9110.html#HEAD">HTTP Semantics<!-- --> <br><small># <!-- -->HEAD</small></a></td></tr><tr><td><a href="https://httpwg.org/specs/rfc9110.html#DELETE">HTTP Semantics<!-- --> <br><small># <!-- -->DELETE</small></a></td></tr><tr><td><a href="https://httpwg.org/specs/rfc9110.html#OPTIONS">HTTP Semantics<!-- --> <br><small># <!-- -->OPTIONS</small></a></td></tr><tr><td><a href="https://httpwg.org/specs/rfc9110.html#POST">HTTP Semantics<!-- --> <br><small># <!-- -->POST</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="Status.htm">HTTP response status codes</a></li>
+<li><a href="Headers.htm">HTTP headers</a></li>
+</ul></div></section></article></main></div></div></div></body></html>

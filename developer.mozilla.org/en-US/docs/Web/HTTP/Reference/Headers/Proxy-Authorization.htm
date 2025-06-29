@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Proxy-Authorization header</title><link rel="alternate" title="Proxy-Authorization header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Proxy-Authorization" hreflang="de"><link rel="alternate" title="Proxy-Authorization" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Proxy-Authorization" hreflang="ja"><link rel="alternate" title="Proxy-Authorization" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Headers/Proxy-Authorization" hreflang="pt"><link rel="alternate" title="Proxy-Authorization" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Proxy-Authorization" hreflang="zh"><link rel="alternate" title="Proxy-Authorization header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Proxy-Authorization" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Proxy-Authorization request header contains the credentials to authenticate a client with a proxy server, typically after the server has responded with a 407 Proxy Authentication Required status with the Proxy-Authenticate header."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Proxy-Authorization"><meta property="og:title" content="Proxy-Authorization header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Proxy-Authorization request header contains the credentials to authenticate a client with a proxy server, typically after the server has responded with a 407 Proxy Authentication Required status with the Proxy-Authenticate header."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Proxy-Authorization"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Proxy-Authorization header</h1></header><div class="section-content"><p>The HTTP <strong><code>Proxy-Authorization</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Request_header">request header</a> contains the credentials to authenticate a client with a proxy server, typically after the server has responded with a <a href="/en-US/docs/Web/HTTP/Reference/Status/407"><code>407 Proxy Authentication Required</code></a> status with the <a href="Proxy-Authenticate.htm"><code>Proxy-Authenticate</code></a> header.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Request_header">Request header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Proxy-Authorization: &lt;auth-scheme&gt; &lt;credentials&gt;
+</code></pre></div></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><dl>
+<dt id="auth-scheme"><a href="#auth-scheme"><code>&lt;auth-scheme&gt;</code></a></dt>
+<dd>
+<p>A case-insensitive token indicating the <a href="/en-US/docs/Web/HTTP/Guides/Authentication#authentication_schemes">Authentication scheme</a> used.
+Some of the more common types are <a href="/en-US/docs/Web/HTTP/Guides/Authentication#basic_authentication_scheme"><code>Basic</code></a>, <code>Digest</code>, <code>Negotiate</code> and <code>AWS4-HMAC-SHA256</code>.
+IANA maintains a <a href="https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml" class="external" target="_blank">list of authentication schemes</a>, but there are other schemes offered by host services.</p>
+</dd>
+<dt id="credentials"><a href="#credentials"><code>&lt;credentials&gt;</code></a></dt>
+<dd>
+<p>Credentials use for the authentication scheme.
+Generally, you will need to check the relevant specifications for the format.</p>
+</dd>
+</dl>
+<div class="notecard note">
+<p><strong>Note:</strong>
+See <a href="Authorization.htm"><code>Authorization</code></a> for more details.</p>
+</div></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="basic_authentication"><h3 id="basic_authentication"><a href="#basic_authentication">Basic authentication</a></h3><div class="section-content"><p>In <code>Basic</code> auth, credentials are sent in the format <code>&lt;username&gt;:&lt;password&gt;</code> (for example, <code>aladdin:opensesame</code>).
+The resulting string is then <a href="https://developer.mozilla.org/en-US/docs/Glossary/Base64">base64</a> encoded (<code>YWxhZGRpbjpvcGVuc2VzYW1l</code>).</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Proxy-Authorization: Basic YWxhZGRpbjpvcGVuc2VzYW1l
+</code></pre></div>
+<div class="notecard warning">
+<p><strong>Warning:</strong>
+Base64 encoding is reversible, and therefore offers no cryptographic security.
+This method can be considered equivalent to sending the credentials in clear text.
+<a href="https://developer.mozilla.org/en-US/docs/Glossary/HTTPS">HTTPS</a> is always recommended when using authentication, but is even more so when using <code>Basic</code> authentication.</p>
+</div></div></section><section aria-labelledby="bearer_authentication_auth_token"><h3 id="bearer_authentication_auth_token"><a href="#bearer_authentication_auth_token">Bearer authentication (auth token)</a></h3><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Proxy-Authorization: Bearer kNTktNTA1My00YzLT1234
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://httpwg.org/specs/rfc9110.html#field.proxy-authorization">HTTP Semantics<!-- --> <br><small># <!-- -->field.proxy-authorization</small></a></td></tr></tbody></table><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="/en-US/docs/Web/HTTP/Guides/Authentication">HTTP authentication</a></li>
+<li><a href="Proxy-Authenticate.htm"><code>Proxy-Authenticate</code></a></li>
+<li><a href="WWW-Authenticate.htm"><code>WWW-Authenticate</code></a></li>
+<li><a href="Authorization.htm"><code>Authorization</code></a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Status/401"><code>401</code></a>, <a href="/en-US/docs/Web/HTTP/Reference/Status/403"><code>403</code></a>, <a href="/en-US/docs/Web/HTTP/Reference/Status/407"><code>407</code></a></li>
+</ul></div></section></article></main></div></div></div></body></html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Sec-Purpose header</title><link rel="alternate" title="Sec-Purpose header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Sec-Purpose" hreflang="de"><link rel="alternate" title="Sec-Purpose header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Sec-Purpose" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Sec-Purpose fetch metadata request header indicates the purpose for which the requested resource will be used, when that purpose is something other than immediate use by the user-agent."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Sec-Purpose"><meta property="og:title" content="Sec-Purpose header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Sec-Purpose fetch metadata request header indicates the purpose for which the requested resource will be used, when that purpose is something other than immediate use by the user-agent."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Sec-Purpose"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Sec-Purpose header</h1><details class="baseline-indicator not"><summary><span class="indicator" role="img" aria-label="Baseline Cross"></span><div class="status-title"><span class="not-bold">Limited availability</span></div><div class="browsers"><span class="engine" title="Supported in Chrome and Edge"><span class="browser chrome supported" role="img" aria-label="Chrome check"></span><span class="browser edge supported" role="img" aria-label="Edge check"></span></span><span class="engine" title="Supported in Firefox"><span class="browser firefox supported" role="img" aria-label="Firefox check"></span></span><span class="engine" title="Not widely supported in Safari"><span class="browser safari " role="img" aria-label="Safari cross"></span></span></div><span class="icon icon-chevron "></span></summary><div class="extra"><p>This feature is not Baseline because it does not work in some of the most widely-used browsers.</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility" data-glean="baseline_link_learn_more" target="_blank" class="learn-more">Learn more</a></li><li><a href="#browser_compatibility" data-glean="baseline_link_bcd_table">See full compatibility</a></li><li><a href="https://survey.alchemer.com/s3/7634825/MDN-baseline-feedback?page=%2Fen-US%2Fdocs%2FWeb%2FHTTP%2FReference%2FHeaders%2FSec-Purpose&amp;level=not" data-glean="baseline_link_feedback" class="feedback-link" target="_blank" rel="noreferrer">Report feedback</a></li></ul></div></details></header><div class="section-content"><p>The HTTP <strong><code>Sec-Purpose</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Fetch_metadata_request_header">fetch metadata request header</a> indicates the purpose for which the requested resource will be used, when that purpose is something other than immediate use by the user-agent.</p>
+<p>The only purpose that is currently defined is <code>prefetch</code>, which indicates that the resource is being requested in anticipation that it will be needed by a page that is likely to be navigated to in the near future, such as a page linked in search results or a link that a user has hovered over.
+The server can use this knowledge to: adjust the caching expiry for the request, disallow the request, or perhaps to treat it differently when counting page visits.</p>
+<p>The header is sent when a page is loaded that has a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link"><code>&lt;link&gt;</code></a> element with attribute <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/prefetch"><code>rel="prefetch"</code></a>.
+Note that if this header is set then a <a href="Sec-Fetch-Dest.htm"><code>Sec-Fetch-Dest</code></a> header in the request must be set to <code>empty</code> (any value in the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link"><code>&lt;link&gt;</code></a> attribute <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link#as"><code>as</code></a> is ignored) and the <a href="Accept.htm"><code>Accept</code></a> header should match the value used for normal navigation requests.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Fetch_metadata_request_header">Fetch Metadata Request Header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>Yes (<code>Sec-</code> prefix)</td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <a href="https://developer.mozilla.org/en-US/docs/Glossary/CORS-safelisted_request_header">CORS-safelisted request header</a>
+      </th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Sec-Purpose: prefetch
+</code></pre></div></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><p>The allowed tokens are:</p>
+<dl>
+<dt id="prefetch"><a href="#prefetch"><code>prefetch</code></a></dt>
+<dd>
+<p>The purpose is to prefetch a resource that may be needed in a probable future navigation.</p>
+</dd>
+</dl></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="a_prefetch_request"><h3 id="a_prefetch_request"><a href="#a_prefetch_request">A prefetch request</a></h3><div class="section-content"><p>Consider the case where a browser loads a file with a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link"><code>&lt;link&gt;</code></a> element that has the attribute <code>rel="prefetch"</code> and an <code>href</code> attribute containing the address of an image file.
+The resulting <code>fetch()</code> should result in an HTTP request where <code>Sec-Purpose: prefetch</code>, <code>Sec-Fetch-Dest: empty</code>, and an <code>Accept</code> value that is the same as the browser uses for page navigation.</p>
+<p>An example of such a header (on Firefox) is given below:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>GET /images/some_image.png HTTP/1.1
+Host: example.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/116.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Sec-Purpose: prefetch
+Connection: keep-alive
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Site: same-origin
+Pragma: no-cache
+Cache-Control: no-cache
+</code></pre></div>
+<div class="notecard note">
+<p><strong>Note:</strong>
+At time of writing Firefox incorrectly sets the <code>Accept</code> header as <code>Accept: */*</code> for prefetches.
+The example has been modified to show what the <code>Accept</code> value should be.
+This issue can be tracked in <a href="https://bugzil.la/1836334" class="external" target="_blank">Firefox bug 1836334</a>.</p>
+</div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://fetch.spec.whatwg.org/#sec-purpose-header">Fetch<!-- --> <br><small># <!-- -->sec-purpose-header</small></a></td></tr><tr><td><a href="https://wicg.github.io/nav-speculation/prefetch.html#sec-purpose-header">Prefetch<!-- --> <br><small># <!-- -->sec-purpose-header</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="Sec-Fetch-Dest.htm"><code>Sec-Fetch-Dest</code></a>, <a href="Sec-Fetch-Mode.htm"><code>Sec-Fetch-Mode</code></a>, <a href="Sec-Fetch-Site.htm"><code>Sec-Fetch-Site</code></a>, <a href="Sec-Fetch-User.htm"><code>Sec-Fetch-User</code></a> fetch metadata request headers</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Prefetch">Prefetch</a> (Glossary)</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link"><code>&lt;link&gt;</code></a> element with attribute <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/prefetch"><code>rel="prefetch"</code></a></li>
+</ul></div></section></article></main></div></div></div></body></html>

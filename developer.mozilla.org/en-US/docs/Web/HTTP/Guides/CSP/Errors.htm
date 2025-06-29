@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Content Security Policy errors and warnings</title><link rel="alternate" title="Content-Security-Policy-Fehler und Warnungen" href="https://developer.mozilla.org/de/docs/Web/HTTP/Guides/CSP/Errors" hreflang="de"><link rel="alternate" title="CSP のエラーと警告 (Content Security Policy)" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Guides/CSP/Errors" hreflang="ja"><link rel="alternate" title="Content Security Policy errors and warnings" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP/Errors" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="When you see any of the following messages logged in the browser devtools console, it indicates that a problem related to CSP has occurred."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP/Errors"><meta property="og:title" content="Content Security Policy errors and warnings - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="When you see any of the following messages logged in the browser devtools console, it indicates that a problem related to CSP has occurred."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP/Errors"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Content Security Policy errors and warnings</h1></header><div class="section-content"><p>When you see any of the following messages logged in the browser devtools console, it indicates that a problem related to <a href="/en-US/docs/Web/HTTP/Guides/CSP">CSP</a> has occurred.</p>
+<ul>
+<li><a href="Errors/CSPViolation.htm">The page's settings blocked the loading of a resource: %1$S</a></li>
+<li>The page's settings blocked the loading of a resource at %2$S ("%1$S").</li>
+<li>A violation occurred for a report-only CSP policy ("%1$S"). The behavior was allowed, and a CSP report was sent.</li>
+<li>The page's settings observed the loading of a resource at %2$S ("%1$S"). A CSP report is being sent.</li>
+<li>Tried to send report to invalid URI: "%1$S"</li>
+<li>Couldn't parse report URI: %1$S</li>
+<li>Couldn't process unknown directive '%1$S'</li>
+<li>Ignoring unknown option %1$S</li>
+<li>Ignoring duplicate source %1$S</li>
+<li>Ignoring source '%1$S' (Not supported when delivered via meta element).</li>
+<li>Ignoring "%1$S" within script-src or style-src: nonce-source or hash-source specified</li>
+<li>Ignoring "%1$S" within script-src: 'strict-dynamic' specified</li>
+<li>Ignoring source "%1$S" (Only supported within script-src).</li>
+<li>Keyword 'strict-dynamic' within "%1$S" with no valid nonce or hash might block all scripts from loading</li>
+<li>The report URI (%1$S) should be an HTTP or HTTPS URI.</li>
+<li>This site (%1$S) has a Report-Only policy without a report URI. CSP will not block and cannot report violations of this policy.</li>
+<li>Failed to parse unrecognized source %1$S</li>
+<li>An attempt to execute inline scripts has been blocked</li>
+<li>An attempt to apply inline style sheets has been blocked</li>
+<li>An attempt to call JavaScript from a string (by calling a function like eval) has been blocked</li>
+<li>Upgrading insecure request '%1$S' to use '%2$S'</li>
+<li>Ignoring srcs for directive '%1$S'</li>
+<li>Interpreting %1$S as a hostname, not a keyword. If you intended this to be a keyword, use '%2$S' (wrapped in single quotes).</li>
+<li>Not supporting directive '%1$S'. Directive and values will be ignored.</li>
+<li>Blocking insecure request '%1$S'.(/en-US/docs/Web/HTTP/Guides/CSP/Errors/blockAllMixedContent)</li>
+<li>Ignoring '%1$S' since it does not contain any parameters.</li>
+<li>Ignoring sandbox directive when delivered in a report-only policy '%1$S'</li>
+<li>Referrer Directive '%1$S' has been deprecated. Please use the Referrer-Policy header instead.</li>
+<li>Ignoring '%1$S' because of '%2$S' directive.</li>
+<li>Couldn't parse invalid source %1$S</li>
+<li>Couldn't parse invalid host %1$S</li>
+<li>Couldn't parse scheme in %1$S</li>
+<li>Couldn't parse port in %1$S</li>
+<li>Duplicate %1$S directives detected. All but the first instance will be ignored.</li>
+<li>Directive '%1$S' has been deprecated. Please use directive 'worker-src' to control workers, or directive 'frame-src' to control frames respectively.</li>
+<li>Couldn't parse invalid sandbox flag '%1$S'</li>
+</ul></div><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy"><code>Content-Security-Policy</code></a> HTTP header</li>
+</ul></div></section></article></main></div></div></div></body></html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>200 OK</title><link rel="alternate" title="200 OK" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Status/200" hreflang="de"><link rel="alternate" title="200 OK" href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status/200" hreflang="es"><link rel="alternate" title="200 OK" href="https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Status/200" hreflang="fr"><link rel="alternate" title="200 OK" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Status/200" hreflang="ja"><link rel="alternate" title="200 OK" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Status/200" hreflang="ko"><link rel="alternate" title="200 OK" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status/200" hreflang="pt"><link rel="alternate" title="200 OK" href="https://developer.mozilla.org/ru/docs/Web/HTTP/Reference/Status/200" hreflang="ru"><link rel="alternate" title="200 OK" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Status/200" hreflang="zh"><link rel="alternate" title="200 OK" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Reference/Status/200" hreflang="zh-Hant"><link rel="alternate" title="200 OK" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/200" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP 200 OK successful response status code indicates that a request has succeeded.
+A 200 OK response is cacheable by default."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/200"><meta property="og:title" content="200 OK - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP 200 OK successful response status code indicates that a request has succeeded.
+A 200 OK response is cacheable by default."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/200"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>200 OK</h1></header><div class="section-content"><p>The HTTP <strong><code>200 OK</code></strong> <a href="/en-US/docs/Web/HTTP/Reference/Status#successful_responses">successful response</a> status code indicates that a request has succeeded.
+A <code>200 OK</code> response is cacheable by default.</p>
+<p>A <code>200 OK</code> response has a different meaning and format depending on the HTTP request method.
+Here's how they vary for different methods:</p>
+<ul>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Methods/GET"><code>GET</code></a>: A resource was retrieved by the server and included in the response body.</li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Methods/POST"><code>POST</code></a>: An action succeeded; the response has a message body describing the result.</li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Methods/HEAD"><code>HEAD</code></a>: Identical to <code>GET</code>, except there is no message body.</li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Methods/TRACE"><code>TRACE</code></a>: The response has a message body containing the request as received by the server.</li>
+</ul>
+<p>Although possible, successful <a href="/en-US/docs/Web/HTTP/Reference/Methods/PUT"><code>PUT</code></a> or <a href="/en-US/docs/Web/HTTP/Reference/Methods/DELETE"><code>DELETE</code></a> requests often do not result in a <code>200 OK</code> response.
+It is more common to see <a href="201.htm"><code>201 Created</code></a> if the resource is uploaded or created for the first time, or <a href="204.htm"><code>204 No Content</code></a> upon successful deletion of a resource.</p></div><section aria-labelledby="status"><h2 id="status"><a href="#status">Status</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>200 OK
+</code></pre></div></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="receiving_a_200_ok_for_a_get_request"><h3 id="receiving_a_200_ok_for_a_get_request"><a href="#receiving_a_200_ok_for_a_get_request">Receiving a <code>200 OK</code> for a <code>GET</code> request</a></h3><div class="section-content"><p>In this example, a successful <code>GET</code> request to <code>https://example.com</code> returns a <code>200 OK</code> response.
+The response includes representation headers and a message body with the HTML content:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Age: 294510
+Cache-Control: max-age=604800
+Content-Type: text/html; charset=UTF-8
+Date: Fri, 21 Jun 2024 14:18:33 GMT
+Etag: "3147526947"
+Expires: Fri, 28 Jun 2024 14:18:33 GMT
+Last-Modified: Thu, 17 Oct 2019 07:18:26 GMT
+Server: ECAcc (nyd/D10E)
+X-Cache: HIT
+Content-Length: 1256
+
+&lt;!doctype html&gt;
+&lt;!-- HTML content follows here --&gt;
+</code></pre></div></div></section><section aria-labelledby="receiving_a_200_ok_for_a_post_request_in_form_submission"><h3 id="receiving_a_200_ok_for_a_post_request_in_form_submission"><a href="#receiving_a_200_ok_for_a_post_request_in_form_submission">Receiving a <code>200 OK</code> for a <code>POST</code> request in form submission</a></h3><div class="section-content"><p>Assuming a form exists to send data to an endpoint for managing subscriptions at <code>http://example.com/subscribe</code>.
+A <code>POST</code> request to subscribe a user may look like the following:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>POST /subscribe HTTP/1.1
+Host: example.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 50
+
+name=Brian%20Smith&amp;email=brian.smith%40example.com
+</code></pre></div>
+<p>In this example, a response with a <code>200 OK</code> status could look like this:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "message": "User subscription pending. A confirmation email has been sent.",
+  "subscription": {
+    "name": "Brian Smith",
+    "email": "brian.smith@example.com",
+    "id": 123,
+    "feed": "default"
+  }
+}
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://www.rfc-editor.org/rfc/rfc9110#status.200">HTTP Semantics<!-- --> <br><small># <!-- -->status.200</small></a></td></tr></tbody></table><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Methods">HTTP request methods</a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Status">HTTP response status codes</a></li>
+<li>Glossary: <a href="https://developer.mozilla.org/en-US/docs/Glossary/Idempotent">Idempotent</a></li>
+</ul></div></section></article></main></div></div></div></body></html>

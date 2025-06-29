@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Sec-Fetch-Site header</title><link rel="alternate" title="Sec-Fetch-Site header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Sec-Fetch-Site" hreflang="de"><link rel="alternate" title="Sec-Fetch-Site" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Sec-Fetch-Site" hreflang="zh"><link rel="alternate" title="Sec-Fetch-Site header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Sec-Fetch-Site" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Sec-Fetch-Site fetch metadata request header indicates the relationship between a request initiator's origin and the origin of the requested resource."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Sec-Fetch-Site"><meta property="og:title" content="Sec-Fetch-Site header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Sec-Fetch-Site fetch metadata request header indicates the relationship between a request initiator's origin and the origin of the requested resource."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Sec-Fetch-Site"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Sec-Fetch-Site header</h1><details class="baseline-indicator low"><summary><span class="indicator" role="img" aria-label="Baseline Check"></span><div class="status-title">Baseline<!-- --> <span class="not-bold">2023</span></div><div class="pill">Newly available</div><div class="browsers"><span class="engine" title="Supported in Chrome and Edge"><span class="browser chrome supported" role="img" aria-label="Chrome check"></span><span class="browser edge supported" role="img" aria-label="Edge check"></span></span><span class="engine" title="Supported in Firefox"><span class="browser firefox supported" role="img" aria-label="Firefox check"></span></span><span class="engine" title="Supported in Safari"><span class="browser safari supported" role="img" aria-label="Safari check"></span></span></div><span class="icon icon-chevron "></span></summary><div class="extra"><p>Since<!-- --> <!-- -->March 2023<!-- -->, this feature works across the latest devices and browser versions. This feature might not work in older devices or browsers.</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility" data-glean="baseline_link_learn_more" target="_blank" class="learn-more">Learn more</a></li><li><a href="#browser_compatibility" data-glean="baseline_link_bcd_table">See full compatibility</a></li><li><a href="https://survey.alchemer.com/s3/7634825/MDN-baseline-feedback?page=%2Fen-US%2Fdocs%2FWeb%2FHTTP%2FReference%2FHeaders%2FSec-Fetch-Site&amp;level=low" data-glean="baseline_link_feedback" class="feedback-link" target="_blank" rel="noreferrer">Report feedback</a></li></ul></div></details></header><div class="section-content"><p>The HTTP <strong><code>Sec-Fetch-Site</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Fetch_metadata_request_header">fetch metadata request header</a> indicates the relationship between a request initiator's origin and the origin of the requested resource.</p>
+<p>In other words, this header tells a server whether a request for a resource is coming from the same origin, the same site, a different site, or is a "user initiated" request. The server can then use this information to decide if the request should be allowed.</p>
+<p>Same-origin requests would usually be allowed by default, but what happens for requests from other origins may further depend on what resource is being requested, or information in another <a href="https://developer.mozilla.org/en-US/docs/Glossary/Fetch_metadata_request_header">fetch metadata request header</a>. By default, requests that are not accepted should be rejected with a <a href="/en-US/docs/Web/HTTP/Reference/Status/403"><code>403</code></a> response code.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Fetch_metadata_request_header">Fetch Metadata Request Header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>Yes (<code>Sec-</code> prefix)</td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <a href="https://developer.mozilla.org/en-US/docs/Glossary/CORS-safelisted_request_header">CORS-safelisted request header</a>
+      </th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Sec-Fetch-Site: cross-site
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Site: same-site
+Sec-Fetch-Site: none
+</code></pre></div></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><dl>
+<dt id="cross-site"><a href="#cross-site"><code>cross-site</code></a></dt>
+<dd>
+<p>The request initiator and the server hosting the resource have a different site (i.e., a request by "potentially-evil.com" for a resource at "example.com").</p>
+</dd>
+<dt id="same-origin"><a href="#same-origin"><code>same-origin</code></a></dt>
+<dd>
+<p>The request initiator and the server hosting the resource have the same <a href="https://developer.mozilla.org/en-US/docs/Glossary/Origin">origin</a> (same scheme, host and port).</p>
+</dd>
+<dt id="same-site"><a href="#same-site"><code>same-site</code></a></dt>
+<dd>
+<p>The request initiator and the server hosting the resource have the same <a href="https://developer.mozilla.org/en-US/docs/Glossary/Site">site</a>, including the scheme.</p>
+</dd>
+<dt id="none"><a href="#none"><code>none</code></a></dt>
+<dd>
+<p>This request is a user-originated operation. For example: entering a URL into the address bar, opening a bookmark, or dragging-and-dropping a file into the browser window.</p>
+</dd>
+</dl></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"><p>A fetch request to <code>https://mysite.example/foo.json</code> originating from a web page on <code>https://mysite.example</code> (with the same port) is a same-origin request.
+The browser will generate the <code>Sec-Fetch-Site: same-origin</code> header as shown below, and the server will typically allow the request:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>GET /foo.json
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+</code></pre></div>
+<p>A fetch request to the same URL from another site, for example <code>potentially-evil.com</code>, causes the browser to generate a different header (e.g., <code>Sec-Fetch-Site: cross-site</code>), which the server can choose to accept or reject:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>GET /foo.json
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: cross-site
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://w3c.github.io/webappsec-fetch-metadata/#sec-fetch-site-header">Fetch Metadata Request Headers<!-- --> <br><small># <!-- -->sec-fetch-site-header</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="Sec-Fetch-Mode.htm"><code>Sec-Fetch-Mode</code></a>, <a href="Sec-Fetch-User.htm"><code>Sec-Fetch-User</code></a>, <a href="Sec-Fetch-Dest.htm"><code>Sec-Fetch-Dest</code></a> fetch metadata request headers</li>
+<li><a href="https://web.dev/articles/fetch-metadata" class="external" target="_blank">Protect your resources from web attacks with Fetch Metadata</a> (web.dev)</li>
+<li><a href="https://secmetadata.appspot.com/" class="external" target="_blank">Fetch Metadata Request Headers playground</a> (secmetadata.appspot.com)</li>
+</ul></div></section></article></main></div></div></div></body></html>

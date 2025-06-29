@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>X-XSS-Protection header</title><link rel="alternate" title="X-XSS-Protection header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/X-XSS-Protection" hreflang="de"><link rel="alternate" title="X-XSS-Protection" href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Headers/X-XSS-Protection" hreflang="es"><link rel="alternate" title="X-XSS-Protection" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/X-XSS-Protection" hreflang="ja"><link rel="alternate" title="X-XSS-Protection" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/X-XSS-Protection" hreflang="ko"><link rel="alternate" title="X-XSS-Protection" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Headers/X-XSS-Protection" hreflang="pt"><link rel="alternate" title="X-XSS-Protection" href="https://developer.mozilla.org/ru/docs/Web/HTTP/Reference/Headers/X-XSS-Protection" hreflang="ru"><link rel="alternate" title="X-XSS-Protection" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/X-XSS-Protection" hreflang="zh"><link rel="alternate" title="X-XSS-Protection header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-XSS-Protection" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP X-XSS-Protection response header was a feature of Internet Explorer, Chrome and Safari that stopped pages from loading when they detected reflected cross-site scripting (XSS) attacks.
+These protections are largely unnecessary in modern browsers when sites implement a strong Content-Security-Policy that disables the use of inline JavaScript ('unsafe-inline')."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-XSS-Protection"><meta property="og:title" content="X-XSS-Protection header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP X-XSS-Protection response header was a feature of Internet Explorer, Chrome and Safari that stopped pages from loading when they detected reflected cross-site scripting (XSS) attacks.
+These protections are largely unnecessary in modern browsers when sites implement a strong Content-Security-Policy that disables the use of inline JavaScript ('unsafe-inline')."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-XSS-Protection"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>X-XSS-Protection header</h1></header><div class="section-content"><div class="notecard nonstandard"><p><strong>Non-standard:</strong> This feature is not standardized. We do not recommend using non-standard features in production, as they have limited browser support, and may change or be removed. However, they can be a suitable alternative in specific cases where no standard option exists.</p></div>
+<div class="notecard deprecated"><p><strong>Deprecated:</strong> This feature is no longer recommended. Though some browsers might still support it, it may have already been removed from the relevant web standards, may be in the process of being dropped, or may only be kept for compatibility purposes. Avoid using it, and update existing code if possible; see the <a href="#browser_compatibility">compatibility table</a> at the bottom of this page to guide your decision. Be aware that this feature may cease to work at any time.</p></div>
+<div class="notecard warning">
+<p><strong>Warning:</strong>
+Even though this feature can protect users of older web browsers that don't support <a href="https://developer.mozilla.org/en-US/docs/Glossary/CSP">CSP</a>, in some cases, <strong><code>X-XSS-Protection</code> can create XSS vulnerabilities</strong> in otherwise safe websites.
+See the <a href="#security_considerations">Security considerations</a> section below for more information.</p>
+</div>
+<p>The HTTP <strong><code>X-XSS-Protection</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">response header</a> was a feature of Internet Explorer, Chrome and Safari that stopped pages from loading when they detected reflected cross-site scripting (<a href="https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting">XSS</a>) attacks.
+These protections are largely unnecessary in modern browsers when sites implement a strong <a href="Content-Security-Policy.htm"><code>Content-Security-Policy</code></a> that disables the use of inline JavaScript (<code>'unsafe-inline'</code>).</p>
+<p>It is recommended that you use <a href="Content-Security-Policy.htm"><code>Content-Security-Policy</code></a> instead of XSS filtering.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>X-XSS-Protection: 0
+X-XSS-Protection: 1
+X-XSS-Protection: 1; mode=block
+X-XSS-Protection: 1; report=&lt;reporting-uri&gt;
+</code></pre></div></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><dl>
+<dt id="0"><a href="#0"><code>0</code></a></dt>
+<dd>
+<p>Disables XSS filtering.</p>
+</dd>
+<dt id="1"><a href="#1"><code>1</code></a></dt>
+<dd>
+<p>Enables XSS filtering (usually default in browsers). If a cross-site scripting attack is detected, the browser will sanitize the page (remove the unsafe parts).</p>
+</dd>
+<dt id="1_modeblock"><a href="#1_modeblock"><code>1; mode=block</code></a></dt>
+<dd>
+<p>Enables XSS filtering. Rather than sanitizing the page, the browser will prevent rendering of the page if an attack is detected.</p>
+</dd>
+<dt id="1_reportreporting-uri"><a href="#1_reportreporting-uri"><code>1; report=&lt;reporting-URI&gt;</code> (Chromium only)</a></dt>
+<dd>
+<p>Enables XSS filtering. If a cross-site scripting attack is detected, the browser will sanitize the page and report the violation. This uses the functionality of the CSP <a href="Content-Security-Policy/report-uri.htm"><code>report-uri</code></a> directive to send a report.</p>
+</dd>
+</dl></div></section><section aria-labelledby="security_considerations"><h2 id="security_considerations"><a href="#security_considerations">Security considerations</a></h2><div class="section-content"></div></section><section aria-labelledby="vulnerabilities_caused_by_xss_filtering"><h3 id="vulnerabilities_caused_by_xss_filtering"><a href="#vulnerabilities_caused_by_xss_filtering">Vulnerabilities caused by XSS filtering</a></h3><div class="section-content"><p>Consider the following excerpt of HTML code for a webpage:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">html</span></div><pre class="brush: html notranslate"><code>&lt;script&gt;
+  var productionMode = true;
+&lt;/script&gt;
+&lt;!-- [...] --&gt;
+&lt;script&gt;
+  if (!window.productionMode) {
+    // Some vulnerable debug code
+  }
+&lt;/script&gt;
+</code></pre></div>
+<p>This code is completely safe if the browser doesn't perform XSS filtering. However, if it does and the search query is <code>?something=%3Cscript%3Evar%20productionMode%20%3D%20true%3B%3C%2Fscript%3E</code>, the browser might execute the scripts in the page ignoring <code>&lt;script&gt;var productionMode = true;&lt;/script&gt;</code> (thinking the server included it in the response because it was in the URI), causing <code>window.productionMode</code> to be evaluated to <code>undefined</code> and executing the unsafe debug code.</p>
+<p>Setting the <code>X-XSS-Protection</code> header to either <code>0</code> or <code>1; mode=block</code> prevents vulnerabilities like the one described above. The former would make the browser run all scripts and the latter would prevent the page from being processed at all (though this approach might be vulnerable to <a href="https://portswigger.net/research/abusing-chromes-xss-auditor-to-steal-tokens" class="external" target="_blank">side-channel attacks</a> if the website is embeddable in an <code>&lt;iframe&gt;</code>).</p></div></section><section aria-labelledby="example"><h2 id="example"><a href="#example">Example</a></h2><div class="section-content"><p>Block pages from loading when they detect reflected XSS attacks:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>X-XSS-Protection: 1; mode=block
+</code></pre></div>
+<p>PHP</p>
+<div class="code-example"><div class="example-header"><span class="language-name">php</span></div><pre class="brush: php notranslate"><code>header("X-XSS-Protection: 1; mode=block");
+</code></pre></div>
+<p>Apache (.htaccess)</p>
+<div class="code-example"><div class="example-header"><span class="language-name">apacheconf</span></div><pre class="brush: apacheconf notranslate"><code>&lt;IfModule mod_headers.c&gt;
+  Header set X-XSS-Protection "1; mode=block"
+&lt;/IfModule&gt;
+</code></pre></div>
+<p>Nginx</p>
+<div class="code-example"><div class="example-header"><span class="language-name">nginx</span></div><pre class="brush: nginx notranslate"><code>add_header "X-XSS-Protection" "1; mode=block";
+</code></pre></div></div></section><section aria-labelledby="specifications"><h2 id="specifications"><a href="#specifications">Specifications</a></h2><div class="section-content"><p>Not part of any specifications or drafts.</p></div></section><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="Content-Security-Policy.htm"><code>Content-Security-Policy</code></a></li>
+<li><a href="https://learn.microsoft.com/en-us/archive/blogs/ieinternals/controlling-the-xss-filter" class="external" target="_blank">Controlling the XSS Filter – Microsoft</a></li>
+<li><a href="https://www.virtuesecurity.com/understanding-xss-auditor/" class="external" target="_blank">Understanding XSS Auditor – Virtue Security</a></li>
+<li><a href="https://web.archive.org/web/20230527023943/https://blog.innerht.ml/the-misunderstood-x-xss-protection/" class="external" target="_blank">The misunderstood X-XSS-Protection – blog.innerht.ml</a></li>
+</ul></div></section></article></main></div></div></div></body></html>

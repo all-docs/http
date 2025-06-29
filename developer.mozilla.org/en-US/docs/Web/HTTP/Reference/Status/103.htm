@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>103 Early Hints</title><link rel="alternate" title="103 Early Hints" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Status/103" hreflang="de"><link rel="alternate" title="103 Early Hints" href="https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Status/103" hreflang="fr"><link rel="alternate" title="103 Early Hints" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Status/103" hreflang="ja"><link rel="alternate" title="103 Early Hints" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Status/103" hreflang="ko"><link rel="alternate" title="103 Early Hints" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status/103" hreflang="pt"><link rel="alternate" title="103 Early Hints" href="https://developer.mozilla.org/ru/docs/Web/HTTP/Reference/Status/103" hreflang="ru"><link rel="alternate" title="103 Early Hints" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Status/103" hreflang="zh"><link rel="alternate" title="103 Early Hints" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Reference/Status/103" hreflang="zh-Hant"><link rel="alternate" title="103 Early Hints" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/103" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP 103 Early Hints informational response may be sent by a server while it is still preparing a response, with hints about the sites and resources that the server expects the final response will link to.
+This allows a browser to preconnect to sites or start preloading resources even before the server has prepared and sent a final response.
+Preloaded resources indicated by early hints are fetched by the client as soon as the hints are received."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/103"><meta property="og:title" content="103 Early Hints - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP 103 Early Hints informational response may be sent by a server while it is still preparing a response, with hints about the sites and resources that the server expects the final response will link to.
+This allows a browser to preconnect to sites or start preloading resources even before the server has prepared and sent a final response.
+Preloaded resources indicated by early hints are fetched by the client as soon as the hints are received."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/103"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>103 Early Hints</h1></header><div class="section-content"><p>The HTTP <strong><code>103 Early Hints</code></strong> <a href="/en-US/docs/Web/HTTP/Reference/Status#informational_responses">informational response</a> may be sent by a server while it is still preparing a response, with hints about the sites and resources that the server expects the final response will link to.
+This allows a browser to <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/preconnect">preconnect</a> to sites or start <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/preload">preloading</a> resources even before the server has prepared and sent a final response.
+Preloaded resources indicated by early hints are fetched by the client as soon as the hints are received.</p>
+<p>The early hint response is primarily intended for use with the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Link"><code>Link</code></a> header, which indicates the resources to be loaded.
+It may also contain a <a href="/en-US/docs/Web/HTTP/Guides/CSP"><code>Content-Security-Policy</code></a> header that is enforced while processing the early hint.</p>
+<p>A server might send multiple <code>103</code> responses, for example, following a redirect.
+Browsers only process the first early hints response, and this response must be discarded if the request results in a cross-origin redirect.</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+For compatibility and security reasons, it is recommended to <a href="https://www.rfc-editor.org/rfc/rfc8297#section-3" class="external" target="_blank">only send HTTP <code>103 Early Hints</code> responses over HTTP/2 or later</a> unless the client is known to handle informational responses correctly.</p>
+<p>Most browsers limit support to HTTP/2 or later for this reason. See <a href="#browser_compatibility">browser compatibility</a> below.
+Despite this, the examples below use HTTP/1.1-style notation as per usual convention.</p>
+</div></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>103 Early Hints
+</code></pre></div></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="preconnect_example"><h3 id="preconnect_example"><a href="#preconnect_example">Preconnect example</a></h3><div class="section-content"><p>The following <code>103</code> early hint response shows an early hint response where the server indicates that the client might want to preconnect to a particular origin (<code>https://cdn.example.com</code>).
+Just like the HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/preconnect"><code>rel=preconnect</code></a> attribute, this is a hint that the page is likely to need resources from the target resource's origin, and that the browser may improve the user experience by preemptively initiating a connection to that origin.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>103 Early Hint
+Link: &lt;https://cdn.example.com&gt;; rel=preconnect, &lt;https://cdn.example.com&gt;; rel=preconnect; crossorigin
+</code></pre></div>
+<p>This example preconnects to <code>https://cdn.example.com</code> twice:</p>
+<ul>
+<li>The first connection would be used for loading resources that can be fetched without CORS, such as images.</li>
+<li>The second connection includes the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/crossorigin"><code>crossorigin</code></a> attribute and would be used for loading <a href="/en-US/docs/Web/HTTP/Guides/CORS">CORS</a>-protected resources, such as fonts.</li>
+</ul>
+<p>CORS-protected resources must be fetched over a completely separate connection. If you only need one type of resource from an origin then you only need to preconnect once.</p>
+<p>Subsequently the server sends the final response.
+This includes a crossorigin font preload and an <code>&lt;img&gt;</code> loaded from the additional origin.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>200 OK
+Content-Type: text/html
+
+&lt;!doctype html&gt;
+...
+&lt;link rel="preload" href="https://cdn.example.com/fonts/my-font.woff2" as="font" type="font/woff2" crossorigin&gt;
+...
+&lt;img src="https://cdn.example.com/images/image.jpg" alt=""&gt;
+...
+</code></pre></div></div></section><section aria-labelledby="preload_example"><h3 id="preload_example"><a href="#preload_example">Preload example</a></h3><div class="section-content"><p>The following <code>103</code> early hint response indicates a stylesheet <code>style.css</code> might be needed by the final response.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>103 Early Hint
+Link: &lt;/style.css&gt;; rel=preload; as=style
+</code></pre></div>
+<p>Subsequently the server sends the final response.
+This includes a link to the stylesheet, which may already have been preloaded from the early hint.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>200 OK
+Content-Type: text/html
+
+&lt;!doctype html&gt;
+...
+&lt;link rel="stylesheet" rel="preload" href="style.css" /&gt;
+...
+</code></pre></div></div></section><section aria-labelledby="early_hint_response_with_csp"><h3 id="early_hint_response_with_csp"><a href="#early_hint_response_with_csp">Early hint response with CSP</a></h3><div class="section-content"><p>The following example shows the same early hint response but with a <code>Content-Security-Policy</code> header included.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>103 Early Hint
+Content-Security-Policy: style-src: self;
+Link: &lt;/style.css&gt;; rel=preload; as=style
+</code></pre></div>
+<p>The early response restricts preloading to the same origin as the request.
+The stylesheet will be preloaded if the origin matches.</p>
+<p>The final response might set the CSP to <code>none</code>, as shown below.
+The stylesheet has already been preloaded, but will not be used when rendering the page.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>200 OK
+Content-Security-Policy: style-src: none;
+Content-Type: text/html
+
+&lt;!doctype html&gt;
+...
+&lt;link rel="stylesheet" rel="preload" href="style.css" /&gt;
+...
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://httpwg.org/specs/rfc8297.html#early-hints">An HTTP Status Code for Indicating Hints<!-- --> <br><small># <!-- -->early-hints</small></a></td></tr><tr><td><a href="https://html.spec.whatwg.org/multipage/semantics.html#early-hints">HTML<!-- --> <br><small># <!-- -->early-hints</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers/Link"><code>Link</code></a></li>
+<li><a href="/en-US/docs/Web/HTTP/Guides/CORS">Cross-Origin Resource Sharing (CORS)</a></li>
+<li><a href="/en-US/docs/Web/HTTP/Guides/CSP">Content Security Policy (CSP)</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/preconnect"><code>rel="preconnect"</code></a> (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link"><code>&lt;link&gt;</code></a> attribute)</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/preload"><code>rel="preload"</code></a> (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link"><code>&lt;link&gt;</code></a> attribute)</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link#fetchpriority"><code>fetchpriority</code></a> (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link"><code>&lt;link&gt;</code></a> attribute)</li>
+<li><a href="https://blog.cloudflare.com/early-hints-performance/" class="external" target="_blank">Early Hints update: How Cloudflare, Google, and Shopify are working together to build a faster Internet for everyone</a> from the Cloudflare blog</li>
+</ul></div></section></article></main></div></div></div></body></html>

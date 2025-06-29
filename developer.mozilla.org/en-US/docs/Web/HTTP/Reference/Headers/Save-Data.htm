@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Save-Data header</title><link rel="alternate" title="Save-Data header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Save-Data" hreflang="de"><link rel="alternate" title="Save-Data" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Headers/Save-Data" hreflang="pt"><link rel="alternate" title="Save-Data" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Save-Data" hreflang="zh"><link rel="alternate" title="Save-Data header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Save-Data" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Save-Data request header is a network client hint which indicates the client's preference for reduced data usage.
+This could be for reasons such as high transfer costs, slow connection speeds, etc."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Save-Data"><meta property="og:title" content="Save-Data header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Save-Data request header is a network client hint which indicates the client's preference for reduced data usage.
+This could be for reasons such as high transfer costs, slow connection speeds, etc."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Save-Data"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Save-Data header</h1><details class="baseline-indicator not"><summary><span class="indicator" role="img" aria-label="Baseline Cross"></span><div class="status-title"><span class="not-bold">Limited availability</span></div><div class="browsers"><span class="engine" title="Supported in Chrome and Edge"><span class="browser chrome supported" role="img" aria-label="Chrome check"></span><span class="browser edge supported" role="img" aria-label="Edge check"></span></span><span class="engine" title="Not widely supported in Firefox"><span class="browser firefox " role="img" aria-label="Firefox cross"></span></span><span class="engine" title="Not widely supported in Safari"><span class="browser safari " role="img" aria-label="Safari cross"></span></span></div><span class="icon icon-chevron "></span></summary><div class="extra"><p>This feature is not Baseline because it does not work in some of the most widely-used browsers.</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility" data-glean="baseline_link_learn_more" target="_blank" class="learn-more">Learn more</a></li><li><a href="#browser_compatibility" data-glean="baseline_link_bcd_table">See full compatibility</a></li><li><a href="https://survey.alchemer.com/s3/7634825/MDN-baseline-feedback?page=%2Fen-US%2Fdocs%2FWeb%2FHTTP%2FReference%2FHeaders%2FSave-Data&amp;level=not" data-glean="baseline_link_feedback" class="feedback-link" target="_blank" rel="noreferrer">Report feedback</a></li></ul></div></details></header><div class="section-content"><div class="notecard experimental"><p><strong>Experimental:</strong> <strong>This is an <a href="https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental">experimental technology</a></strong><br>Check the <a href="#browser_compatibility">Browser compatibility table</a> carefully before using this in production.</p></div>
+<p>The HTTP <strong><code>Save-Data</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Request_header">request header</a> is a <a href="/en-US/docs/Web/HTTP/Guides/Client_hints#network_client_hints">network client hint</a> which indicates the client's preference for reduced data usage.
+This could be for reasons such as high transfer costs, slow connection speeds, etc.</p>
+<p><code>Save-Data</code> is a <a href="/en-US/docs/Web/HTTP/Guides/Client_hints#low_entropy_hints">low entropy hint</a>, and hence may be sent by the client even if not requested by the server using an <a href="Accept-CH.htm"><code>Accept-CH</code></a> response header.
+Further, it should be used to reduce data sent to the client irrespective of the values of other client hints that indicate network capability, like <a href="Downlink.htm"><code>Downlink</code></a> and <a href="RTT.htm"><code>RTT</code></a>.</p>
+<p>A value of <code>On</code> indicates explicit user opt-in into a reduced data usage mode on the client.
+When communicated to origins, this allows them to deliver alternative content to reduce the data downloaded such as smaller image and video resources, different markup and styling, disabled polling and automatic updates, and so on.</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+Disabling HTTP/2 Server Push (<a href="https://datatracker.ietf.org/doc/html/rfc7540#section-8.2" class="external" target="_blank">RFC 7540, section 8.2: Server Push</a>) may reduce data downloads.
+Note that this feature is no longer supported by default in most major browser engines.</p>
+</div>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td>
+        <a href="https://developer.mozilla.org/en-US/docs/Glossary/Request_header">Request header</a>,
+        <a href="/en-US/docs/Web/HTTP/Guides/Client_hints">Client hint</a>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <a href="https://developer.mozilla.org/en-US/docs/Glossary/CORS-safelisted_response_header">CORS-safelisted response header</a>
+      </th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Save-Data: &lt;sd-token&gt;
+</code></pre></div></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><dl>
+<dt id="sd-token"><a href="#sd-token"><code>&lt;sd-token&gt;</code></a></dt>
+<dd>
+<p>A value indicating whether the client wants to opt in to reduced data usage mode.
+<code>on</code> indicates yes, while <code>off</code> (the default) indicates no.</p>
+</dd>
+</dl></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="using_save-data_on"><h3 id="using_save-data_on"><a href="#using_save-data_on">Using <code>Save-Data: on</code></a></h3><div class="section-content"><p>The following message requests a resource with <code>Save-Data</code> header indicating the client is opting in to reduced data mode:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>GET /image.jpg HTTP/1.1
+Host: example.com
+Save-Data: on
+</code></pre></div>
+<p>The server responds with a <code>200</code> response, and the <a href="Vary.htm"><code>Vary</code></a> header indicates that <code>Save-Data</code> may have been used to create the response, and caches should be aware of this header to differentiate responses:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 200 OK
+Content-Length: 102832
+Vary: Accept-Encoding, Save-Data
+Cache-Control: public, max-age=31536000
+Content-Type: image/jpeg
+
+[…]
+</code></pre></div></div></section><section aria-labelledby="omitting_save-data"><h3 id="omitting_save-data"><a href="#omitting_save-data">Omitting <code>Save-Data</code></a></h3><div class="section-content"><p>In this case, the client requests the same resource without the <code>Save-Data</code> header:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>GET /image.jpg HTTP/1.1
+Host: example.com
+</code></pre></div>
+<p>The server's response provides the full version of the content.
+The <a href="Vary.htm"><code>Vary</code></a> header ensures that responses should be separately cached based on the value of the <code>Save-Data</code> header.
+This can ensure that the user is not served a lower-quality image from the cache when the <code>Save-Data</code> header is no longer present (e.g., after having switched from cellular to Wi-Fi).</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 200 OK
+Content-Length: 481770
+Vary: Accept-Encoding, Save-Data
+Cache-Control: public, max-age=31536000
+Content-Type: image/jpeg
+
+[…]
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://wicg.github.io/savedata/#save-data-request-header-field">Save Data API<!-- --> <br><small># <!-- -->save-data-request-header-field</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li>CSS <code>@media</code> feature <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-data"><code>prefers-reduced-data</code></a> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future.">
+<span class="visually-hidden">Experimental</span>
+</abbr></li>
+<li><a href="Vary.htm"><code>Vary</code></a> header which indicates that the content served varies depending on the value of <code>Save-Data</code> (see <a href="/en-US/docs/Web/HTTP/Guides/Caching#vary">HTTP Caching: Vary</a>)</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation/saveData"><code>NetworkInformation.saveData</code></a></li>
+<li><a href="https://css-tricks.com/help-users-save-data/" class="external" target="_blank">Help Your Users <code>Save-Data</code></a> on css-tricks.com</li>
+<li><a href="https://web.dev/articles/optimizing-content-efficiency-save-data" class="external" target="_blank">Delivering Fast and Light Applications with Save-Data - web.dev</a> on web.dev</li>
+<li><a href="https://developer.chrome.com/docs/privacy-security/user-agent-client-hints" class="external" target="_blank">Improving user privacy and developer experience with User-Agent Client Hints</a> (developer.chrome.com)</li>
+</ul></div></section></article></main></div></div></div></body></html>

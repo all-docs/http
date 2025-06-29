@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Set-Login header</title><link rel="alternate" title="Set-Login header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Set-Login" hreflang="de"><link rel="alternate" title="Set-Login header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Login" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Set-Login response header is sent by a federated identity provider (IdP) to set its login status, and indicates whether any users are logged into the IdP on the current browser or not.
+This is stored by the browser and used by the FedCM API to reduce the number of requests it makes to the IdP as the browser doesn't need to request accounts when there are no users logged in to the IdP.
+It also mitigates potential timing attacks."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Login"><meta property="og:title" content="Set-Login header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Set-Login response header is sent by a federated identity provider (IdP) to set its login status, and indicates whether any users are logged into the IdP on the current browser or not.
+This is stored by the browser and used by the FedCM API to reduce the number of requests it makes to the IdP as the browser doesn't need to request accounts when there are no users logged in to the IdP.
+It also mitigates potential timing attacks."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Login"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Set-Login header</h1></header><div class="section-content"><p>The HTTP <strong><code>Set-Login</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">response header</a> is sent by a federated identity provider (IdP) to set its login status, and indicates whether any users are logged into the IdP on the current browser or not.
+This is stored by the browser and used by the <a href="https://developer.mozilla.org/en-US/docs/Web/API/FedCM_API">FedCM API</a> to reduce the number of requests it makes to the IdP as the browser doesn't need to request accounts when there are no users logged in to the IdP.
+It also mitigates <a href="https://github.com/w3c-fedid/FedCM/issues/447" class="external" target="_blank">potential timing attacks</a>.</p>
+<p>The header may be set on any response resulting from a top-level navigation or a same-origin subresource request on the IdP's origin site.
+Any interaction with the IdP site may result in this header being set, and the login status being stored by the browser.</p>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api">Update login status using the Login Status API</a> for more information about FedCM login status.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Set-Login: &lt;status&gt;
+</code></pre></div></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><dl>
+<dt id="status"><a href="#status"><code>&lt;status&gt;</code></a></dt>
+<dd>
+<p>A string representing the login status to set for the IdP. Possible values are:</p>
+<ul>
+<li><code>logged-in</code>: The IdP has at least one user account signed in.</li>
+<li><code>logged-out</code>: All IdP user accounts are currently signed out.</li>
+</ul>
+<div class="notecard note">
+<p><strong>Note:</strong>
+Browsers ignore this header if it contains any other value.</p>
+</div>
+</dd>
+</dl></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Set-Login: logged-in
+
+Set-Login: logged-out
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://w3c-fedid.github.io/login-status/#login-status-http">Login Status API<!-- --> <br><small># <!-- -->login-status-http</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/FedCM_API">Federated Credential Management (FedCM) API</a></li>
+</ul></div></section></article></main></div></div></div></body></html>

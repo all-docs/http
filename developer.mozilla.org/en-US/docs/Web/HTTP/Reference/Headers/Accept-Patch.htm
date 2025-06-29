@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Accept-Patch header</title><link rel="alternate" title="Accept-Patch header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Accept-Patch" hreflang="de"><link rel="alternate" title="Accept-Patch" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Accept-Patch" hreflang="ja"><link rel="alternate" title="Accept-Patch" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Accept-Patch" hreflang="ko"><link rel="alternate" title="Accept-Patch" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Headers/Accept-Patch" hreflang="pt"><link rel="alternate" title="Accept-Patch" href="https://developer.mozilla.org/ru/docs/Web/HTTP/Reference/Headers/Accept-Patch" hreflang="ru"><link rel="alternate" title="Accept-Patch" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Accept-Patch" hreflang="zh"><link rel="alternate" title="Accept-Patch" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Reference/Headers/Accept-Patch" hreflang="zh-Hant"><link rel="alternate" title="Accept-Patch header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Accept-Patch" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Accept-Patch response header advertises which media types the server is able to understand in a PATCH request.
+For example, a server receiving a PATCH request with an unsupported media type could reply with 415 Unsupported Media Type and an Accept-Patch header referencing one or more supported media types."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Accept-Patch"><meta property="og:title" content="Accept-Patch header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Accept-Patch response header advertises which media types the server is able to understand in a PATCH request.
+For example, a server receiving a PATCH request with an unsupported media type could reply with 415 Unsupported Media Type and an Accept-Patch header referencing one or more supported media types."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Accept-Patch"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Accept-Patch header</h1></header><div class="section-content"><p>The HTTP <strong><code>Accept-Patch</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">response header</a> advertises which <a href="/en-US/docs/Web/HTTP/Guides/MIME_types">media types</a> the server is able to understand in a <a href="/en-US/docs/Web/HTTP/Reference/Methods/PATCH"><code>PATCH</code></a> request.
+For example, a server receiving a <code>PATCH</code> request with an unsupported media type could reply with <a href="/en-US/docs/Web/HTTP/Reference/Status/415"><code>415 Unsupported Media Type</code></a> and an <code>Accept-Patch</code> header referencing one or more supported media types.</p>
+<p>The header should appear in <a href="/en-US/docs/Web/HTTP/Reference/Methods/OPTIONS"><code>OPTIONS</code></a> requests to a resource that supports the <code>PATCH</code> method.
+An <code>Accept-Patch</code> header in a response to any request method implicitly means that a <code>PATCH</code> is allowed on the target resource in the request.</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+IANA maintains <a href="https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#content-coding" class="external" target="_blank">a list of official content encodings</a>.
+The <code>bzip</code> and <code>bzip2</code> encodings are non-standard but may be used in some cases, particularly for legacy support.</p>
+</div>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Accept-Patch: &lt;media-type&gt;/&lt;subtype&gt;
+Accept-Patch: &lt;media-type&gt;/*
+Accept-Patch: */*
+
+// Comma-separated list of media types
+Accept-Patch: &lt;media-type&gt;/&lt;subtype&gt;, &lt;media-type&gt;/&lt;subtype&gt;
+</code></pre></div></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><dl>
+<dt id="media-typesubtype"><a href="#media-typesubtype"><code>&lt;media-type&gt;/&lt;subtype&gt;</code></a></dt>
+<dd>
+<p>A single, precise <a href="/en-US/docs/Web/HTTP/Guides/MIME_types">media type</a>, like <code>text/html</code>.</p>
+</dd>
+<dt id="media-type"><a href="#media-type"><code>&lt;media-type&gt;/*</code></a></dt>
+<dd>
+<p>A media type without a subtype.
+For example, <code>image/*</code> corresponds to <code>image/png</code>, <code>image/svg</code>, <code>image/gif</code>, and other image types.</p>
+</dd>
+<dt id="sect"><a href="#sect"><code>*/*</code></a></dt>
+<dd>
+<p>Any media type.</p>
+</dd>
+</dl></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Accept-Patch: application/json
+Accept-Patch: application/json, text/plain
+Accept-Patch: text/plain;charset=utf-8
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://www.rfc-editor.org/rfc/rfc5789#section-3.1">RFC 5789<!-- --> <br><small># <!-- -->section-3.1</small></a></td></tr></tbody></table><section aria-labelledby="browser_compatibility"><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><div class="section-content"><p>Browser compatibility is not relevant for this header.
+The server sends the header, and the specification doesn't define client behavior.</p></div></section><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="Accept-Post.htm"><code>Accept-Post</code></a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Status/415"><code>415 Unsupported Media Type</code></a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Methods/PATCH"><code>PATCH</code></a> request method</li>
+</ul></div></section></article></main></div></div></div></body></html>

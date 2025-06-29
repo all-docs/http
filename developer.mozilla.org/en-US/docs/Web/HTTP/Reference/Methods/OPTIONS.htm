@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>OPTIONS request method</title><link rel="alternate" title="OPTIONS request method" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Methods/OPTIONS" hreflang="de"><link rel="alternate" title="OPTIONS" href="https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Methods/OPTIONS" hreflang="fr"><link rel="alternate" title="OPTIONS" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Methods/OPTIONS" hreflang="ja"><link rel="alternate" title="OPTIONS" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Methods/OPTIONS" hreflang="ko"><link rel="alternate" title="OPTIONS" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Methods/OPTIONS" hreflang="pt"><link rel="alternate" title="OPTIONS" href="https://developer.mozilla.org/ru/docs/Web/HTTP/Reference/Methods/OPTIONS" hreflang="ru"><link rel="alternate" title="OPTIONS" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Methods/OPTIONS" hreflang="zh"><link rel="alternate" title="OPTIONS 請求方法" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Reference/Methods/OPTIONS" hreflang="zh-Hant"><link rel="alternate" title="OPTIONS request method" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/OPTIONS" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The OPTIONS HTTP method requests permitted communication options for a given URL or server.
+This can be used to test the allowed HTTP methods for a request, or to determine whether a request would succeed when making a CORS preflighted request.
+A client can specify a URL with this method, or an asterisk (*) to refer to the entire server."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/OPTIONS"><meta property="og:title" content="OPTIONS request method - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The OPTIONS HTTP method requests permitted communication options for a given URL or server.
+This can be used to test the allowed HTTP methods for a request, or to determine whether a request would succeed when making a CORS preflighted request.
+A client can specify a URL with this method, or an asterisk (*) to refer to the entire server."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods/OPTIONS"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>OPTIONS request method</h1><details class="baseline-indicator high"><summary><span class="indicator" role="img" aria-label="Baseline Check"></span><div class="status-title">Baseline<!-- --> <span class="not-bold">Widely available</span></div><div class="browsers"><span class="engine" title="Supported in Chrome and Edge"><span class="browser chrome supported" role="img" aria-label="Chrome check"></span><span class="browser edge supported" role="img" aria-label="Edge check"></span></span><span class="engine" title="Supported in Firefox"><span class="browser firefox supported" role="img" aria-label="Firefox check"></span></span><span class="engine" title="Supported in Safari"><span class="browser safari supported" role="img" aria-label="Safari check"></span></span></div><span class="icon icon-chevron "></span></summary><div class="extra"><p>This feature is well established and works across many devices and browser versions. It’s been available across browsers since<!-- --> <!-- -->July 2015<!-- -->.</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility" data-glean="baseline_link_learn_more" target="_blank" class="learn-more">Learn more</a></li><li><a href="#browser_compatibility" data-glean="baseline_link_bcd_table">See full compatibility</a></li><li><a href="https://survey.alchemer.com/s3/7634825/MDN-baseline-feedback?page=%2Fen-US%2Fdocs%2FWeb%2FHTTP%2FReference%2FMethods%2FOPTIONS&amp;level=high" data-glean="baseline_link_feedback" class="feedback-link" target="_blank" rel="noreferrer">Report feedback</a></li></ul></div></details></header><div class="section-content"><p>The <strong><code>OPTIONS</code></strong> HTTP method requests permitted communication options for a given URL or server.
+This can be used to test the allowed HTTP methods for a request, or to determine whether a request would succeed when making a CORS preflighted request.
+A client can specify a URL with this method, or an asterisk (<code>*</code>) to refer to the entire server.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Request has body</th>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th scope="row">Successful response has body</th>
+      <td>May</td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Safe/HTTP">Safe</a></th>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Idempotent">Idempotent</a></th>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Cacheable">Cacheable</a></th>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th scope="row">Allowed in HTML forms</th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>OPTIONS *|&lt;request-target&gt;["?"&lt;query&gt;] HTTP/1.1
+</code></pre></div>
+<p>The request target may be either in 'asterisk form' <code>*</code> indicating the whole server, or a request target as is common with other methods:</p>
+<dl>
+<dt id="sect"><a href="#sect"><code>*</code></a></dt>
+<dd>
+<p>Indicates that the client wishes to request <code>OPTIONS</code> for the server as a whole, as opposed to a specific named resource of that server.</p>
+</dd>
+<dt id="request-target"><a href="#request-target"><code>&lt;request-target&gt;</code></a></dt>
+<dd>
+<p>Identifies the target resource of the request when combined with the information provided in the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Host"><code>Host</code></a> header.
+This is an absolute path (e.g., <code>/path/to/file.html</code>) in requests to an origin server, and an absolute URL in requests to proxies (e.g., <code>http://www.example.com/path/to/file.html</code>).</p>
+</dd>
+<dt id="query"><a href="#query"><code>&lt;query&gt;</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>An optional query component preceded by a question-mark <code>?</code>.
+Often used to carry identifying information in the form of <code>key=value</code> pairs.</p>
+</dd>
+</dl></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="identifying_allowed_request_methods"><h3 id="identifying_allowed_request_methods"><a href="#identifying_allowed_request_methods">Identifying allowed request methods</a></h3><div class="section-content"><p>To find out which request methods a server supports, one can use the <code>curl</code> command-line program to issue an <code>OPTIONS</code> request:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">bash</span></div><pre class="brush: bash notranslate"><code>curl -X OPTIONS https://example.org -i
+</code></pre></div>
+<p>This creates the following HTTP request:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>OPTIONS / HTTP/2
+Host: example.org
+User-Agent: curl/8.7.1
+Accept: */*
+</code></pre></div>
+<p>The response contains an <a href="/en-US/docs/Web/HTTP/Reference/Headers/Allow"><code>Allow</code></a> header that holds the allowed methods:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 204 No Content
+Allow: OPTIONS, GET, HEAD, POST
+Cache-Control: max-age=604800
+Date: Thu, 13 Oct 2016 11:45:00 GMT
+Server: EOS (lax004/2813)
+</code></pre></div></div></section><section aria-labelledby="preflighted_requests_in_cors"><h3 id="preflighted_requests_in_cors"><a href="#preflighted_requests_in_cors">Preflighted requests in CORS</a></h3><div class="section-content"><p>In <a href="/en-US/docs/Web/HTTP/Guides/CORS">CORS</a>, a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request">preflight request</a> is sent with the <code>OPTIONS</code> method so that the server can respond if it is acceptable to send the request. In this example, we will request permission for these parameters:</p>
+<ul>
+<li>The <a href="/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Request-Method"><code>Access-Control-Request-Method</code></a> header sent in the preflight request tells the server that when the actual request is sent, it will have a <a href="POST.htm"><code>POST</code></a> request method.</li>
+<li>The <a href="/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Request-Headers"><code>Access-Control-Request-Headers</code></a> header tells the server that when the actual request is sent, it will have the <code>X-PINGOTHER</code> and <code>Content-Type</code> headers.</li>
+</ul>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>OPTIONS /resources/post-here/ HTTP/1.1
+Host: bar.example
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Connection: keep-alive
+Origin: https://foo.example
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: content-type,x-pingother
+</code></pre></div>
+<p>The server now can respond if it will accept a request under these circumstances. In this example, the server response says that:</p>
+<dl>
+<dt id="access-control-allow-origin"><a href="/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin"><code>Access-Control-Allow-Origin</code></a></dt>
+<dd>
+<p>The <code>https://foo.example</code> origin is permitted to request the <code>bar.example/resources/post-here/</code> URL via the following:</p>
+</dd>
+<dt id="access-control-allow-methods"><a href="/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Methods"><code>Access-Control-Allow-Methods</code></a></dt>
+<dd>
+<p><a href="POST.htm"><code>POST</code></a>, <a href="GET.htm"><code>GET</code></a>, and <code>OPTIONS</code> are permitted methods for the URL. (This header is similar to the <a href="/en-US/docs/Web/HTTP/Reference/Headers/Allow"><code>Allow</code></a> response header, but used only for <a href="/en-US/docs/Web/HTTP/Guides/CORS">CORS</a>.)</p>
+</dd>
+<dt id="access-control-allow-headers"><a href="/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Headers"><code>Access-Control-Allow-Headers</code></a></dt>
+<dd>
+<p><code>X-PINGOTHER</code> and <code>Content-Type</code> are permitted request headers for the URL.</p>
+</dd>
+<dt id="access-control-max-age"><a href="/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Max-Age"><code>Access-Control-Max-Age</code></a></dt>
+<dd>
+<p>The above permissions may be cached for 86,400 seconds (1 day).</p>
+</dd>
+</dl>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 200 OK
+Date: Mon, 01 Dec 2008 01:15:39 GMT
+Server: Apache/2.0.61 (Unix)
+Access-Control-Allow-Origin: https://foo.example
+Access-Control-Allow-Methods: POST, GET, OPTIONS
+Access-Control-Allow-Headers: X-PINGOTHER, Content-Type
+Access-Control-Max-Age: 86400
+Vary: Accept-Encoding, Origin
+Keep-Alive: timeout=2, max=100
+Connection: Keep-Alive
+</code></pre></div>
+<div class="notecard note">
+<p><strong>Note:</strong>
+Both <a href="/en-US/docs/Web/HTTP/Reference/Status/200"><code>200 OK</code></a> and <a href="/en-US/docs/Web/HTTP/Reference/Status/204"><code>204 No Content</code></a> are <a href="https://fetch.spec.whatwg.org/#ref-for-ok-status" class="external" target="_blank">permitted status codes</a>, but some browsers incorrectly believe <code>204 No Content</code> applies to the resource and do not send a subsequent request to fetch it.</p>
+</div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://httpwg.org/specs/rfc9110.html#OPTIONS">HTTP Semantics<!-- --> <br><small># <!-- -->OPTIONS</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Methods">HTTP request methods</a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Status">HTTP response status codes</a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers">HTTP headers</a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Headers/Allow"><code>Allow</code></a> header</li>
+<li><a href="/en-US/docs/Web/HTTP/Guides/CORS">CORS</a></li>
+</ul></div></section></article></main></div></div></div></body></html>

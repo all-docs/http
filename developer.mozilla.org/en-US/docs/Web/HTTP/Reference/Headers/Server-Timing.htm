@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Server-Timing header</title><link rel="alternate" title="Server-Timing header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Server-Timing" hreflang="de"><link rel="alternate" title="Server-Timing" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Server-Timing" hreflang="ja"><link rel="alternate" title="Server-Timing" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Server-Timing" hreflang="ko"><link rel="alternate" title="Server-Timing" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Headers/Server-Timing" hreflang="pt"><link rel="alternate" title="Server-Timing" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Server-Timing" hreflang="zh"><link rel="alternate" title="Server-Timing header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Server-Timing" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Server-Timing response header communicates one or more performance metrics about the request-response cycle to the user agent.
+It is used to surface backend server timing metrics (for example, database read/write, CPU time, file system access, etc.) in the developer tools in the user's browser or in the PerformanceServerTiming interface."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Server-Timing"><meta property="og:title" content="Server-Timing header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Server-Timing response header communicates one or more performance metrics about the request-response cycle to the user agent.
+It is used to surface backend server timing metrics (for example, database read/write, CPU time, file system access, etc.) in the developer tools in the user's browser or in the PerformanceServerTiming interface."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Server-Timing"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Server-Timing header</h1><details class="baseline-indicator low"><summary><span class="indicator" role="img" aria-label="Baseline Check"></span><div class="status-title">Baseline<!-- --> <span class="not-bold">2023</span> *</div><div class="pill">Newly available</div><div class="browsers"><span class="engine" title="Supported in Chrome and Edge"><span class="browser chrome supported" role="img" aria-label="Chrome check"></span><span class="browser edge supported" role="img" aria-label="Edge check"></span></span><span class="engine" title="Supported in Firefox"><span class="browser firefox supported" role="img" aria-label="Firefox check"></span></span><span class="engine" title="Supported in Safari"><span class="browser safari supported" role="img" aria-label="Safari check"></span></span></div><span class="icon icon-chevron "></span></summary><div class="extra"><p>Since<!-- --> <!-- -->March 2023<!-- -->, this feature works across the latest devices and browser versions. This feature might not work in older devices or browsers.</p><p>* Some parts of this feature may have varying levels of support.</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility" data-glean="baseline_link_learn_more" target="_blank" class="learn-more">Learn more</a></li><li><a href="#browser_compatibility" data-glean="baseline_link_bcd_table">See full compatibility</a></li><li><a href="https://survey.alchemer.com/s3/7634825/MDN-baseline-feedback?page=%2Fen-US%2Fdocs%2FWeb%2FHTTP%2FReference%2FHeaders%2FServer-Timing&amp;level=low" data-glean="baseline_link_feedback" class="feedback-link" target="_blank" rel="noreferrer">Report feedback</a></li></ul></div></details></header><div class="section-content"><p>The HTTP <strong><code>Server-Timing</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">response header</a> communicates one or more performance metrics about the request-response cycle to the user agent.
+It is used to surface backend server timing metrics (for example, database read/write, CPU time, file system access, etc.) in the developer tools in the user's browser or in the <a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceServerTiming"><code>PerformanceServerTiming</code></a> interface.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>// A single metric
+Server-Timing: &lt;timing-metric&gt;
+
+// Multiple metrics as a comma-separated list
+Server-Timing: &lt;timing-metric&gt;, …, &lt;timing-metricN&gt;
+</code></pre></div>
+<p>A <code>&lt;timing-metric&gt;</code> has a name, and may include an optional duration and an optional description.
+For example:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>// A metric with a name only
+Server-Timing: missedCache
+
+// A metric with a duration
+Server-Timing: cpu;dur=2.4
+
+// A metric with a description and duration
+Server-Timing: cache;desc="Cache Read";dur=23.2
+
+// Two metrics with duration values
+Server-Timing: db;dur=53, app;dur=47.2
+</code></pre></div></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><dl>
+<dt id="timing-metric"><a href="#timing-metric"><code>&lt;timing-metric&gt;</code></a></dt>
+<dd>
+<p>A comma-separated list of one or more metrics with the following components separated by semi-colons:</p>
+<dl>
+<dt id="name"><a href="#name"><code>&lt;name&gt;</code></a></dt>
+<dd>
+<p>A name token (no spaces or special characters) for the metric that is implementation-specific or defined by the server, like <code>cacheHit</code>.</p>
+</dd>
+<dt id="duration"><a href="#duration"><code>&lt;duration&gt;</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>A duration as the string <code>dur</code>, followed by <code>=</code>, followed by a value, like <code>dur=23.2</code>.</p>
+</dd>
+<dt id="description_2"><a href="#description_2"><code>&lt;description&gt;</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>A description as the string <code>desc</code>, followed by <code>=</code>, followed by a value as a token or a quoted string, like <code>desc=prod</code> or <code>desc="DB lookup"</code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Names and descriptions should be kept as short as possible (for example, use abbreviations and omit optional values) to minimize HTTP data overhead.</p></div></section><section aria-labelledby="description"><h2 id="description"><a href="#description">Description</a></h2><div class="section-content"></div></section><section aria-labelledby="privacy_and_security"><h3 id="privacy_and_security"><a href="#privacy_and_security">Privacy and security</a></h3><div class="section-content"><p>The <code>Server-Timing</code> header may expose potentially sensitive application and infrastructure information.
+Decide which metrics to send, when to send them, and who should see them based on the use case.
+For example, you may decide to only show metrics to authenticated users and nothing on public responses.</p></div></section><section aria-labelledby="performanceservertiming_interface"><h3 id="performanceservertiming_interface"><a href="#performanceservertiming_interface">PerformanceServerTiming interface</a></h3><div class="section-content"><p>In addition to having <code>Server-Timing</code> header metrics appear in the developer tools of the browser, the <a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceServerTiming"><code>PerformanceServerTiming</code></a> interface enables tools to automatically collect and process metrics from JavaScript. This interface is restricted to the same origin, but you can use the <a href="Timing-Allow-Origin.htm"><code>Timing-Allow-Origin</code></a> header to specify the domains that are allowed to access the server metrics. The interface is only available in secure contexts (HTTPS) in some browsers.</p>
+<p>The components of the <code>Server-Timing</code> header map to the <a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceServerTiming"><code>PerformanceServerTiming</code></a> properties as follows:</p>
+<ul>
+<li><code>"name"</code> -&gt; <a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceServerTiming/name"><code>PerformanceServerTiming.name</code></a></li>
+<li><code>"dur"</code> -&gt; <a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceServerTiming/duration"><code>PerformanceServerTiming.duration</code></a></li>
+<li><code>"desc"</code> -&gt; <a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceServerTiming/description"><code>PerformanceServerTiming.description</code></a></li>
+</ul></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="sending_a_metric_using_the_server-timing_header"><h3 id="sending_a_metric_using_the_server-timing_header"><a href="#sending_a_metric_using_the_server-timing_header">Sending a metric using the Server-Timing header</a></h3><div class="section-content"><p>The following response includes a metric <code>custom-metric</code> with a duration of <code>123.45</code> milliseconds, and a description of "My custom metric":</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Server-Timing: custom-metric;dur=123.45;desc="My custom metric"
+</code></pre></div></div></section><section aria-labelledby="server-timing_as_http_trailer"><h3 id="server-timing_as_http_trailer"><a href="#server-timing_as_http_trailer">Server-Timing as HTTP trailer</a></h3><div class="section-content"><p>In the following response, the <a href="Trailer.htm"><code>Trailer</code></a> header is used to indicate that a <code>Server-Timing</code> header will follow the response body.
+A metric <code>custom-metric</code> with a duration of <code>123.4</code> milliseconds is sent.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 200 OK
+Transfer-Encoding: chunked
+Trailer: Server-Timing
+
+--- response body ---
+Server-Timing: custom-metric;dur=123.4
+</code></pre></div>
+<div class="notecard warning">
+<p><strong>Warning:</strong>
+Only the browser's DevTools can use the <code>Server-Timing</code> header as a HTTP trailer to display information in the Network -&gt; Timings tab.
+The Fetch API cannot access HTTP trailers.
+See <a href="#browser_compatibility">Browser compatibility</a> for more information.</p>
+</div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://w3c.github.io/server-timing/#the-server-timing-header-field">Server Timing<!-- --> <br><small># <!-- -->the-server-timing-header-field</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceServerTiming"><code>PerformanceServerTiming</code></a></li>
+<li><a href="Trailer.htm"><code>Trailer</code></a> header</li>
+</ul></div></section></article></main></div></div></div></body></html>

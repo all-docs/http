@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Alt-Svc header</title><link rel="alternate" title="Alt-Svc header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Alt-Svc" hreflang="de"><link rel="alternate" title="Alt-Svc" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Alt-Svc" hreflang="ja"><link rel="alternate" title="Alt-Svc" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Alt-Svc" hreflang="ko"><link rel="alternate" title="Alt-Svc" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Headers/Alt-Svc" hreflang="pt"><link rel="alternate" title="Alt-Svc" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Alt-Svc" hreflang="zh"><link rel="alternate" title="Alt-Svc header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Alt-Svc" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Alt-Svc response header lets a server indicate that another network location (the &quot;alternative service&quot;) can be treated as authoritative for that origin when making future requests."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Alt-Svc"><meta property="og:title" content="Alt-Svc header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Alt-Svc response header lets a server indicate that another network location (the &quot;alternative service&quot;) can be treated as authoritative for that origin when making future requests."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Alt-Svc"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Alt-Svc header</h1></header><div class="section-content"><p>The HTTP <strong><code>Alt-Svc</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">response header</a> lets a server indicate that another network location (the "alternative service") can be treated as authoritative for that origin when making future requests.</p>
+<p>Doing so allows new protocol versions to be advertised without affecting in-flight requests and can also help servers manage traffic. Using an alternative service is not visible to the end user; it does not change the URL or the origin of the request and does not introduce additional round trips.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Alt-Svc: clear
+Alt-Svc: &lt;protocol-id&gt;=&lt;alt-authority&gt;; ma=&lt;max-age&gt;
+Alt-Svc: &lt;protocol-id&gt;=&lt;alt-authority&gt;; ma=&lt;max-age&gt;; persist=1
+</code></pre></div>
+<dl>
+<dt id="clear"><a href="#clear"><code>clear</code></a></dt>
+<dd>
+<p>All alternative services of the origin are invalidated.</p>
+</dd>
+<dt id="protocol-id"><a href="#protocol-id"><code>&lt;protocol-id&gt;</code></a></dt>
+<dd>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Glossary/ALPN">Application-Layer Protocol Negotiation (ALPN)</a> protocol identifier. Examples include <code>h2</code> for HTTP/2 and <code>h3-25</code> for draft 25 of the HTTP/3 protocol.</p>
+</dd>
+<dt id="alt-authority"><a href="#alt-authority"><code>&lt;alt-authority&gt;</code></a></dt>
+<dd>
+<p>A quoted string specifying the alternative authority, consisting of an optional host override, a colon, and a mandatory port number.</p>
+</dd>
+<dt id="mamax-age"><a href="#mamax-age"><code>ma=&lt;max-age&gt;</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>The number of seconds for which the alternative service is considered fresh.
+If omitted, it defaults to 24 hours.
+Alternative service entries can be cached for up to <code>&lt;max-age&gt;</code> seconds, minus the age of the response (from the <a href="Age.htm"><code>Age</code></a> header).
+Once the cached entry expires, the client can no longer use this alternative service for new connections.</p>
+</dd>
+<dt id="persist1"><a href="#persist1"><code>persist=1</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>Entries are not deleted by network configuration changes.
+Cached alternative service entries are usually cleared on such changes.</p>
+</dd>
+</dl>
+<p>Multiple entries can be specified in a single <code>Alt-Svc</code> header using comma as separator.
+In that case, early entries are considered more preferable.</p></div></section><section aria-labelledby="example"><h2 id="example"><a href="#example">Example</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Alt-Svc: h2=":443"; ma=2592000;
+Alt-Svc: h2=":443"; ma=2592000; persist=1
+Alt-Svc: h2="alt.example.com:443", h2=":443"
+Alt-Svc: h3-25=":443"; ma=3600, h2=":443"; ma=3600
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://httpwg.org/specs/rfc7838.html#alt-svc">HTTP Alternative Services<!-- --> <br><small># <!-- -->alt-svc</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="https://www.mnot.net/blog/2016/03/09/alt-svc" class="external" target="_blank">Alternative Services</a> by HTTP Working Group chair, Mark Nottingham (2016)</li>
+</ul></div></section></article></main></div></div></div></body></html>

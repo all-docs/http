@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>404 Not Found</title><link rel="alternate" title="404 Not Found" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Status/404" hreflang="de"><link rel="alternate" title="404 Not Found" href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status/404" hreflang="es"><link rel="alternate" title="404 Not Found" href="https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Status/404" hreflang="fr"><link rel="alternate" title="404 Not Found" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Status/404" hreflang="ja"><link rel="alternate" title="404 Not Found" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Status/404" hreflang="ko"><link rel="alternate" title="404 Not Found" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status/404" hreflang="pt"><link rel="alternate" title="404 Not Found" href="https://developer.mozilla.org/ru/docs/Web/HTTP/Reference/Status/404" hreflang="ru"><link rel="alternate" title="404 Not Found" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Status/404" hreflang="zh"><link rel="alternate" title="404 Not Found" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Reference/Status/404" hreflang="zh-Hant"><link rel="alternate" title="404 Not Found" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/404" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP 404 Not Found client error response status code indicates that the server cannot find the requested resource.
+Links that lead to a 404 page are often called broken or dead links and can be subject to link rot."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/404"><meta property="og:title" content="404 Not Found - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP 404 Not Found client error response status code indicates that the server cannot find the requested resource.
+Links that lead to a 404 page are often called broken or dead links and can be subject to link rot."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/404"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>404 Not Found</h1></header><div class="section-content"><p>The HTTP <strong><code>404 Not Found</code></strong> <a href="/en-US/docs/Web/HTTP/Reference/Status#client_error_responses">client error response</a> status code indicates that the server cannot find the requested resource.
+Links that lead to a 404 page are often called broken or dead links and can be subject to <a href="https://en.wikipedia.org/wiki/Link_rot" class="external" target="_blank">link rot</a>.</p>
+<p>A 404 status code only indicates that the resource is missing without indicating if this is temporary or permanent.
+If a resource is permanently removed, servers should send the <a href="410.htm"><code>410 Gone</code></a> status instead.</p>
+<p>404 errors on a website can lead to a poor user experience for your visitors, so the number of broken links (internal and external) should be minimized to prevent frustration for readers.
+Common causes of 404 responses are mistyped URLs or pages that are moved or deleted without redirection.
+For more information, see the <a href="/en-US/docs/Web/HTTP/Guides/Redirections">Redirections in HTTP</a> guide.</p></div><section aria-labelledby="status"><h2 id="status"><a href="#status">Status</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>404 Not Found
+</code></pre></div></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="page_not_found"><h3 id="page_not_found"><a href="#page_not_found">Page not found</a></h3><div class="section-content"><p>Fetching a non-existent page may look like the following request:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>GET /my-deleted-blog-post HTTP/1.1
+Host: example.com
+</code></pre></div>
+<p>The server returns a response similar to this:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 404 Not Found
+Age: 249970
+Cache-Control: max-age=604800
+Content-Type: text/html; charset=UTF-8
+Date: Fri, 28 Jun 2024 11:40:58 GMT
+Expires: Fri, 05 Jul 2024 11:40:58 GMT
+Last-Modified: Tue, 25 Jun 2024 14:14:48 GMT
+Server: ECAcc (nyd/D13E)
+Vary: Accept-Encoding
+X-Cache: 404-HIT
+Content-Length: 1256
+
+&lt;!doctype html&gt;
+&lt;head&gt;
+    &lt;title&gt;404 not found&lt;/title&gt;
+    ...
+</code></pre></div></div></section><section aria-labelledby="custom_error_page_in_apache"><h3 id="custom_error_page_in_apache"><a href="#custom_error_page_in_apache">Custom error page in Apache</a></h3><div class="section-content"><p>For the Apache server, you can specify a path to a custom 404 page in a <code>.htaccess</code> file.
+The example below uses <code>notfound.html</code> as a page to show visitors on 404s, although a common approach is to name the file <code>404.html</code> or <code>404.php</code> (depending on the server-side technology) at the top-level of the server:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">apacheconf</span></div><pre class="brush: apacheconf notranslate"><code>ErrorDocument 404 /notfound.html
+</code></pre></div>
+<div class="notecard note">
+<p><strong>Note:</strong>
+Custom 404 page design is a good thing in moderation.
+Feel free to make your 404 page humorous and human, but don't confuse your visitors as to why they are seeing something unexpected.</p>
+<p>For an example of a custom 404 page, see the <a href="https://konmari.com/404" class="external" target="_blank">KonMari 404 page</a>.</p>
+</div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://www.rfc-editor.org/rfc/rfc9110#status.404">HTTP Semantics<!-- --> <br><small># <!-- -->status.404</small></a></td></tr></tbody></table><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Status">HTTP response status codes</a></li>
+<li><a href="410.htm"><code>410</code></a></li>
+<li><a href="https://en.wikipedia.org/wiki/HTTP_404" class="external" target="_blank">Wikipedia: HTTP 404</a></li>
+</ul></div></section></article></main></div></div></div></body></html>

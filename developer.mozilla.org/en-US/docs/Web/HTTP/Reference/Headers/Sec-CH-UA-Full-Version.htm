@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Sec-CH-UA-Full-Version header</title><link rel="alternate" title="Sec-CH-UA-Full-Version header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Sec-CH-UA-Full-Version" hreflang="de"><link rel="alternate" title="Sec-CH-UA-Full-Version" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Sec-CH-UA-Full-Version" hreflang="zh"><link rel="alternate" title="Sec-CH-UA-Full-Version header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Sec-CH-UA-Full-Version" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Sec-CH-UA-Full-Version request header is a user agent client hint which provides the user-agent's full version string."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Sec-CH-UA-Full-Version"><meta property="og:title" content="Sec-CH-UA-Full-Version header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Sec-CH-UA-Full-Version request header is a user agent client hint which provides the user-agent's full version string."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Sec-CH-UA-Full-Version"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Sec-CH-UA-Full-Version header</h1></header><div class="section-content"><div class="notecard deprecated"><p><strong>Deprecated:</strong> This feature is no longer recommended. Though some browsers might still support it, it may have already been removed from the relevant web standards, may be in the process of being dropped, or may only be kept for compatibility purposes. Avoid using it, and update existing code if possible; see the <a href="#browser_compatibility">compatibility table</a> at the bottom of this page to guide your decision. Be aware that this feature may cease to work at any time.</p></div>
+<div class="notecard secure"><p><strong>Secure context:</strong> This feature is available only in <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts">secure contexts</a> (HTTPS), in some or all <a href="#browser_compatibility">supporting browsers</a>.</p></div>
+<div class="notecard note">
+<p><strong>Note:</strong>
+This is being replaced by the <a href="Sec-CH-UA-Full-Version-List.htm"><code>Sec-CH-UA-Full-Version-List</code></a>.</p>
+</div>
+<p>The HTTP <strong><code>Sec-CH-UA-Full-Version</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Request_header">request header</a> is a <a href="/en-US/docs/Web/HTTP/Guides/Client_hints#user_agent_client_hints">user agent client hint</a> which provides the user-agent's full version string.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td>
+        <a href="https://developer.mozilla.org/en-US/docs/Glossary/Request_header">Request header</a>,
+        <a href="/en-US/docs/Web/HTTP/Guides/Client_hints">Client hint</a>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>Yes (<code>Sec-</code> prefix)</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Sec-CH-UA-Full-Version: &lt;version&gt;
+</code></pre></div></div></section><section aria-labelledby="directives"><h3 id="directives"><a href="#directives">Directives</a></h3><div class="section-content"><dl>
+<dt id="version"><a href="#version"><code>&lt;version&gt;</code></a></dt>
+<dd>
+<p>A string containing the full version number, like "96.0.4664.93".</p>
+</dd>
+</dl></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="using_sec-ch-ua-full-version"><h3 id="using_sec-ch-ua-full-version"><a href="#using_sec-ch-ua-full-version">Using Sec-CH-UA-Full-Version</a></h3><div class="section-content"><p>A server requests the <code>Sec-CH-UA-Full-Version</code> header by including the <a href="Accept-CH.htm"><code>Accept-CH</code></a> in a <em>response</em> to any request from the client, using the name of the desired header as a token:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 200 OK
+Accept-CH: Sec-CH-UA-Full-Version
+</code></pre></div>
+<p>The client may choose to provide the hint, and add the <code>Sec-CH-UA-Full-Version</code> header to subsequent requests.
+For example, the client might add the header as shown:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>GET /my/page HTTP/1.1
+Host: example.site
+
+Sec-CH-UA: " Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"
+Sec-CH-UA-Mobile: ?0
+Sec-CH-UA-Full-Version: "96.0.4664.110"
+Sec-CH-UA-Platform: "Windows"
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://wicg.github.io/ua-client-hints/#sec-ch-ua-full-version">User-Agent Client Hints<!-- --> <br><small># <!-- -->sec-ch-ua-full-version</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="/en-US/docs/Web/HTTP/Guides/Client_hints">Client hints</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/User-Agent_Client_Hints_API">User-Agent Client Hints API</a></li>
+<li><a href="Accept-CH.htm"><code>Accept-CH</code></a></li>
+<li><a href="/en-US/docs/Web/HTTP/Guides/Caching#vary">HTTP Caching: Vary</a> and <a href="Vary.htm"><code>Vary</code></a> header</li>
+<li><a href="https://developer.chrome.com/docs/privacy-security/user-agent-client-hints" class="external" target="_blank">Improving user privacy and developer experience with User-Agent Client Hints</a> (developer.chrome.com)</li>
+</ul></div></section></article></main></div></div></div></body></html>

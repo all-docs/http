@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Set-Cookie header</title><link rel="alternate" title="Set-Cookie header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Set-Cookie" hreflang="de"><link rel="alternate" title="Set-Cookie" href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Headers/Set-Cookie" hreflang="es"><link rel="alternate" title="Set-Cookie" href="https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Headers/Set-Cookie" hreflang="fr"><link rel="alternate" title="Set-Cookie" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Set-Cookie" hreflang="ja"><link rel="alternate" title="Set-Cookie" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Set-Cookie" hreflang="ko"><link rel="alternate" title="Set-Cookie" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Headers/Set-Cookie" hreflang="pt"><link rel="alternate" title="Set-Cookie" href="https://developer.mozilla.org/ru/docs/Web/HTTP/Reference/Headers/Set-Cookie" hreflang="ru"><link rel="alternate" title="Set-Cookie" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Set-Cookie" hreflang="zh"><link rel="alternate" title="Set-Cookie header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Set-Cookie response header is used to send a cookie from the server to the user agent, so that the user agent can send it back to the server later.
+To send multiple cookies, multiple Set-Cookie headers should be sent in the same response."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie"><meta property="og:title" content="Set-Cookie header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Set-Cookie response header is used to send a cookie from the server to the user agent, so that the user agent can send it back to the server later.
+To send multiple cookies, multiple Set-Cookie headers should be sent in the same response."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Set-Cookie header</h1><details class="baseline-indicator high"><summary><span class="indicator" role="img" aria-label="Baseline Check"></span><div class="status-title">Baseline<!-- --> <span class="not-bold">Widely available</span> *</div><div class="browsers"><span class="engine" title="Supported in Chrome and Edge"><span class="browser chrome supported" role="img" aria-label="Chrome check"></span><span class="browser edge supported" role="img" aria-label="Edge check"></span></span><span class="engine" title="Supported in Firefox"><span class="browser firefox supported" role="img" aria-label="Firefox check"></span></span><span class="engine" title="Supported in Safari"><span class="browser safari supported" role="img" aria-label="Safari check"></span></span></div><span class="icon icon-chevron "></span></summary><div class="extra"><p>This feature is well established and works across many devices and browser versions. It’s been available across browsers since<!-- --> <!-- -->July 2015<!-- -->.</p><p>* Some parts of this feature may have varying levels of support.</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility" data-glean="baseline_link_learn_more" target="_blank" class="learn-more">Learn more</a></li><li><a href="#browser_compatibility" data-glean="baseline_link_bcd_table">See full compatibility</a></li><li><a href="https://survey.alchemer.com/s3/7634825/MDN-baseline-feedback?page=%2Fen-US%2Fdocs%2FWeb%2FHTTP%2FReference%2FHeaders%2FSet-Cookie&amp;level=high" data-glean="baseline_link_feedback" class="feedback-link" target="_blank" rel="noreferrer">Report feedback</a></li></ul></div></details></header><div class="section-content"><p>The HTTP <strong><code>Set-Cookie</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">response header</a> is used to send a cookie from the server to the user agent, so that the user agent can send it back to the server later.
+To send multiple cookies, multiple <code>Set-Cookie</code> headers should be sent in the same response.</p>
+<div class="notecard warning">
+<p><strong>Warning:</strong>
+Browsers block frontend JavaScript code from accessing the <code>Set-Cookie</code> header, as required by the Fetch spec, which defines <code>Set-Cookie</code> as a <a href="https://fetch.spec.whatwg.org/#forbidden-response-header-name" class="external" target="_blank">forbidden response header name</a> that <a href="https://fetch.spec.whatwg.org/#ref-for-forbidden-response-header-name%E2%91%A0" class="external" target="_blank">must be filtered out</a> from any response exposed to frontend code.</p>
+<p>When a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">Fetch API</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest_API">XMLHttpRequest API</a> request <a href="/en-US/docs/Web/HTTP/Guides/CORS#what_requests_use_cors">uses CORS</a>, browsers will ignore <code>Set-Cookie</code> headers present in the server's response unless the request includes credentials. Visit <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#including_credentials">Using the Fetch API - Including credentials</a> and the <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest_API">XMLHttpRequest article</a> to learn how to include credentials.</p>
+</div>
+<p>For more information, see the guide on <a href="/en-US/docs/Web/HTTP/Guides/Cookies">Using HTTP cookies</a>.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_response_header_name">Forbidden response header name</a></th>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;
+Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Domain=&lt;domain-value&gt;
+Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Expires=&lt;date&gt;
+Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; HttpOnly
+Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Max-Age=&lt;number&gt;
+Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Partitioned
+Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Path=&lt;path-value&gt;
+Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Secure
+
+Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; SameSite=Strict
+Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; SameSite=Lax
+Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; SameSite=None; Secure
+
+// Multiple attributes are also possible, for example:
+Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Domain=&lt;domain-value&gt;; Secure; HttpOnly
+</code></pre></div></div></section><section aria-labelledby="attributes"><h2 id="attributes"><a href="#attributes">Attributes</a></h2><div class="section-content"><dl>
+<dt id="cookie-namecookie-value"><a href="#cookie-namecookie-value"><code>&lt;cookie-name&gt;=&lt;cookie-value&gt;</code></a></dt>
+<dd>
+<p>Defines the cookie name and its value.
+A cookie definition begins with a name-value pair.</p>
+<p>A <code>&lt;cookie-name&gt;</code> can contain any US-ASCII characters except for: control characters (<a href="https://developer.mozilla.org/en-US/docs/Glossary/ASCII">ASCII</a> characters 0 up to 31 and ASCII character 127) or separator characters (space, tab and the characters: <code>( ) &lt; &gt; @ , ; : \ " / [ ] ? = { }</code>)</p>
+<p>A <code>&lt;cookie-value&gt;</code> can optionally be wrapped in double quotes and include any US-ASCII character excluding control characters (ASCII characters 0 up to 31 and ASCII character 127), <a href="https://developer.mozilla.org/en-US/docs/Glossary/Whitespace">Whitespace</a>, double quotes, commas, semicolons, and backslashes.</p>
+<p><strong>Encoding</strong>: Many implementations perform <a href="https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding">percent-encoding</a> on cookie values.
+However, this is not required by the RFC specification.
+The percent-encoding does help to satisfy the requirements of the characters allowed for <code>&lt;cookie-value&gt;</code>.</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+Some <code>&lt;cookie-name&gt;</code> have a specific semantic:</p>
+<p><strong><code>__Secure-</code> prefix</strong>: Cookies with names starting with <code>__Secure-</code> (dash is part of the prefix) must be set with the <code>secure</code> flag from a secure page (HTTPS).</p>
+<p><strong><code>__Host-</code> prefix</strong>: Cookies with names starting with <code>__Host-</code> are sent only to the host subdomain or domain that set them, and not to any other host.
+They must be set with the <code>secure</code> flag, must be from a secure page (HTTPS), must not have a domain specified, and the path must be <code>/</code>.</p>
+</div>
+</dd>
+<dt id="domaindomain-value"><a href="#domaindomain-value"><code>Domain=&lt;domain-value&gt;</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>Defines the host to which the cookie will be sent.</p>
+<p>Only the current domain can be set as the value, or a domain of a higher order, unless it is a public suffix. Setting the domain will make the cookie available to it, as well as to all its subdomains.</p>
+<p>If omitted, this attribute defaults to the host of the current document URL, not including subdomains.</p>
+<p>Contrary to earlier specifications, leading dots in domain names (<code>.example.com</code>) are ignored.</p>
+<p>Multiple host/domain values are <em>not</em> allowed, but if a domain <em>is</em> specified, then subdomains are always included.</p>
+</dd>
+<dt id="expiresdate"><a href="#expiresdate"><code>Expires=&lt;date&gt;</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>Indicates the maximum lifetime of the cookie as an HTTP-date timestamp.
+See <a href="Date.htm"><code>Date</code></a> for the required formatting.</p>
+<p>If unspecified, the cookie becomes a <strong>session cookie</strong>.
+A session finishes when the client shuts down, after which
+the session cookie is removed.</p>
+<div class="notecard warning">
+<p><strong>Warning:</strong>
+Many web browsers have a <em>session restore</em> feature that will save all tabs and restore them the next time the browser is used. Session cookies will also be restored, as if the browser was never closed.</p>
+</div>
+<p>The <code>Expires</code> attribute is set by the server with a value relative to its own internal clock, which may differ from that of the client browser.
+Firefox and Chromium-based browsers internally use an expiry (max-age) value that is adjusted to compensate for clock difference, storing and expiring cookies based on the time intended by the server.
+The adjustment for clock skew is calculated from the value of the <a href="Date.htm"><code>DATE</code></a> header.
+Note that the specification explains how the attribute should be parsed, but does not indicate if/how the value should be corrected by the recipient.</p>
+</dd>
+<dt id="httponly"><a href="#httponly"><code>HttpOnly</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>Forbids JavaScript from accessing the cookie, for example, through the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie"><code>Document.cookie</code></a> property.
+Note that a cookie that has been created with <code>HttpOnly</code> will still be sent with JavaScript-initiated requests, for example, when calling <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/send"><code>XMLHttpRequest.send()</code></a> or <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch" title="fetch()"><code>fetch()</code></a>.
+This mitigates attacks against cross-site scripting (<a href="https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting">XSS</a>).</p>
+</dd>
+<dt id="max-agenumber"><a href="#max-agenumber"><code>Max-Age=&lt;number&gt;</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>Indicates the number of seconds until the cookie expires. A zero or negative number will expire the cookie immediately. If both <code>Expires</code> and <code>Max-Age</code> are set, <code>Max-Age</code> has precedence.</p>
+</dd>
+<dt id="partitioned"><a href="#partitioned"><code>Partitioned</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>Indicates that the cookie should be stored using partitioned storage.
+Note that if this is set, the <a href="#secure"><code>Secure</code> directive</a> must also be set.
+See <a href="https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/Privacy_sandbox/Partitioned_cookies">Cookies Having Independent Partitioned State (CHIPS)</a> for more details.</p>
+</dd>
+<dt id="pathpath-value"><a href="#pathpath-value"><code>Path=&lt;path-value&gt;</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>Indicates the path that <em>must</em> exist in the requested URL for the browser to send the <code>Cookie</code> header.</p>
+<p>The forward slash (<code>/</code>) character is interpreted as a directory separator, and subdirectories are matched as well. For example, for <code>Path=/docs</code>,</p>
+<ul>
+<li>the request paths <code>/docs</code>, <code>/docs/</code>, <code>/docs/Web/</code>, and <code>/docs/Web/HTTP</code> will all match.</li>
+<li>the request paths <code>/</code>, <code>/docsets</code>, <code>/fr/docs</code> will not match.</li>
+</ul>
+<div class="notecard note">
+<p><strong>Note:</strong>
+The <code>path</code> attribute lets you control what cookies the browser sends based on the different parts of a site.
+It is not intended as a security measure, and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie#security">does not protect</a> against unauthorized reading of the cookie from a different path.</p>
+</div>
+</dd>
+<dt id="samesitesamesite-value"><a href="#samesitesamesite-value"><code>SameSite=&lt;samesite-value&gt;</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>Controls whether or not a cookie is sent with cross-site requests: that is, requests originating from a different <a href="https://developer.mozilla.org/en-US/docs/Glossary/Site">site</a>, including the scheme, from the site that set the cookie. This provides some protection against certain cross-site attacks, including <a href="https://developer.mozilla.org/en-US/docs/Glossary/CSRF">cross-site request forgery (CSRF)</a> attacks.</p>
+<p>The possible attribute values are:</p>
+<dl>
+<dt id="strict"><a href="#strict"><code>Strict</code></a></dt>
+<dd>
+<p>Send the cookie only for requests originating from the same <a href="https://developer.mozilla.org/en-US/docs/Glossary/Site">site</a> that set the cookie.</p>
+</dd>
+<dt id="lax"><a href="#lax"><code>Lax</code></a></dt>
+<dd>
+<p>Send the cookie only for requests originating from the same <a href="https://developer.mozilla.org/en-US/docs/Glossary/Site">site</a> that set the cookie, and for cross-site requests that meet both of the following criteria:</p>
+<ul>
+<li>
+<p>The request is a top-level navigation: this essentially means that the request causes the URL shown in the browser's address bar to change.</p>
+<ul>
+<li>
+<p>This would exclude, for example, requests made using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch" title="fetch()"><code>fetch()</code></a> API, or requests for subresources from <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img"><code>&lt;img&gt;</code></a> or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script"><code>&lt;script&gt;</code></a> elements, or navigations inside <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/iframe"><code>&lt;iframe&gt;</code></a> elements.</p>
+</li>
+<li>
+<p>It would include requests made when the user clicks a link in the top-level browsing context from one site to another, or an assignment to <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/location" title="document.location"><code>document.location</code></a>, or a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/form"><code>&lt;form&gt;</code></a> submission.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The request uses a <a href="https://developer.mozilla.org/en-US/docs/Glossary/Safe/HTTP">safe</a> method: in particular, this excludes <a href="/en-US/docs/Web/HTTP/Reference/Methods/POST"><code>POST</code></a>, <a href="/en-US/docs/Web/HTTP/Reference/Methods/PUT"><code>PUT</code></a>, and <a href="/en-US/docs/Web/HTTP/Reference/Methods/DELETE"><code>DELETE</code></a>.</p>
+</li>
+</ul>
+<p>Some browsers use <code>Lax</code> as the default value if <code>SameSite</code> is not specified: see <a href="#browser_compatibility">Browser compatibility</a> for details.</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+When <code>Lax</code> is applied as a default, a more permissive version is used. In this more permissive version, cookies are also included in <a href="/en-US/docs/Web/HTTP/Reference/Methods/POST"><code>POST</code></a> requests, as long as they were set no more than two minutes before the request was made.</p>
+</div>
+</dd>
+<dt id="none"><a href="#none"><code>None</code></a></dt>
+<dd>
+<p>Send the cookie with both cross-site and same-site requests.
+The <code>Secure</code> attribute must also be set when using this value.</p>
+</dd>
+</dl>
+</dd>
+<dt id="secure"><a href="#secure"><code>Secure</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>Indicates that the cookie is sent to the server only when a request is made with the <code>https:</code> scheme (except on localhost), and therefore, is more resistant to <a href="https://developer.mozilla.org/en-US/docs/Glossary/MitM">man-in-the-middle</a> attacks.</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+Do not assume that <code>Secure</code> prevents all access to sensitive information in cookies (session keys, login details, etc.).
+Cookies with this attribute can still be read/modified either with access to the client's hard disk or from JavaScript if the <code>HttpOnly</code> cookie attribute is not set.</p>
+<p>Insecure sites (<code>http:</code>) cannot set cookies with the <code>Secure</code> attribute. The <code>https:</code> requirements are ignored when the <code>Secure</code> attribute is set by localhost.</p>
+</div>
+</dd>
+</dl></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="session_cookie"><h3 id="session_cookie"><a href="#session_cookie">Session cookie</a></h3><div class="section-content"><p>Session cookies are removed when the client shuts down. Cookies are session cookies if they do not specify the <code>Expires</code> or <code>Max-Age</code> attribute.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Set-Cookie: sessionId=38afes7a8
+</code></pre></div></div></section><section aria-labelledby="permanent_cookie"><h3 id="permanent_cookie"><a href="#permanent_cookie">Permanent cookie</a></h3><div class="section-content"><p>Permanent cookies are removed at a specific date (<code>Expires</code>) or after a specific length of time (<code>Max-Age</code>) and not when the client is closed.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT
+</code></pre></div>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Set-Cookie: id=a3fWa; Max-Age=2592000
+</code></pre></div></div></section><section aria-labelledby="invalid_domains"><h3 id="invalid_domains"><a href="#invalid_domains">Invalid domains</a></h3><div class="section-content"><p>A cookie for a domain that does not include the server that set it <a href="https://datatracker.ietf.org/doc/html/rfc6265#section-4.1.2.3" class="external" target="_blank">should be rejected by the user agent</a>.</p>
+<p>The following cookie will be rejected if set by a server hosted on <code>original-company.com</code>:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Set-Cookie: qwerty=219ffwef9w0f; Domain=some-company.co.uk
+</code></pre></div>
+<p>A cookie for a subdomain of the serving domain will be rejected.</p>
+<p>The following cookie will be rejected if set by a server hosted on <code>example.com</code>:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Set-Cookie: sessionId=e8bb43229de9; Domain=foo.example.com
+</code></pre></div></div></section><section aria-labelledby="cookie_prefixes"><h3 id="cookie_prefixes"><a href="#cookie_prefixes">Cookie prefixes</a></h3><div class="section-content"><p>Cookie names prefixed with <code>__Secure-</code> or <code>__Host-</code> can be used only if they are set with the <code>secure</code> attribute from a secure (HTTPS) origin.</p>
+<p>In addition, cookies with the <code>__Host-</code> prefix must have a path of <code>/</code> (meaning any path at the host) and must not have a <code>Domain</code> attribute.</p>
+<div class="notecard warning">
+<p><strong>Warning:</strong>
+For clients that don't implement cookie prefixes, you cannot count on these additional assurances, and prefixed cookies will always be accepted.</p>
+</div>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>// Both accepted when from a secure origin (HTTPS)
+Set-Cookie: __Secure-ID=123; Secure; Domain=example.com
+Set-Cookie: __Host-ID=123; Secure; Path=/
+
+// Rejected due to missing Secure attribute
+Set-Cookie: __Secure-id=1
+
+// Rejected due to the missing Path=/ attribute
+Set-Cookie: __Host-id=1; Secure
+
+// Rejected due to setting a Domain
+Set-Cookie: __Host-id=1; Secure; Path=/; Domain=example.com
+</code></pre></div></div></section><section aria-labelledby="partitioned_cookie"><h3 id="partitioned_cookie"><a href="#partitioned_cookie">Partitioned cookie</a></h3><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Set-Cookie: __Host-example=34d8g; SameSite=None; Secure; Path=/; Partitioned;
+</code></pre></div>
+<div class="notecard note">
+<p><strong>Note:</strong>
+Partitioned cookies must be set with <code>Secure</code>. In addition, it is recommended to use the <code>__Host</code> prefix when setting partitioned cookies to make them bound to the hostname and not the registrable domain.</p>
+</div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://httpwg.org/specs/rfc6265.html#sane-set-cookie">HTTP State Management Mechanism<!-- --> <br><small># <!-- -->sane-set-cookie</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="/en-US/docs/Web/HTTP/Guides/Cookies">HTTP cookies</a></li>
+<li><a href="Cookie.htm"><code>Cookie</code></a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie"><code>Document.cookie</code></a></li>
+<li><a href="https://web.dev/articles/samesite-cookies-explained" class="external" target="_blank">Samesite cookies explained</a> (web.dev blog)</li>
+</ul></div></section></article></main></div></div></div></body></html>

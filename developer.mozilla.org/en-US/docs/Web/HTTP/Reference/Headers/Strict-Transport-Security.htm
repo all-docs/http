@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Strict-Transport-Security header</title><link rel="alternate" title="Strict-Transport-Security header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security" hreflang="de"><link rel="alternate" title="Strict-Transport-Security" href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security" hreflang="es"><link rel="alternate" title="Strict-Transport-Security" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security" hreflang="ja"><link rel="alternate" title="Strict-Transport-Security" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security" hreflang="ko"><link rel="alternate" title="Strict-Transport-Security" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security" hreflang="pt"><link rel="alternate" title="Strict-Transport-Security" href="https://developer.mozilla.org/ru/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security" hreflang="ru"><link rel="alternate" title="Strict-Transport-Security" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security" hreflang="zh"><link rel="alternate" title="Strict-Transport-Security" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security" hreflang="zh-Hant"><link rel="alternate" title="Strict-Transport-Security header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Strict-Transport-Security response header (often abbreviated as HSTS) informs browsers that the host should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be upgraded to HTTPS.
+Additionally, on future connections to the host, the browser will not allow the user to bypass secure connection errors, such as an invalid certificate.
+HSTS identifies a host by its domain name only."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security"><meta property="og:title" content="Strict-Transport-Security header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Strict-Transport-Security response header (often abbreviated as HSTS) informs browsers that the host should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be upgraded to HTTPS.
+Additionally, on future connections to the host, the browser will not allow the user to bypass secure connection errors, such as an invalid certificate.
+HSTS identifies a host by its domain name only."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Strict-Transport-Security header</h1><details class="baseline-indicator high"><summary><span class="indicator" role="img" aria-label="Baseline Check"></span><div class="status-title">Baseline<!-- --> <span class="not-bold">Widely available</span></div><div class="browsers"><span class="engine" title="Supported in Chrome and Edge"><span class="browser chrome supported" role="img" aria-label="Chrome check"></span><span class="browser edge supported" role="img" aria-label="Edge check"></span></span><span class="engine" title="Supported in Firefox"><span class="browser firefox supported" role="img" aria-label="Firefox check"></span></span><span class="engine" title="Supported in Safari"><span class="browser safari supported" role="img" aria-label="Safari check"></span></span></div><span class="icon icon-chevron "></span></summary><div class="extra"><p>This feature is well established and works across many devices and browser versions. It’s been available across browsers since<!-- --> <!-- -->July 2015<!-- -->.</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility" data-glean="baseline_link_learn_more" target="_blank" class="learn-more">Learn more</a></li><li><a href="#browser_compatibility" data-glean="baseline_link_bcd_table">See full compatibility</a></li><li><a href="https://survey.alchemer.com/s3/7634825/MDN-baseline-feedback?page=%2Fen-US%2Fdocs%2FWeb%2FHTTP%2FReference%2FHeaders%2FStrict-Transport-Security&amp;level=high" data-glean="baseline_link_feedback" class="feedback-link" target="_blank" rel="noreferrer">Report feedback</a></li></ul></div></details></header><div class="section-content"><p>The HTTP <strong><code>Strict-Transport-Security</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">response header</a> (often abbreviated as <a href="https://developer.mozilla.org/en-US/docs/Glossary/HSTS">HSTS</a>) informs browsers that the <a href="https://developer.mozilla.org/en-US/docs/Glossary/Host">host</a> should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be upgraded to HTTPS.
+Additionally, on future connections to the host, the browser will not allow the user to bypass secure connection errors, such as an invalid certificate.
+HSTS identifies a host by its domain name only.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Strict-Transport-Security: max-age=&lt;expire-time&gt;
+Strict-Transport-Security: max-age=&lt;expire-time&gt;; includeSubDomains
+Strict-Transport-Security: max-age=&lt;expire-time&gt;; includeSubDomains; preload
+</code></pre></div></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><dl>
+<dt id="max-ageexpire-time"><a href="#max-ageexpire-time"><code>max-age=&lt;expire-time&gt;</code></a></dt>
+<dd>
+<p>The time, in seconds, that the browser should remember that a host is only to be accessed using HTTPS.</p>
+</dd>
+<dt id="includesubdomains"><a href="#includesubdomains"><code>includeSubDomains</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>If this directive is specified, the HSTS policy applies to all subdomains of the host's domain as well.</p>
+</dd>
+<dt id="preload"><a href="#preload"><code>preload</code> <span class="badge inline optional">Optional</span> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using.">
+<span class="visually-hidden">Non-standard</span>
+</abbr></a></dt>
+<dd>
+<p>See <a href="#preloading_strict_transport_security">Preloading Strict Transport Security</a> for details. When using <code>preload</code>, the <code>max-age</code> directive must be at least <code>31536000</code> (1 year), and the <code>includeSubDomains</code> directive must be present.</p>
+</dd>
+</dl></div></section><section aria-labelledby="description"><h2 id="description"><a href="#description">Description</a></h2><div class="section-content"><p>The <code>Strict-Transport-Security</code> header informs the browser that all connections to the host must use HTTPS.
+Although it is a response header, it does not affect how the browser handles the current response, but rather
+how it makes future requests.</p>
+<p>When an HTTPS response includes the <code>Strict-Transport-Security</code> header, the browser adds the host's domain name
+to its persistent list of HSTS hosts.
+If the domain name is already in the list, the expiration time and <code>includeSubDomains</code> directive are updated.
+The host is identified only by its domain name. An IP address cannot be an HSTS host.
+HSTS applies to all ports of the host, regardless of what port was used for the request.</p>
+<p>Before loading an <code>http</code> URL, the browser checks the domain name against its HSTS hosts list.
+If the domain name is a case insensitive match for an HSTS host or is a subdomain of one that specified <code>includeSubDomains</code>,
+then the browser replaces the URL scheme with <code>https</code>.
+If the URL specifies port 80, the browser changes it to 443.
+Any other explicit port number remains unchanged, and the browser connects to that port using HTTPS.</p>
+<p>If a TLS warning or error, such as an invalid certificate, occurs when connecting to an HSTS host,
+the browser does not offer the user a way to proceed or "click through" the error message, which would compromise
+the intention of strict security.</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+The host must send the <code>Strict-Transport-Security</code> header over HTTPS only, not insecure HTTP.
+Browsers ignore the header if sent over HTTP to prevent a <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/MITM">manipulator-in-the-middle (MITM)</a>
+from altering the header to expire prematurely or adding it for a host that doesn't support HTTPS.</p>
+</div></div></section><section aria-labelledby="expiration"><h3 id="expiration"><a href="#expiration">Expiration</a></h3><div class="section-content"><p>Every time the browser receives a <code>Strict-Transport-Security</code> header, it updates the host's HSTS expiration time by
+adding <code>max-age</code> to the current time.
+Using a fixed value for <code>max-age</code> can prevent HSTS from expiring, as each subsequent response will push the expiration farther into the future.</p>
+<p>If the <code>Strict-Transport-Security</code> header is missing in a response from a host that previously sent one, the previous header remains in effect until its expiration time.</p>
+<p>To disable HSTS, set <code>max-age=0</code>.
+This only takes effect once the browser makes a secure request and receives the response header.
+By design, you cannot disable HSTS over insecure HTTP.</p></div></section><section aria-labelledby="subdomains"><h3 id="subdomains"><a href="#subdomains">Subdomains</a></h3><div class="section-content"><p>The <code>includeSubDomains</code> directive instructs the browser to apply a domain's HSTS policy to its subdomains as well.
+An HSTS policy for <code>secure.example.com</code> with <code>includeSubDomains</code> also applies to <code>login.secure.example.com</code>
+and <code>admin.login.secure.example.com</code>. But it does not apply to <code>example.com</code> or <code>insecure.example.com</code>.</p>
+<p>Each subdomain host should include <code>Strict-Transport-Security</code> headers in its responses even if the
+superdomain uses <code>includeSubDomains</code>, because a browser may contact a subdomain host before the superdomain.
+For example, if <code>example.com</code> includes the HSTS header with <code>includeSubDomains</code>, but all existing links
+go directly to <code>www.example.com</code>, the browser will never see <code>example.com</code>'s HSTS header.
+Therefore, <code>www.example.com</code> also should send HSTS headers.</p>
+<p>The browser stores the HSTS policy for each domain and subdomain independently, regardless of the <code>includeSubDomains</code> directive.
+If both <code>example.com</code> and <code>login.example.com</code> send HSTS headers, the browser stores two separate HSTS policies,
+and they can expire independently. If <code>example.com</code> used <code>includeSubDomains</code>, then <code>login.example.com</code> remains covered
+if either one of the policies expires.</p>
+<p>If <code>max-age=0</code>, <code>includeSubDomains</code> has no effect, since the domain that specified <code>includeSubDomains</code> is
+immediately deleted from the HSTS hosts list; this does not delete separate HSTS policies of each subdomain.</p></div></section><section aria-labelledby="insecure_http_requests"><h3 id="insecure_http_requests"><a href="#insecure_http_requests">Insecure HTTP requests</a></h3><div class="section-content"><p>If the host accepts insecure HTTP requests, it should respond with a permanent redirect (such as status code <a href="/en-US/docs/Web/HTTP/Reference/Status/301"><code>301</code></a>)
+having an <code>https</code> URL in the <a href="Location.htm"><code>Location</code></a> header.
+The redirect must not include the <code>Strict-Transport-Security</code> header since the request used insecure HTTP
+but the header must be sent via HTTPS only.
+After the browser follows the redirect and makes a new request using HTTPS, the response
+should include the <code>Strict-Transport-Security</code> header to ensure that future attempts to load an <code>http</code> URL
+will use HTTPS immediately, without requiring a redirect.</p>
+<p>One weakness of HSTS is that it does not take effect until the browser has made at least one secure connection to the host
+and received the <code>Strict-Transport-Security</code> header.
+If the browser loads an insecure <code>http</code> URL prior to knowing that the host is an HSTS host, the initial request is
+vulnerable to network attacks.
+<a href="#preloading_strict_transport_security">Preloading</a> mitigates this problem.</p></div></section><section aria-labelledby="strict_transport_security_example_scenario"><h3 id="strict_transport_security_example_scenario"><a href="#strict_transport_security_example_scenario">Strict Transport Security example scenario</a></h3><div class="section-content"><ol>
+<li>
+<p>At home, the user visits <code>http://example.com/</code> for the first time.</p>
+</li>
+<li>
+<p>Since the URL scheme is <code>http</code> and the browser does not have it in its HSTS hosts list, the connection uses insecure HTTP.</p>
+</li>
+<li>
+<p>The server responds with a <code>301 Moved Permanently</code> redirect to <code>https://example.com/</code>.</p>
+</li>
+<li>
+<p>The browser makes a new request, this time using HTTPS.</p>
+</li>
+<li>
+<p>The response, made via HTTPS, includes the header:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Strict-Transport-Security: max-age=31536000; includeSubDomains
+</code></pre></div>
+<p>The browser remembers <code>example.com</code> as an HSTS host, and that it specified <code>includeSubDomains</code>.</p>
+</li>
+<li>
+<p>A few weeks later, the user is at the airport and decides to use the free Wi-Fi. But unknowingly, they connect to a rogue access point running on an attacker's laptop.</p>
+</li>
+<li>
+<p>The user opens <code>http://login.example.com/</code>. Because the browser remembers <code>example.com</code> as an HSTS host and the <code>includeSubDomains</code> directive was used, the browser uses HTTPS.</p>
+</li>
+<li>
+<p>The attacker intercepts the request with a fake HTTPS server, but does not have a valid certificate for the domain.</p>
+</li>
+<li>
+<p>The browser displays an invalid certificate error, and does not allow the user to bypass it, thus preventing them from giving their password to the attacker.</p>
+</li>
+</ol></div></section><section aria-labelledby="preloading_strict_transport_security"><h3 id="preloading_strict_transport_security"><a href="#preloading_strict_transport_security">Preloading Strict Transport Security</a></h3><div class="section-content"><p>Google maintains <a href="https://hstspreload.org/" class="external" target="_blank">an HSTS preload service</a>.
+By following the guidelines and successfully submitting your domain, you can ensure that browsers will connect to your domain only via secure connections.
+While the service is hosted by Google, all browsers are using this preload list.
+However, it is not part of the HSTS specification and should not be treated as official.</p>
+<ul>
+<li>Information regarding the HSTS preload list in Chrome: <a href="https://www.chromium.org/hsts/" class="external" target="_blank">https://www.chromium.org/hsts/</a></li>
+<li>Consultation of the Firefox HSTS preload list: <a href="https://searchfox.org/mozilla-central/source/security/manager/ssl/nsSTSPreloadList.inc" class="external" target="_blank">nsSTSPreloadList.inc</a></li>
+</ul></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="using_strict-transport-security"><h3 id="using_strict-transport-security"><a href="#using_strict-transport-security">Using Strict-Transport-Security</a></h3><div class="section-content"><p>All present and future subdomains will be HTTPS for a <code>max-age</code> of 1 year.
+This blocks access to pages or subdomains that can only be served over HTTP.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Strict-Transport-Security: max-age=31536000; includeSubDomains
+</code></pre></div>
+<p>Although a <code>max-age</code> of 1 year is acceptable for a domain, two years is the recommended value as explained on <a href="https://hstspreload.org" class="external" target="_blank">https://hstspreload.org</a>.</p>
+<p>In the following example, <code>max-age</code> is set to 2 years, and is suffixed with <code>preload</code>, which is necessary for inclusion in all major web browsers' HSTS preload lists, like Chromium, Edge, and Firefox.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://www.rfc-editor.org/rfc/rfc6797#section-6.1">HTTP Strict Transport Security (HSTS)<!-- --> <br><small># <!-- -->section-6.1</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts">Features restricted to secure contexts</a></li>
+<li><a href="https://blog.sidstamm.com/2010/08/http-strict-transport-security-has.html" class="external" target="_blank">HTTP Strict Transport Security has landed!</a> on blog.sidstamm.com (2010)</li>
+<li><a href="https://hacks.mozilla.org/2010/08/firefox-4-http-strict-transport-security-force-https/" class="external" target="_blank">HTTP Strict Transport Security (force HTTPS)</a> on hacks.mozilla.org (2010)</li>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html" class="external" target="_blank">HTTP Strict Transport Security</a> cheatsheet on owasp.org</li>
+<li><a href="https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security" class="external" target="_blank">HTTP Strict Transport Security</a> on Wikipedia</li>
+<li><a href="https://hstspreload.org/" class="external" target="_blank">HSTS preload service</a></li>
+</ul></div></section></article></main></div></div></div></body></html>

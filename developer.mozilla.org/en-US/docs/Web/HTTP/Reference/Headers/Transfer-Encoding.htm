@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Transfer-Encoding header</title><link rel="alternate" title="Transfer-Encoding header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Transfer-Encoding" hreflang="de"><link rel="alternate" title="Transfer-Encoding" href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Headers/Transfer-Encoding" hreflang="es"><link rel="alternate" title="Transfer-Encoding" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Transfer-Encoding" hreflang="ja"><link rel="alternate" title="Transfer-Encoding" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Transfer-Encoding" hreflang="ko"><link rel="alternate" title="Transfer-Encoding" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Headers/Transfer-Encoding" hreflang="pt"><link rel="alternate" title="Transfer-Encoding" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Transfer-Encoding" hreflang="zh"><link rel="alternate" title="Transfer-Encoding header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Transfer-Encoding" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Transfer-Encoding request and response header specifies the form of encoding used to transfer messages between nodes on the network."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Transfer-Encoding"><meta property="og:title" content="Transfer-Encoding header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Transfer-Encoding request and response header specifies the form of encoding used to transfer messages between nodes on the network."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Transfer-Encoding"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Transfer-Encoding header</h1><details class="baseline-indicator high"><summary><span class="indicator" role="img" aria-label="Baseline Check"></span><div class="status-title">Baseline<!-- --> <span class="not-bold">Widely available</span></div><div class="browsers"><span class="engine" title="Supported in Chrome and Edge"><span class="browser chrome supported" role="img" aria-label="Chrome check"></span><span class="browser edge supported" role="img" aria-label="Edge check"></span></span><span class="engine" title="Supported in Firefox"><span class="browser firefox supported" role="img" aria-label="Firefox check"></span></span><span class="engine" title="Supported in Safari"><span class="browser safari supported" role="img" aria-label="Safari check"></span></span></div><span class="icon icon-chevron "></span></summary><div class="extra"><p>This feature is well established and works across many devices and browser versions. It’s been available across browsers since<!-- --> <!-- -->July 2015<!-- -->.</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility" data-glean="baseline_link_learn_more" target="_blank" class="learn-more">Learn more</a></li><li><a href="#browser_compatibility" data-glean="baseline_link_bcd_table">See full compatibility</a></li><li><a href="https://survey.alchemer.com/s3/7634825/MDN-baseline-feedback?page=%2Fen-US%2Fdocs%2FWeb%2FHTTP%2FReference%2FHeaders%2FTransfer-Encoding&amp;level=high" data-glean="baseline_link_feedback" class="feedback-link" target="_blank" rel="noreferrer">Report feedback</a></li></ul></div></details></header><div class="section-content"><p>The HTTP <strong><code>Transfer-Encoding</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Request_header">request</a> and <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">response header</a> specifies the form of encoding used to transfer messages between nodes on the network.</p>
+<p><code>Transfer-Encoding</code> is a <a href="/en-US/docs/Web/HTTP/Reference/Headers#hop-by-hop_headers">hop-by-hop header</a>, that is applied to a message between two nodes, not to a resource itself.
+Each segment of a multi-node connection can use different <code>Transfer-Encoding</code> values.
+If you want to compress data over the whole connection, use the end-to-end <a href="Content-Encoding.htm"><code>Content-Encoding</code></a> header instead.</p>
+<p>In practice this header is rarely used, and in those cases it is almost always used with <code>chunked</code>.</p>
+<p>That said, the specification indicates that when present in a message it indicates the compression used on the message in that hop, and/or whether the message has been chunked.
+For example, <code>Transfer-Encoding: gzip, chunked</code> indicates that the content has been compressed using the gzip coding and then chunked using the chunked coding while forming the message body.</p>
+<p>The header is optional in responses to a <a href="/en-US/docs/Web/HTTP/Reference/Methods/HEAD"><code>HEAD</code></a> request as these messages have no body and, therefore, no transfer encoding.
+When present it indicates the value that would have applied to the corresponding response to a <a href="/en-US/docs/Web/HTTP/Reference/Methods/GET"><code>GET</code></a> message, if that <code>GET</code> request did not include a preferred <code>Transfer-Encoding</code>.</p>
+<div class="notecard warning">
+<p><strong>Warning:</strong>
+HTTP/2 disallows all uses of the <code>Transfer-Encoding</code> header other than the HTTP/2 specific value <code>"trailers"</code>.
+HTTP/2 and later provide more efficient mechanisms for data streaming than chunked transfer.
+Usage of the header in HTTP/2 may likely result in a specific <code>protocol error</code>.</p>
+</div>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td>
+        <a href="https://developer.mozilla.org/en-US/docs/Glossary/Request_header">Request header</a>, <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a>, <a href="https://developer.mozilla.org/en-US/docs/Glossary/Content_header">Content header</a>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Transfer-Encoding: chunked
+Transfer-Encoding: compress
+Transfer-Encoding: deflate
+Transfer-Encoding: gzip
+
+// Several values can be listed, separated by a comma
+Transfer-Encoding: gzip, chunked
+</code></pre></div></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><dl>
+<dt id="chunked"><a href="#chunked"><code>chunked</code></a></dt>
+<dd>
+<p>Data is sent in a series of chunks.
+Content can be sent in streams of unknown size to be transferred as a sequence of length-delimited buffers, so the sender can keep a connection open, and let the recipient know when it has received the entire message.
+The <a href="Content-Length.htm"><code>Content-Length</code></a> header must be omitted, and at the beginning of each chunk, a string of hex digits indicate the size of the chunk-data in octets, followed by <code>\r\n</code> and then the chunk itself, followed by another <code>\r\n</code>.
+The terminating chunk is a zero-length chunk.</p>
+</dd>
+<dt id="compress"><a href="#compress"><code>compress</code></a></dt>
+<dd>
+<p>A format using the <a href="https://en.wikipedia.org/wiki/LZW" class="external" target="_blank">Lempel-Ziv-Welch</a> (LZW) algorithm.
+The value name was taken from the UNIX <em>compress</em> program, which implemented this algorithm.
+Like the compress program, which has disappeared from most UNIX distributions, this content-encoding is used by almost no browsers today, partly because of a patent issue (which expired in 2003).</p>
+</dd>
+<dt id="deflate"><a href="#deflate"><code>deflate</code></a></dt>
+<dd>
+<p>Using the <a href="https://en.wikipedia.org/wiki/Zlib" class="external" target="_blank">zlib</a> structure (defined in <a href="https://datatracker.ietf.org/doc/html/rfc1950" class="external" target="_blank">RFC 1950</a>), with the <a href="https://en.wikipedia.org/wiki/DEFLATE" class="external" target="_blank"><em>deflate</em></a> compression algorithm (defined in <a href="https://datatracker.ietf.org/doc/html/rfc1952" class="external" target="_blank">RFC 1951</a>).</p>
+</dd>
+<dt id="gzip"><a href="#gzip"><code>gzip</code></a></dt>
+<dd>
+<p>A format using the <a href="https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77" class="external" target="_blank">Lempel-Ziv coding</a> (LZ77), with a 32-bit CRC.
+This is originally the format of the UNIX <em>gzip</em> program.
+The HTTP/1.1 standard also recommends that the servers supporting this content-encoding should recognize <code>x-gzip</code> as an alias, for compatibility purposes.</p>
+</dd>
+</dl></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="response_with_chunked_encoding"><h3 id="response_with_chunked_encoding"><a href="#response_with_chunked_encoding">Response with chunked encoding</a></h3><div class="section-content"><p>Chunked encoding is useful when larger amounts of data are sent to the client and the total size of the response may not be known until the request has been fully processed.
+For example, when generating a large HTML table resulting from a database query or when transmitting large images.
+A chunked response looks like this:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 200 OK
+Content-Type: text/plain
+Transfer-Encoding: chunked
+
+7\r\n
+Mozilla\r\n
+11\r\n
+Developer Network\r\n
+0\r\n
+\r\n
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://httpwg.org/specs/rfc9112.html#field.transfer-encoding">HTTP/1.1<!-- --> <br><small># <!-- -->field.transfer-encoding</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="Accept-Encoding.htm"><code>Accept-Encoding</code></a></li>
+<li><a href="Content-Encoding.htm"><code>Content-Encoding</code></a></li>
+<li><a href="Content-Length.htm"><code>Content-Length</code></a></li>
+<li>Header fields that regulate the use of trailers: <a href="TE.htm"><code>TE</code></a> (requests) and <a href="Trailer.htm"><code>Trailer</code></a> (responses).</li>
+<li><a href="https://en.wikipedia.org/wiki/Chunked_transfer_encoding" class="external" target="_blank">Chunked transfer encoding</a></li>
+</ul></div></section></article></main></div></div></div></body></html>

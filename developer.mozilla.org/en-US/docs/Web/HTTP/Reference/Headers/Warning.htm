@@ -1,0 +1,103 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Warning header</title><link rel="alternate" title="Warning header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Warning" hreflang="de"><link rel="alternate" title="Warning" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Warning" hreflang="ja"><link rel="alternate" title="Warning" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Headers/Warning" hreflang="pt"><link rel="alternate" title="Warning" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Warning" hreflang="zh"><link rel="alternate" title="Warning header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Warning" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Warning request and response header contains information about possible problems with the status of the message.
+More than one Warning header may appear in a response."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Warning"><meta property="og:title" content="Warning header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Warning request and response header contains information about possible problems with the status of the message.
+More than one Warning header may appear in a response."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Warning"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Warning header</h1></header><div class="section-content"> 
+<div class="notecard deprecated"><p><strong>Deprecated:</strong> This feature is no longer recommended. Though some browsers might still support it, it may have already been removed from the relevant web standards, may be in the process of being dropped, or may only be kept for compatibility purposes. Avoid using it, and update existing code if possible; see the <a href="#browser_compatibility">compatibility table</a> at the bottom of this page to guide your decision. Be aware that this feature may cease to work at any time.</p></div>
+<div class="notecard note">
+<p><strong>Note:</strong>
+The header was deprecated because it is not widely generated or surfaced to users (see <a href="https://www.rfc-editor.org/rfc/rfc9111#field.warning" class="external" target="_blank">RFC9111</a>).
+Some of the information can be inferred from other headers such as <a href="Age.htm"><code>Age</code></a>.</p>
+</div>
+<p>The HTTP <strong><code>Warning</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Request_header">request</a> and <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">response header</a> contains information about possible problems with the status of the message.
+More than one <code>Warning</code> header may appear in a response.</p>
+<p><code>Warning</code> header fields can, in general, be applied to any message.
+However, some warn-codes are specific to caches and can only be applied to response messages.</p>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td>
+        <a href="https://developer.mozilla.org/en-US/docs/Glossary/Request_header">Request header</a>,
+        <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Warning: &lt;warn-code&gt; &lt;warn-agent&gt; &lt;warn-text&gt; [&lt;warn-date&gt;]
+</code></pre></div></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><dl>
+<dt id="warn-code"><a href="#warn-code"><code>&lt;warn-code&gt;</code></a></dt>
+<dd>
+<p>A three-digit warning number. The first digit indicates whether the <code>Warning</code> is required to be deleted from a stored response after validation.</p>
+<ul>
+<li><code>1xx</code> warn-codes describe the freshness or validation status of the response and will be deleted by a cache after successful validation.</li>
+<li><code>2xx</code> warn-codes describe some aspect of the representation that is not rectified by a validation and will not be deleted by a cache after validation unless a full response is sent.</li>
+</ul>
+</dd>
+<dt id="warn-agent"><a href="#warn-agent"><code>&lt;warn-agent&gt;</code></a></dt>
+<dd>
+<p>The name or pseudonym of the server or software adding the <code>Warning</code> header (might be "-" when the agent is unknown).</p>
+</dd>
+<dt id="warn-text"><a href="#warn-text"><code>&lt;warn-text&gt;</code></a></dt>
+<dd>
+<p>An advisory text describing the error.</p>
+</dd>
+<dt id="warn-date"><a href="#warn-date"><code>&lt;warn-date&gt;</code> <span class="badge inline optional">Optional</span></a></dt>
+<dd>
+<p>A date. If more than one <code>Warning</code> header is sent, include a date that matches the <a href="Date.htm"><code>Date</code></a> header.</p>
+</dd>
+</dl></div></section><section aria-labelledby="warning_codes"><h2 id="warning_codes"><a href="#warning_codes">Warning codes</a></h2><div class="section-content"><p>The <a href="https://www.iana.org/assignments/http-warn-codes/http-warn-codes.xhtml" class="external" target="_blank">HTTP Warn Codes registry at iana.org</a> defines the namespace for warning codes.</p>
+<figure class="table-container"><table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Text</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>110</td>
+<td>Response is Stale</td>
+<td>The response provided by a cache is stale (the expiration time set for the response has passed).</td>
+</tr>
+<tr>
+<td>111</td>
+<td>Revalidation Failed</td>
+<td>An attempt to validate the stale response failed due to an inability to reach the server.</td>
+</tr>
+<tr>
+<td>112</td>
+<td>Disconnected Operation</td>
+<td>The cache is intentionally disconnected from the rest of the network.</td>
+</tr>
+<tr>
+<td>113</td>
+<td>Heuristic Expiration</td>
+<td>A cache heuristically chose a <a href="/en-US/docs/Web/HTTP/Guides/Caching#fresh_and_stale_based_on_age">freshness lifetime</a> greater than 24 hours and the age of the response is greater than 24 hours.</td>
+</tr>
+<tr>
+<td>199</td>
+<td>Miscellaneous Warning</td>
+<td>Arbitrary information that should be presented to a user or logged.</td>
+</tr>
+<tr>
+<td>214</td>
+<td>Transformation Applied</td>
+<td>Added by a proxy if it applies any transformation to the representation, such as changing the content-coding, media-type or the like.</td>
+</tr>
+<tr>
+<td>299</td>
+<td>Miscellaneous Persistent Warning</td>
+<td>Arbitrary information that should be presented to a user or logged. This warn-code is similar to the warn-code 199 and additionally indicates a persistent warning.</td>
+</tr>
+</tbody>
+</table></figure></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Warning: 110 anderson/1.3.37 "Response is stale"
+
+Date: Wed, 21 Oct 2015 07:28:00 GMT
+Warning: 112 - "cache down" "Wed, 21 Oct 2015 07:28:00 GMT"
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://httpwg.org/specs/rfc9111.html#field.warning">HTTP Caching<!-- --> <br><small># <!-- -->field.warning</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="Date.htm"><code>Date</code></a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Status">HTTP response status codes</a></li>
+</ul></div></section></article></main></div></div></div></body></html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>300 Multiple Choices</title><link rel="alternate" title="300 Multiple Choices" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Status/300" hreflang="de"><link rel="alternate" title="300 Multiple Choices" href="https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Status/300" hreflang="fr"><link rel="alternate" title="300 Multiple Choices" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Status/300" hreflang="ja"><link rel="alternate" title="300 Multiple Choices" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Status/300" hreflang="ko"><link rel="alternate" title="300 Multiple Choices" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status/300" hreflang="pt"><link rel="alternate" title="300 Multiple Choices" href="https://developer.mozilla.org/ru/docs/Web/HTTP/Reference/Status/300" hreflang="ru"><link rel="alternate" title="300 Multiple Choices" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Status/300" hreflang="zh"><link rel="alternate" title="300 Multiple Choices" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Reference/Status/300" hreflang="zh-Hant"><link rel="alternate" title="300 Multiple Choices" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/300" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP 300 Multiple Choices redirection response status code indicates that the request has more than one possible response.
+The user-agent or the user should choose one of them."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/300"><meta property="og:title" content="300 Multiple Choices - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP 300 Multiple Choices redirection response status code indicates that the request has more than one possible response.
+The user-agent or the user should choose one of them."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/300"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>300 Multiple Choices</h1></header><div class="section-content"><p>The HTTP <strong><code>300 Multiple Choices</code></strong> <a href="/en-US/docs/Web/HTTP/Reference/Status#redirection_messages">redirection response</a> status code indicates that the request has more than one possible response.
+The user-agent or the user should choose one of them.</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+In <a href="/en-US/docs/Web/HTTP/Guides/Content_negotiation#agent-driven_negotiation">agent-driven content negotiation</a>, a client and server collaboratively decide the best variant of a given resource when the server has multiple variants.
+Most clients lack a method for automatically choosing from responses, and the additional round-trips slow down client-server interaction.
+<a href="/en-US/docs/Web/HTTP/Guides/Content_negotiation#server-driven_content_negotiation">Server-driven content negotiation</a> is far more common, where a server chooses the most appropriate resource for the client based on the request headers (<a href="/en-US/docs/Web/HTTP/Reference/Headers/Accept-Language"><code>Accept-Language</code></a>, <a href="/en-US/docs/Web/HTTP/Reference/Headers/Accept"><code>Accept</code></a>, etc.).</p>
+</div>
+<p>The server should include content in the response that contains a list of resource metadata and URIs from which the user or user agent can choose.
+The format of the content is implementation-specific, but should be easily parsed by the user agent (such as HTML or JSON).</p>
+<p>If the server has a preferred choice that the client should request, it can include it in a <a href="/en-US/docs/Web/HTTP/Reference/Headers/Location"><code>Location</code></a> header.</p></div><section aria-labelledby="status"><h2 id="status"><a href="#status">Status</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>300 Multiple Choices
+</code></pre></div></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="300_response_with_list_of_resources"><h3 id="300_response_with_list_of_resources"><a href="#300_response_with_list_of_resources">300 response with list of resources</a></h3><div class="section-content"><p>The following example demonstrates a Transparent Content Negotiation request-response exchange.
+An Apache server offers multiple variants of a resource defined in a <a href="https://httpd.apache.org/docs/trunk/mod/mod_negotiation.html#typemaps" class="external" target="_blank">type map</a>; <code>index.html.en</code> for a resource in English, and <code>index.html.fr</code> for a French version:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>URI: index.html.en
+Content-Language: en
+
+URI: index.html.fr
+Content-Language: fr
+</code></pre></div>
+<p>A <code>Negotiate: trans</code> request header indicates that the client wants to use TCN to choose a resource.
+Poor browser support for this mechanism means a user agent such as curl must be used instead:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">bash</span></div><pre class="brush: bash notranslate"><code> curl -v -H "Negotiate: trans" http://localhost/index
+</code></pre></div>
+<p>This produces the following request:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>GET /index HTTP/1.1
+Host: localhost
+User-Agent: curl/8.7.1
+Accept: */*
+Negotiate: trans
+</code></pre></div>
+<p>We receive a <code>300</code> response with details of different representations of the requested resource:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>HTTP/1.1 300 Multiple Choices
+Date: Fri, 30 Aug 2024 09:21:48 GMT
+Server: Apache/2.4.59 (Unix)
+Alternates: {"index.html.en" 1 {type text/html} {language en} {length 48}}, {"index.html.fr" 1 {type text/html} {language fr} {length 45}}
+Vary: negotiate,accept-language
+TCN: list
+Content-Length: 419
+Content-Type: text/html; charset=iso-8859-1
+
+&lt;html&gt;&lt;head&gt;
+&lt;title&gt;300 Multiple Choices&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;h1&gt;Multiple Choices&lt;/h1&gt;
+Available variants:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="index.html.en"&gt;index.html.en&lt;/a&gt; , type text/html, language en&lt;/li&gt;
+&lt;li&gt;&lt;a href="index.html.fr"&gt;index.html.fr&lt;/a&gt; , type text/html, language fr&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/body&gt;&lt;/html&gt;
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://httpwg.org/specs/rfc9110.html#status.300">HTTP Semantics<!-- --> <br><small># <!-- -->status.300</small></a></td></tr></tbody></table><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="/en-US/docs/Web/HTTP/Guides/Redirections">Redirections in HTTP</a></li>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Status">HTTP response status codes</a></li>
+<li><a href="301.htm"><code>301 Moved Permanently</code></a></li>
+<li><a href="302.htm"><code>302 Found</code></a> temporary redirect</li>
+<li><a href="308.htm"><code>308 Permanent Redirect</code></a></li>
+<li><a href="506.htm"><code>506 Variant Also Negotiates</code></a></li>
+<li><a href="https://httpd.apache.org/docs/current/en/content-negotiation.html#algorithm" class="external" target="_blank">Apache Server Negotiation Algorithm</a></li>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc2295" class="external" target="_blank">RFC 2295: Transparent Content Negotiation in HTTP</a></li>
+</ul></div></section></article></main></div></div></div></body></html>

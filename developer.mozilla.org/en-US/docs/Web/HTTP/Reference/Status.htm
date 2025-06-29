@@ -1,0 +1,324 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>HTTP response status codes</title><link rel="alternate" title="HTTP-Statuscodes" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Status" hreflang="de"><link rel="alternate" title="Códigos de estado de respuesta HTTP" href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status" hreflang="es"><link rel="alternate" title="Codes de réponse HTTP" href="https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Status" hreflang="fr"><link rel="alternate" title="HTTP レスポンスステータスコード" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Status" hreflang="ja"><link rel="alternate" title="HTTP 상태 코드" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Status" hreflang="ko"><link rel="alternate" title="Códigos de status de respostas HTTP" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status" hreflang="pt"><link rel="alternate" title="Коды состояния ответа HTTP" href="https://developer.mozilla.org/ru/docs/Web/HTTP/Reference/Status" hreflang="ru"><link rel="alternate" title="HTTP 响应状态码" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Status" hreflang="zh"><link rel="alternate" title="HTTP 回應狀態碼" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Reference/Status" hreflang="zh-Hant"><link rel="alternate" title="HTTP response status codes" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="HTTP response status codes indicate whether a specific HTTP request has been successfully completed.
+Responses are grouped in five classes:"><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status"><meta property="og:title" content="HTTP response status codes - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="HTTP response status codes indicate whether a specific HTTP request has been successfully completed.
+Responses are grouped in five classes:"><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>HTTP response status codes</h1></header><div class="section-content"><p>HTTP response status codes indicate whether a specific <a href="/en-US/docs/Web/HTTP">HTTP</a> request has been successfully completed.
+Responses are grouped in five classes:</p>
+<ol>
+<li><a href="#informational_responses">Informational responses</a> (<code>100</code> – <code>199</code>)</li>
+<li><a href="#successful_responses">Successful responses</a> (<code>200</code> – <code>299</code>)</li>
+<li><a href="#redirection_messages">Redirection messages</a> (<code>300</code> – <code>399</code>)</li>
+<li><a href="#client_error_responses">Client error responses</a> (<code>400</code> – <code>499</code>)</li>
+<li><a href="#server_error_responses">Server error responses</a> (<code>500</code> – <code>599</code>)</li>
+</ol>
+<p>The status codes listed below are defined by <a href="https://httpwg.org/specs/rfc9110.html#overview.of.status.codes" class="external" target="_blank">RFC 9110</a>.</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+If you receive a response that is not listed here, it is a non-standard response, possibly custom to the server's software.</p>
+</div></div><section aria-labelledby="informational_responses"><h2 id="informational_responses"><a href="#informational_responses">Informational responses</a></h2><div class="section-content"><dl>
+<dt id="100_continue"><a href="Status/100.htm"><code>100 Continue</code></a></dt>
+<dd>
+<p>This interim response indicates that the client should continue the request or ignore the response if the request is already finished.</p>
+</dd>
+<dt id="101_switching_protocols"><a href="Status/101.htm"><code>101 Switching Protocols</code></a></dt>
+<dd>
+<p>This code is sent in response to an <a href="Headers/Upgrade.htm"><code>Upgrade</code></a> request header from the client and indicates the protocol the server is switching to.</p>
+</dd>
+<dt id="102_processing"><a href="Status/102.htm"><code>102 Processing</code></a> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites.">
+<span class="visually-hidden">Deprecated</span>
+</abbr></dt>
+<dd>
+<p>This code was used in <a href="https://developer.mozilla.org/en-US/docs/Glossary/WebDAV">WebDAV</a> contexts to indicate that a request has been received by the server, but no status was available at the time of the response.</p>
+</dd>
+<dt id="103_early_hints"><a href="Status/103.htm"><code>103 Early Hints</code></a></dt>
+<dd>
+<p>This status code is primarily intended to be used with the <a href="Headers/Link.htm"><code>Link</code></a> header, letting the user agent start <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/preload">preloading</a> resources while the server prepares a response or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/preconnect">preconnect</a> to an origin from which the page will need resources.</p>
+</dd>
+</dl></div></section><section aria-labelledby="successful_responses"><h2 id="successful_responses"><a href="#successful_responses">Successful responses</a></h2><div class="section-content"><dl>
+<dt id="200_ok"><a href="Status/200.htm"><code>200 OK</code></a></dt>
+<dd>
+<p>The request succeeded. The result and meaning of "success" depends on the HTTP method:</p>
+<ul>
+<li><a href="Methods/GET.htm"><code>GET</code></a>: The resource has been fetched and transmitted in the message body.</li>
+<li><a href="Methods/HEAD.htm"><code>HEAD</code></a>: Representation headers are included in the response without any message body.</li>
+<li><a href="Methods/PUT.htm"><code>PUT</code></a> or <a href="Methods/POST.htm"><code>POST</code></a>: The resource describing the result of the action is transmitted in the message body.</li>
+<li><a href="Methods/TRACE.htm"><code>TRACE</code></a>: The message body contains the request as received by the server.</li>
+</ul>
+</dd>
+<dt id="201_created"><a href="Status/201.htm"><code>201 Created</code></a></dt>
+<dd>
+<p>The request succeeded, and a new resource was created as a result. This is typically the response sent after <a href="Methods/POST.htm"><code>POST</code></a> requests, or some <a href="Methods/PUT.htm"><code>PUT</code></a> requests.</p>
+</dd>
+<dt id="202_accepted"><a href="Status/202.htm"><code>202 Accepted</code></a></dt>
+<dd>
+<p>The request has been received but not yet acted upon.
+It is noncommittal, since there is no way in HTTP to later send an asynchronous response indicating the outcome of the request.
+It is intended for cases where another process or server handles the request, or for batch processing.</p>
+</dd>
+<dt id="203_non-authoritative_information"><a href="Status/203.htm"><code>203 Non-Authoritative Information</code></a></dt>
+<dd>
+<p>This response code means the returned metadata is not exactly the same as is available from the origin server, but is collected from a local or a third-party copy.
+This is mostly used for mirrors or backups of another resource.
+Except for that specific case, the <a href="Status/200.htm"><code>200 OK</code></a> response is preferred to this status.</p>
+</dd>
+<dt id="204_no_content"><a href="Status/204.htm"><code>204 No Content</code></a></dt>
+<dd>
+<p>There is no content to send for this request, but the headers are useful.
+The user agent may update its cached headers for this resource with the new ones.</p>
+</dd>
+<dt id="205_reset_content"><a href="Status/205.htm"><code>205 Reset Content</code></a></dt>
+<dd>
+<p>Tells the user agent to reset the document which sent this request.</p>
+</dd>
+<dt id="206_partial_content"><a href="Status/206.htm"><code>206 Partial Content</code></a></dt>
+<dd>
+<p>This response code is used in response to a <a href="/en-US/docs/Web/HTTP/Guides/Range_requests">range request</a> when the client has requested a part or parts of a resource.</p>
+</dd>
+<dt id="207_multi-status"><a href="Status/207.htm"><code>207 Multi-Status</code></a> (<a href="https://developer.mozilla.org/en-US/docs/Glossary/WebDAV">WebDAV</a>)</dt>
+<dd>
+<p>Conveys information about multiple resources, for situations where multiple status codes might be appropriate.</p>
+</dd>
+<dt id="208_already_reported"><a href="Status/208.htm"><code>208 Already Reported</code></a> (<a href="https://developer.mozilla.org/en-US/docs/Glossary/WebDAV">WebDAV</a>)</dt>
+<dd>
+<p>Used inside a <code>&lt;dav:propstat&gt;</code> response element to avoid repeatedly enumerating the internal members of multiple bindings to the same collection.</p>
+</dd>
+<dt id="226_im_used"><a href="Status/226.htm"><code>226 IM Used</code></a> (<a href="https://datatracker.ietf.org/doc/html/rfc3229" class="external" target="_blank">HTTP Delta encoding</a>)</dt>
+<dd>
+<p>The server has fulfilled a <a href="Methods/GET.htm"><code>GET</code></a> request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance.</p>
+</dd>
+</dl></div></section><section aria-labelledby="redirection_messages"><h2 id="redirection_messages"><a href="#redirection_messages">Redirection messages</a></h2><div class="section-content"><dl>
+<dt id="300_multiple_choices"><a href="Status/300.htm"><code>300 Multiple Choices</code></a></dt>
+<dd>
+<p>In <a href="/en-US/docs/Web/HTTP/Guides/Content_negotiation#agent-driven_negotiation">agent-driven content negotiation</a>, the request has more than one possible response and the user agent or user should choose one of them.
+There is no standardized way for clients to automatically choose one of the responses, so this is rarely used.</p>
+</dd>
+<dt id="301_moved_permanently"><a href="Status/301.htm"><code>301 Moved Permanently</code></a></dt>
+<dd>
+<p>The URL of the requested resource has been changed permanently. The new URL is given in the response.</p>
+</dd>
+<dt id="302_found"><a href="Status/302.htm"><code>302 Found</code></a></dt>
+<dd>
+<p>This response code means that the URI of requested resource has been changed <em>temporarily</em>.
+Further changes in the URI might be made in the future, so the same URI should be used by the client in future requests.</p>
+</dd>
+<dt id="303_see_other"><a href="Status/303.htm"><code>303 See Other</code></a></dt>
+<dd>
+<p>The server sent this response to direct the client to get the requested resource at another URI with a <a href="Methods/GET.htm"><code>GET</code></a> request.</p>
+</dd>
+<dt id="304_not_modified"><a href="Status/304.htm"><code>304 Not Modified</code></a></dt>
+<dd>
+<p>This is used for caching purposes.
+It tells the client that the response has not been modified, so the client can continue to use the same <a href="/en-US/docs/Web/HTTP/Guides/Caching">cached</a> version of the response.</p>
+</dd>
+<dt id="305_use_proxy"><a href="#305_use_proxy"><code>305 Use Proxy</code> <abbr class="icon icon-deprecated" title="Deprecated. Not for use in new websites.">
+<span class="visually-hidden">Deprecated</span>
+</abbr></a></dt>
+<dd>
+<p>Defined in a previous version of the HTTP specification to indicate that a requested response must be accessed by a proxy.
+It has been deprecated due to security concerns regarding in-band configuration of a proxy.</p>
+</dd>
+<dt id="306_unused"><a href="#306_unused"><code>306 unused</code></a></dt>
+<dd>
+<p>This response code is no longer used; but is reserved. It was used in a previous version of the HTTP/1.1 specification.</p>
+</dd>
+<dt id="307_temporary_redirect"><a href="Status/307.htm"><code>307 Temporary Redirect</code></a></dt>
+<dd>
+<p>The server sends this response to direct the client to get the requested resource at another URI with the same method that was used in the prior request.
+This has the same semantics as the <code>302 Found</code> response code, with the exception that the user agent <em>must not</em> change the HTTP method used: if a <a href="Methods/POST.htm"><code>POST</code></a> was used in the first request, a <code>POST</code> must be used in the redirected request.</p>
+</dd>
+<dt id="308_permanent_redirect"><a href="Status/308.htm"><code>308 Permanent Redirect</code></a></dt>
+<dd>
+<p>This means that the resource is now permanently located at another URI, specified by the <a href="Headers/Location.htm"><code>Location</code></a> response header.
+This has the same semantics as the <code>301 Moved Permanently</code> HTTP response code, with the exception that the user agent <em>must not</em> change the HTTP method used: if a <a href="Methods/POST.htm"><code>POST</code></a> was used in the first request, a <code>POST</code> must be used in the second request.</p>
+</dd>
+</dl></div></section><section aria-labelledby="client_error_responses"><h2 id="client_error_responses"><a href="#client_error_responses">Client error responses</a></h2><div class="section-content"><dl>
+<dt id="400_bad_request"><a href="Status/400.htm"><code>400 Bad Request</code></a></dt>
+<dd>
+<p>The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).</p>
+</dd>
+<dt id="401_unauthorized"><a href="Status/401.htm"><code>401 Unauthorized</code></a></dt>
+<dd>
+<p>Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated".
+That is, the client must authenticate itself to get the requested response.</p>
+</dd>
+<dt id="402_payment_required"><a href="Status/402.htm"><code>402 Payment Required</code></a></dt>
+<dd>
+<p>The initial purpose of this code was for digital payment systems, however this status code is rarely used and no standard convention exists.</p>
+</dd>
+<dt id="403_forbidden"><a href="Status/403.htm"><code>403 Forbidden</code></a></dt>
+<dd>
+<p>The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource.
+Unlike <code>401 Unauthorized</code>, the client's identity is known to the server.</p>
+</dd>
+<dt id="404_not_found"><a href="Status/404.htm"><code>404 Not Found</code></a></dt>
+<dd>
+<p>The server cannot find the requested resource.
+In the browser, this means the URL is not recognized.
+In an API, this can also mean that the endpoint is valid but the resource itself does not exist.
+Servers may also send this response instead of <code>403 Forbidden</code> to hide the existence of a resource from an unauthorized client.
+This response code is probably the most well known due to its frequent occurrence on the web.</p>
+</dd>
+<dt id="405_method_not_allowed"><a href="Status/405.htm"><code>405 Method Not Allowed</code></a></dt>
+<dd>
+<p>The <a href="Methods.htm">request method</a> is known by the server but is not supported by the target resource.
+For example, an API may not allow <code>DELETE</code> on a resource, or the <code>TRACE</code> method entirely.</p>
+</dd>
+<dt id="406_not_acceptable"><a href="Status/406.htm"><code>406 Not Acceptable</code></a></dt>
+<dd>
+<p>This response is sent when the web server, after performing <a href="/en-US/docs/Web/HTTP/Guides/Content_negotiation#server-driven_content_negotiation">server-driven content negotiation</a>, doesn't find any content that conforms to the criteria given by the user agent.</p>
+</dd>
+<dt id="407_proxy_authentication_required"><a href="Status/407.htm"><code>407 Proxy Authentication Required</code></a></dt>
+<dd>
+<p>This is similar to <code>401 Unauthorized</code> but authentication is needed to be done by a proxy.</p>
+</dd>
+<dt id="408_request_timeout"><a href="Status/408.htm"><code>408 Request Timeout</code></a></dt>
+<dd>
+<p>This response is sent on an idle connection by some servers, even without any previous request by the client.
+It means that the server would like to shut down this unused connection.
+This response is used much more since some browsers use HTTP pre-connection mechanisms to speed up browsing.
+Some servers may shut down a connection without sending this message.</p>
+</dd>
+<dt id="409_conflict"><a href="Status/409.htm"><code>409 Conflict</code></a></dt>
+<dd>
+<p>This response is sent when a request conflicts with the current state of the server.
+In <a href="https://developer.mozilla.org/en-US/docs/Glossary/WebDAV">WebDAV</a> remote web authoring, <code>409</code> responses are errors sent to the client so that a user might be able to resolve a conflict and resubmit the request.</p>
+</dd>
+<dt id="410_gone"><a href="Status/410.htm"><code>410 Gone</code></a></dt>
+<dd>
+<p>This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
+Clients are expected to remove their caches and links to the resource.
+The HTTP specification intends this status code to be used for "limited-time, promotional services".
+APIs should not feel compelled to indicate resources that have been deleted with this status code.</p>
+</dd>
+<dt id="411_length_required"><a href="Status/411.htm"><code>411 Length Required</code></a></dt>
+<dd>
+<p>Server rejected the request because the <a href="Headers/Content-Length.htm"><code>Content-Length</code></a> header field is not defined and the server requires it.</p>
+</dd>
+<dt id="412_precondition_failed"><a href="Status/412.htm"><code>412 Precondition Failed</code></a></dt>
+<dd>
+<p>In <a href="/en-US/docs/Web/HTTP/Guides/Conditional_requests">conditional requests</a>, the client has indicated preconditions in its headers which the server does not meet.</p>
+</dd>
+<dt id="413_content_too_large"><a href="Status/413.htm"><code>413 Content Too Large</code></a></dt>
+<dd>
+<p>The request body is larger than limits defined by server.
+The server might close the connection or return an <a href="Headers/Retry-After.htm"><code>Retry-After</code></a> header field.</p>
+</dd>
+<dt id="414_uri_too_long"><a href="Status/414.htm"><code>414 URI Too Long</code></a></dt>
+<dd>
+<p>The URI requested by the client is longer than the server is willing to interpret.</p>
+</dd>
+<dt id="415_unsupported_media_type"><a href="Status/415.htm"><code>415 Unsupported Media Type</code></a></dt>
+<dd>
+<p>The media format of the requested data is not supported by the server, so the server is rejecting the request.</p>
+</dd>
+<dt id="416_range_not_satisfiable"><a href="Status/416.htm"><code>416 Range Not Satisfiable</code></a></dt>
+<dd>
+<p>The <a href="/en-US/docs/Web/HTTP/Guides/Range_requests">ranges</a> specified by the <code>Range</code> header field in the request cannot be fulfilled.
+It's possible that the range is outside the size of the target resource's data.</p>
+</dd>
+<dt id="417_expectation_failed"><a href="Status/417.htm"><code>417 Expectation Failed</code></a></dt>
+<dd>
+<p>This response code means the expectation indicated by the <a href="Headers/Expect.htm"><code>Expect</code></a> request header field cannot be met by the server.</p>
+</dd>
+<dt id="418_im_a_teapot"><a href="Status/418.htm"><code>418 I'm a teapot</code></a></dt>
+<dd>
+<p>The server refuses the attempt to brew coffee with a teapot.</p>
+</dd>
+<dt id="421_misdirected_request"><a href="Status/421.htm"><code>421 Misdirected Request</code></a></dt>
+<dd>
+<p>The request was directed at a server that is not able to produce a response.
+This can be sent by a server that is not configured to produce responses for the combination of scheme and authority that are included in the request URI.</p>
+</dd>
+<dt id="422_unprocessable_content"><a href="Status/422.htm"><code>422 Unprocessable Content</code></a> (<a href="https://developer.mozilla.org/en-US/docs/Glossary/WebDAV">WebDAV</a>)</dt>
+<dd>
+<p>The request was well-formed but was unable to be followed due to semantic errors.</p>
+</dd>
+<dt id="423_locked"><a href="Status/423.htm"><code>423 Locked</code></a> (<a href="https://developer.mozilla.org/en-US/docs/Glossary/WebDAV">WebDAV</a>)</dt>
+<dd>
+<p>The resource that is being accessed is locked.</p>
+</dd>
+<dt id="424_failed_dependency"><a href="Status/424.htm"><code>424 Failed Dependency</code></a> (<a href="https://developer.mozilla.org/en-US/docs/Glossary/WebDAV">WebDAV</a>)</dt>
+<dd>
+<p>The request failed due to failure of a previous request.</p>
+</dd>
+<dt id="425_too_early"><a href="Status/425.htm"><code>425 Too Early</code></a> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future.">
+<span class="visually-hidden">Experimental</span>
+</abbr></dt>
+<dd>
+<p>Indicates that the server is unwilling to risk processing a request that might be replayed.</p>
+</dd>
+<dt id="426_upgrade_required"><a href="Status/426.htm"><code>426 Upgrade Required</code></a></dt>
+<dd>
+<p>The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol.
+The server sends an <a href="Headers/Upgrade.htm"><code>Upgrade</code></a> header in a 426 response to indicate the required protocol(s).</p>
+</dd>
+<dt id="428_precondition_required"><a href="Status/428.htm"><code>428 Precondition Required</code></a></dt>
+<dd>
+<p>The origin server requires the request to be <a href="/en-US/docs/Web/HTTP/Guides/Conditional_requests">conditional</a>.
+This response is intended to prevent the 'lost update' problem, where a client <a href="Methods/GET.htm"><code>GET</code></a>s a resource's state, modifies it and <a href="Methods/PUT.htm"><code>PUT</code></a>s it back to the server, when meanwhile a third party has modified the state on the server, leading to a conflict.</p>
+</dd>
+<dt id="429_too_many_requests"><a href="Status/429.htm"><code>429 Too Many Requests</code></a></dt>
+<dd>
+<p>The user has sent too many requests in a given amount of time (<a href="https://developer.mozilla.org/en-US/docs/Glossary/Rate_limit">rate limiting</a>).</p>
+</dd>
+<dt id="431_request_header_fields_too_large"><a href="Status/431.htm"><code>431 Request Header Fields Too Large</code></a></dt>
+<dd>
+<p>The server is unwilling to process the request because its header fields are too large.
+The request may be resubmitted after reducing the size of the request header fields.</p>
+</dd>
+<dt id="451_unavailable_for_legal_reasons"><a href="Status/451.htm"><code>451 Unavailable For Legal Reasons</code></a></dt>
+<dd>
+<p>The user agent requested a resource that cannot legally be provided, such as a web page censored by a government.</p>
+</dd>
+</dl></div></section><section aria-labelledby="server_error_responses"><h2 id="server_error_responses"><a href="#server_error_responses">Server error responses</a></h2><div class="section-content"><dl>
+<dt id="500_internal_server_error"><a href="Status/500.htm"><code>500 Internal Server Error</code></a></dt>
+<dd>
+<p>The server has encountered a situation it does not know how to handle.
+This error is generic, indicating that the server cannot find a more appropriate <code>5XX</code> status code to respond with.</p>
+</dd>
+<dt id="501_not_implemented"><a href="Status/501.htm"><code>501 Not Implemented</code></a></dt>
+<dd>
+<p>The request method is not supported by the server and cannot be handled. The only methods that servers are required to support (and therefore that must not return this code) are <a href="Methods/GET.htm"><code>GET</code></a> and <a href="Methods/HEAD.htm"><code>HEAD</code></a>.</p>
+</dd>
+<dt id="502_bad_gateway"><a href="Status/502.htm"><code>502 Bad Gateway</code></a></dt>
+<dd>
+<p>This error response means that the server, while working as a gateway to get a response needed to handle the request, got an invalid response.</p>
+</dd>
+<dt id="503_service_unavailable"><a href="Status/503.htm"><code>503 Service Unavailable</code></a></dt>
+<dd>
+<p>The server is not ready to handle the request.
+Common causes are a server that is down for maintenance or that is overloaded.
+Note that together with this response, a user-friendly page explaining the problem should be sent.
+This response should be used for temporary conditions and the <a href="Headers/Retry-After.htm"><code>Retry-After</code></a> HTTP header should, if possible, contain the estimated time before the recovery of the service.
+The webmaster must also take care about the caching-related headers that are sent along with this response, as these temporary condition responses should usually not be cached.</p>
+</dd>
+<dt id="504_gateway_timeout"><a href="Status/504.htm"><code>504 Gateway Timeout</code></a></dt>
+<dd>
+<p>This error response is given when the server is acting as a gateway and cannot get a response in time.</p>
+</dd>
+<dt id="505_http_version_not_supported"><a href="Status/505.htm"><code>505 HTTP Version Not Supported</code></a></dt>
+<dd>
+<p>The HTTP version used in the request is not supported by the server.</p>
+</dd>
+<dt id="506_variant_also_negotiates"><a href="Status/506.htm"><code>506 Variant Also Negotiates</code></a></dt>
+<dd>
+<p>The server has an internal configuration error: during content negotiation, the chosen variant is configured to engage in content negotiation itself, which results in circular references when creating responses.</p>
+</dd>
+<dt id="507_insufficient_storage"><a href="Status/507.htm"><code>507 Insufficient Storage</code></a> (<a href="https://developer.mozilla.org/en-US/docs/Glossary/WebDAV">WebDAV</a>)</dt>
+<dd>
+<p>The method could not be performed on the resource because the server is unable to store the representation needed to successfully complete the request.</p>
+</dd>
+<dt id="508_loop_detected"><a href="Status/508.htm"><code>508 Loop Detected</code></a> (<a href="https://developer.mozilla.org/en-US/docs/Glossary/WebDAV">WebDAV</a>)</dt>
+<dd>
+<p>The server detected an infinite loop while processing the request.</p>
+</dd>
+<dt id="510_not_extended"><a href="Status/510.htm"><code>510 Not Extended</code></a></dt>
+<dd>
+<p>The client request declares an HTTP Extension (<a href="https://datatracker.ietf.org/doc/html/rfc2774" class="external" target="_blank">RFC 2774</a>) that should be used to process the request, but the extension is not supported.</p>
+</dd>
+<dt id="511_network_authentication_required"><a href="Status/511.htm"><code>511 Network Authentication Required</code></a></dt>
+<dd>
+<p>Indicates that the client needs to authenticate to gain network access.</p>
+</dd>
+</dl></div></section><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" class="external" target="_blank">List of HTTP status codes on Wikipedia</a></li>
+<li><a href="https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml" class="external" target="_blank">IANA official registry of HTTP status codes</a></li>
+</ul></div></section></article></main></div></div></div></body></html>

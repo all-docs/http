@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Accept-Encoding header</title><link rel="alternate" title="Accept-Encoding header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Accept-Encoding" hreflang="de"><link rel="alternate" title="Accept-Encoding" href="https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Headers/Accept-Encoding" hreflang="fr"><link rel="alternate" title="Accept-Encoding" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Accept-Encoding" hreflang="ja"><link rel="alternate" title="Accept-Encoding" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Accept-Encoding" hreflang="ko"><link rel="alternate" title="Accept-Encoding" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Headers/Accept-Encoding" hreflang="pt"><link rel="alternate" title="Accept-Encoding" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Accept-Encoding" hreflang="zh"><link rel="alternate" title="Accept-Encoding" href="https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Reference/Headers/Accept-Encoding" hreflang="zh-Hant"><link rel="alternate" title="Accept-Encoding header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Accept-Encoding" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Accept-Encoding request and response header indicates the content encoding (usually a compression algorithm) that the sender can understand.
+In requests, the server uses content negotiation to select one of the encoding proposals from the client and informs the client of that choice with the Content-Encoding response header.
+In responses, it provides information about which content encodings the server can understand in messages to the requested resource, so that the encoding can be used in subsequent requests to the resource.
+For example, Accept-Encoding is included in a 415 Unsupported Media Type response if a request to a resource (e.g., PUT) used an unsupported encoding."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Accept-Encoding"><meta property="og:title" content="Accept-Encoding header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Accept-Encoding request and response header indicates the content encoding (usually a compression algorithm) that the sender can understand.
+In requests, the server uses content negotiation to select one of the encoding proposals from the client and informs the client of that choice with the Content-Encoding response header.
+In responses, it provides information about which content encodings the server can understand in messages to the requested resource, so that the encoding can be used in subsequent requests to the resource.
+For example, Accept-Encoding is included in a 415 Unsupported Media Type response if a request to a resource (e.g., PUT) used an unsupported encoding."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Accept-Encoding"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Accept-Encoding header</h1><details class="baseline-indicator high"><summary><span class="indicator" role="img" aria-label="Baseline Check"></span><div class="status-title">Baseline<!-- --> <span class="not-bold">Widely available</span> *</div><div class="browsers"><span class="engine" title="Supported in Chrome and Edge"><span class="browser chrome supported" role="img" aria-label="Chrome check"></span><span class="browser edge supported" role="img" aria-label="Edge check"></span></span><span class="engine" title="Supported in Firefox"><span class="browser firefox supported" role="img" aria-label="Firefox check"></span></span><span class="engine" title="Supported in Safari"><span class="browser safari supported" role="img" aria-label="Safari check"></span></span></div><span class="icon icon-chevron "></span></summary><div class="extra"><p>This feature is well established and works across many devices and browser versions. It’s been available across browsers since<!-- --> <!-- -->July 2015<!-- -->.</p><p>* Some parts of this feature may have varying levels of support.</p><ul><li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility" data-glean="baseline_link_learn_more" target="_blank" class="learn-more">Learn more</a></li><li><a href="#browser_compatibility" data-glean="baseline_link_bcd_table">See full compatibility</a></li><li><a href="https://survey.alchemer.com/s3/7634825/MDN-baseline-feedback?page=%2Fen-US%2Fdocs%2FWeb%2FHTTP%2FReference%2FHeaders%2FAccept-Encoding&amp;level=high" data-glean="baseline_link_feedback" class="feedback-link" target="_blank" rel="noreferrer">Report feedback</a></li></ul></div></details></header><div class="section-content"><p>The HTTP <strong><code>Accept-Encoding</code></strong> <a href="https://developer.mozilla.org/en-US/docs/Glossary/Request_header">request</a> and <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">response header</a> indicates the content encoding (usually a compression algorithm) that the sender can understand.
+In requests, the server uses <a href="/en-US/docs/Web/HTTP/Guides/Content_negotiation">content negotiation</a> to select one of the encoding proposals from the client and informs the client of that choice with the <a href="Content-Encoding.htm"><code>Content-Encoding</code></a> response header.
+In responses, it provides information about which content encodings the server can understand in messages to the requested resource, so that the encoding can be used in subsequent requests to the resource.
+For example, <code>Accept-Encoding</code> is included in a <a href="/en-US/docs/Web/HTTP/Reference/Status/415"><code>415 Unsupported Media Type</code></a> response if a request to a resource (e.g., <a href="/en-US/docs/Web/HTTP/Reference/Methods/PUT"><code>PUT</code></a>) used an unsupported encoding.</p>
+<p>Even if both the client and the server support the same compression algorithms, the server may choose not to compress the body of a response if the <code>identity</code> value is also acceptable.
+This happens in two common cases:</p>
+<ol>
+<li>The data is already compressed, meaning a second round of compression will not reduce the transmitted data size, and may actually increase the size of the content in some cases.
+This is true for pre-compressed image formats (JPEG, for instance).</li>
+<li>The server is overloaded and cannot allocate computing resources to perform the compression. For example, Microsoft recommends not to compress if a server uses more than 80% of its computational power.</li>
+</ol>
+<p>As long as the <code>identity;q=0</code> or <code>*;q=0</code> directives do not explicitly forbid the <code>identity</code> value that means no encoding, the server must never return a <a href="/en-US/docs/Web/HTTP/Reference/Status/406"><code>406 Not Acceptable</code></a> error.</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+IANA maintains <a href="https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#content-coding" class="external" target="_blank">a list of official content encodings</a>.
+The <code>bzip</code> and <code>bzip2</code> encodings are non-standard, but may be used in some cases, particularly for legacy support.</p>
+</div>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Request_header">Request header</a>, <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_request_header">Forbidden request header</a></th>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Accept-Encoding: gzip
+Accept-Encoding: compress
+Accept-Encoding: deflate
+Accept-Encoding: br
+Accept-Encoding: zstd
+Accept-Encoding: dcb
+Accept-Encoding: dcz
+Accept-Encoding: identity
+Accept-Encoding: *
+
+// Multiple algorithms, weighted with the quality value syntax:
+Accept-Encoding: deflate, gzip;q=1.0, *;q=0.5
+</code></pre></div></div></section><section aria-labelledby="directives"><h2 id="directives"><a href="#directives">Directives</a></h2><div class="section-content"><dl>
+<dt id="gzip"><a href="#gzip"><code>gzip</code></a></dt>
+<dd>
+<p>A compression format that uses the <a href="https://en.wikipedia.org/wiki/LZ77_and_LZ78#LZ77" class="external" target="_blank">Lempel-Ziv coding</a> (LZ77) with a 32-bit CRC.</p>
+</dd>
+<dt id="compress"><a href="#compress"><code>compress</code></a></dt>
+<dd>
+<p>A compression format that uses the <a href="https://en.wikipedia.org/wiki/LZW" class="external" target="_blank">Lempel-Ziv-Welch</a> (LZW) algorithm.</p>
+</dd>
+<dt id="deflate"><a href="#deflate"><code>deflate</code></a></dt>
+<dd>
+<p>A compression format that uses the <a href="https://en.wikipedia.org/wiki/Zlib" class="external" target="_blank">zlib</a> structure with the <a href="https://en.wikipedia.org/wiki/DEFLATE" class="external" target="_blank"><em>deflate</em></a> compression algorithm.</p>
+</dd>
+<dt id="br"><a href="#br"><code>br</code></a></dt>
+<dd>
+<p>A compression format that uses the <a href="https://en.wikipedia.org/wiki/Brotli" class="external" target="_blank">Brotli</a> algorithm.</p>
+</dd>
+<dt id="zstd"><a href="#zstd"><code>zstd</code></a></dt>
+<dd>
+<p>A compression format that uses the <a href="https://en.wikipedia.org/wiki/Zstd" class="external" target="_blank">Zstandard</a> algorithm.</p>
+</dd>
+<dt id="dcb"><a href="#dcb"><code>dcb</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future.">
+<span class="visually-hidden">Experimental</span>
+</abbr></a></dt>
+<dd>
+<p>A format that uses the <a href="https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-compression-dictionary#name-dictionary-compressed-brotl" class="external" target="_blank">Dictionary-Compressed Brotli</a> algorithm. See <a href="/en-US/docs/Web/HTTP/Guides/Compression_dictionary_transport">Compression Dictionary Transport</a>.</p>
+</dd>
+<dt id="dcz"><a href="#dcz"><code>dcz</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future.">
+<span class="visually-hidden">Experimental</span>
+</abbr></a></dt>
+<dd>
+<p>A format that uses the <a href="https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-compression-dictionary#name-dictionary-compressed-zstan" class="external" target="_blank">Dictionary-Compressed Zstandard</a> algorithm. See <a href="/en-US/docs/Web/HTTP/Guides/Compression_dictionary_transport">Compression Dictionary Transport</a>.</p>
+</dd>
+<dt id="identity"><a href="#identity"><code>identity</code></a></dt>
+<dd>
+<p>Indicates the identity function (that is, without modification or compression). This value is always considered as acceptable, even if omitted.</p>
+</dd>
+<dt id="sect"><a href="#sect"><code>*</code> (wildcard)</a></dt>
+<dd>
+<p>Matches any content encoding not already listed in the header. This is the default value if the header is not present. This directive does not suggest that any algorithm is supported but indicates that no preference is expressed.</p>
+</dd>
+<dt id="q"><a href="#q"><code>;q=</code> (qvalues weighting)</a></dt>
+<dd>
+<p>Any value is placed in an order of preference expressed using a relative <a href="https://developer.mozilla.org/en-US/docs/Glossary/Quality_values">quality value</a> called <em>weight</em>.</p>
+</dd>
+</dl></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="default_accept-encoding_values"><h3 id="default_accept-encoding_values"><a href="#default_accept-encoding_values">Default Accept-Encoding values</a></h3><div class="section-content"><p>Browser navigation typically has the following <code>Accept-Encoding</code> request header value:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>GET /en-US/ HTTP/2
+Host: developer.mozilla.org
+Accept-Encoding: gzip, deflate, br, zstd
+</code></pre></div></div></section><section aria-labelledby="weighted_accept-encoding_values"><h3 id="weighted_accept-encoding_values"><a href="#weighted_accept-encoding_values">Weighted Accept-Encoding values</a></h3><div class="section-content"><p>The following header shows <code>Accept-Encoding</code> preferences using a quality value between <code>0</code> (lowest priority) and <code>1</code> (highest-priority).
+Brotli compression is weighted at <code>1.0</code>, making <code>br</code> the client's first choice, followed by <code>gzip</code> at <code>0.8</code> priority, and then any other content encoding at <code>0.1</code>:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Accept-Encoding: br;q=1.0, gzip;q=0.8, *;q=0.1
+</code></pre></div></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://httpwg.org/specs/rfc9110.html#field.accept-encoding">HTTP Semantics<!-- --> <br><small># <!-- -->field.accept-encoding</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="/en-US/docs/Web/HTTP/Reference/Status/415"><code>415 Unsupported Media Type</code></a></li>
+<li>HTTP <a href="/en-US/docs/Web/HTTP/Guides/Content_negotiation">content negotiation</a></li>
+<li>A header with the result of the content negotiation: <a href="Content-Encoding.htm"><code>Content-Encoding</code></a></li>
+<li>Other similar headers: <a href="TE.htm"><code>TE</code></a>, <a href="Accept.htm"><code>Accept</code></a>, <a href="Accept-Language.htm"><code>Accept-Language</code></a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Brotli_compression">Brotli compression</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/gzip_compression">GZip compression</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Zstandard_compression">Zstandard compression</a></li>
+<li><a href="/en-US/docs/Web/HTTP/Guides/Compression_dictionary_transport">Compression Dictionary Transport guide</a></li>
+</ul></div></section></article></main></div></div></div></body></html>

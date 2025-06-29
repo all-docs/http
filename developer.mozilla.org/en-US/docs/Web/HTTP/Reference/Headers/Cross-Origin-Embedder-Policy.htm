@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="https://developer.mozilla.org/favicon.ico"><link rel="alternate icon" type="image/svg+xml" href="https://developer.mozilla.org/favicon.svg"><link rel="apple-touch-icon" href="https://developer.mozilla.org/apple-touch-icon.528534bba673c38049c2.png"><meta name="theme-color" content="#ffffff"><link rel="manifest" href="https://developer.mozilla.org/manifest.f42880861b394dd4dc9b.json"><link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="MDN Web Docs"><title>Cross-Origin-Embedder-Policy (COEP) header</title><link rel="alternate" title="Cross-Origin-Embedder-Policy (COEP) header" href="https://developer.mozilla.org/de/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy" hreflang="de"><link rel="alternate" title="Cross-Origin-Embedder-Policy" href="https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy" hreflang="ja"><link rel="alternate" title="Cross-Origin-Embedder-Policy" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy" hreflang="ko"><link rel="alternate" title="Cross-Origin-Embedder-Policy" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy" hreflang="zh"><link rel="alternate" title="Cross-Origin-Embedder-Policy (COEP) header" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy" hreflang="en"><link rel="preload" as="font" type="font/woff2" href="/static/media/Inter.var.c2fe3cb2b7c746f7966a.woff2" crossorigin=""><link rel="alternate" type="application/rss+xml" title="MDN Blog RSS Feed" href="https://developer.mozilla.org/en-US/blog/rss.xml"><meta name="description" content="The HTTP Cross-Origin-Embedder-Policy (COEP) response header configures the current document's policy for loading and embedding cross-origin resources."><meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy"><meta property="og:title" content="Cross-Origin-Embedder-Policy (COEP) header - HTTP | MDN"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:description" content="The HTTP Cross-Origin-Embedder-Policy (COEP) response header configures the current document's policy for loading and embedding cross-origin resources."><meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png"><meta property="og:image:type" content="image/png"><meta property="og:image:height" content="1080"><meta property="og:image:width" content="1920"><meta property="og:image:alt" content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background."><meta property="og:site_name" content="MDN Web Docs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="MozDevNet"><link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy"><style media="print">.article-actions-container,.document-toc-container,.language-menu,.main-menu-toggle,.on-github,.page-footer,.place,.sidebar,.top-banner,.top-navigation-main,ul.prev-next{display:none!important}.main-page-content,.main-page-content pre{padding:2px}.main-page-content pre{border-left-width:2px}</style></head><body><div id="root"><div class="page-wrapper  category-http document-page"><div class="main-wrapper"><main id="content" class="main-content  "><article class="main-page-content" lang="en-US"><header><h1>Cross-Origin-Embedder-Policy (COEP) header</h1></header><div class="section-content"><p>The HTTP <strong><code>Cross-Origin-Embedder-Policy</code></strong> (COEP) <a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">response header</a> configures the current document's policy for loading and embedding cross-origin resources.</p>
+<p>The policy for whether a particular resource is embeddable cross-site may be defined for that resource using the <a href="Cross-Origin-Resource-Policy.htm"><code>Cross-Origin-Resource-Policy</code></a> (CORP) header for a <code>no-cors</code> fetch, or using <a href="/en-US/docs/Web/HTTP/Guides/CORS">CORS</a>.
+If neither of these policies are set, then by default, resources can be loaded or embedded into a document as though they had a CORP value of <code>cross-site</code>.</p>
+<p>The <strong><code>Cross-Origin-Embedder-Policy</code></strong> allows you to require that CORP or CORS headers be set in order to load cross-site resources into the current document.
+You can also set the policy to keep the default behavior, or to allow the resources to be loaded, but strip any credentials that might otherwise be sent.
+The policy applies to loaded resources, and resources in <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/iframe"><code>&lt;iframe&gt;</code></a>s and nested frames.</p>
+<div class="notecard note">
+<p><strong>Note:</strong>
+The <code>Cross-Origin-Embedder-Policy</code> doesn't override or affect the embedding behavior for a resource for which CORP or CORS has been set.
+If CORP restricts a resource to being embedded only <code>same-origin</code>, it won't be loaded cross-origin into a resource irrespective of the COEP value.</p>
+</div>
+<figure class="table-container"><table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header type</th>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Glossary/Response_header">Response header</a></td>
+    </tr>
+    <tr>
+      <th scope="row"><a href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_response_header_name">Forbidden response header name</a></th>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table></figure></div><section aria-labelledby="syntax"><h2 id="syntax"><a href="#syntax">Syntax</a></h2><div class="section-content"><div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Cross-Origin-Embedder-Policy: unsafe-none | require-corp | credentialless
+</code></pre></div></div></section><section aria-labelledby="directives"><h3 id="directives"><a href="#directives">Directives</a></h3><div class="section-content"><dl>
+<dt id="unsafe-none"><a href="#unsafe-none"><code>unsafe-none</code></a></dt>
+<dd>
+<p>Allows the document to load cross-origin resources <strong>without</strong> giving explicit permission through the CORS protocol or the <a href="Cross-Origin-Resource-Policy.htm"><code>Cross-Origin-Resource-Policy</code></a> header.
+This is the default value.</p>
+</dd>
+<dt id="require-corp"><a href="#require-corp"><code>require-corp</code></a></dt>
+<dd>
+<p>A document can only load resources from the same origin, or resources explicitly marked as loadable from another origin.</p>
+<p>Cross-origin resource loading will be blocked by COEP unless:</p>
+<ul>
+<li>The resource is requested in <code>no-cors</code> mode and the response includes a <a href="Cross-Origin-Resource-Policy.htm"><code>Cross-Origin-Resource-Policy</code></a> header that allows it to be loaded into the document origin.</li>
+<li>The resource is requested in <code>cors</code> mode and the resource supports and is permitted by CORS.
+This can be done, for example, in HTML using the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/crossorigin"><code>crossorigin</code></a> attribute, or in JavaScript by making a request with <a href="https://developer.mozilla.org/en-US/docs/Web/API/RequestInit#cors"><code>{mode="cors"}</code></a>.</li>
+</ul>
+</dd>
+<dt id="credentialless"><a href="#credentialless"><code>credentialless</code></a></dt>
+<dd>
+<p>A document can load cross-origin resources that are requested in <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request/mode"><code>no-cors</code> mode</a> <strong>without</strong> an explicit permission via the <a href="Cross-Origin-Resource-Policy.htm"><code>Cross-Origin-Resource-Policy</code></a> header.
+In this case requests are sent without credentials: cookies are omitted in the request, and ignored in the response.</p>
+<p>The cross-origin loading behavior for other <a href="https://developer.mozilla.org/en-US/docs/Web/API/Request/mode#cors">request modes</a> is the same as for <a href="#require-corp"><code>require-corp</code></a>.
+For example, a cross-origin resource requested in <code>cors</code> mode must support (and be permitted by) CORS.</p>
+</dd>
+</dl></div></section><section aria-labelledby="examples"><h2 id="examples"><a href="#examples">Examples</a></h2><div class="section-content"></div></section><section aria-labelledby="features_that_depend_on_cross-origin_isolation"><h3 id="features_that_depend_on_cross-origin_isolation"><a href="#features_that_depend_on_cross-origin_isolation">Features that depend on cross-origin isolation</a></h3><div class="section-content"><p>Certain features, such as access to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer"><code>SharedArrayBuffer</code></a> objects or using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/now"><code>Performance.now()</code></a> with unthrottled timers, are only available if your document is <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/crossOriginIsolated" title="cross-origin isolated">cross-origin isolated</a>.</p>
+<p>To use these features in a document, you will need to set the COEP header with a value of <code>require-corp</code> or <code>credentialless</code>, and the <a href="Cross-Origin-Opener-Policy.htm"><code>Cross-Origin-Opener-Policy</code></a> header to <code>same-origin</code>.
+In addition the feature must not be blocked by <a href="Permissions-Policy/cross-origin-isolated.htm"><code>Permissions-Policy: cross-origin-isolated</code></a>.</p>
+<div class="code-example"><div class="example-header"><span class="language-name">http</span></div><pre class="brush: http notranslate"><code>Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Embedder-Policy: require-corp
+</code></pre></div>
+<p>You can use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/crossOriginIsolated"><code>Window.crossOriginIsolated</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/crossOriginIsolated"><code>WorkerGlobalScope.crossOriginIsolated</code></a> properties to check if the features are restricted in window and worker contexts, respectively:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">js</span></div><pre class="brush: js notranslate"><code>const myWorker = new Worker("worker.js");
+
+if (crossOriginIsolated) {
+  const buffer = new SharedArrayBuffer(16);
+  myWorker.postMessage(buffer);
+} else {
+  const buffer = new ArrayBuffer(16);
+  myWorker.postMessage(buffer);
+}
+</code></pre></div></div></section><section aria-labelledby="avoiding_coep_blockage_with_cors"><h3 id="avoiding_coep_blockage_with_cors"><a href="#avoiding_coep_blockage_with_cors">Avoiding COEP blockage with CORS</a></h3><div class="section-content"><p>If you enable COEP using <code>require-corp</code> and want to embed a cross origin resource that supports <a href="/en-US/docs/Web/HTTP/Guides/CORS">CORS</a>, you will need to explicitly specify that it is requested in <code>cors</code> mode.</p>
+<p>For example, to fetch an image declared in HTML from a third-party site that supports CORS, you can use the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/crossorigin"><code>crossorigin</code></a> attribute so that it is requested in <code>cors</code> mode:</p>
+<div class="code-example"><div class="example-header"><span class="language-name">html</span></div><pre class="brush: html notranslate"><code>&lt;img src="https://thirdparty.com/img.png" crossorigin /&gt;
+</code></pre></div>
+<p>You can similarly use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLScriptElement/crossOrigin"><code>HTMLScriptElement.crossOrigin</code></a> attribute or fetch with <code>{ mode: 'cors' }</code> to request a file in CORS mode using JavaScript.</p>
+<p>If CORS is not supported for some images, a COEP value of <code>credentialless</code> can be used as an alternative to load the image without any explicit opt-in from the cross-origin server, at the cost of requesting it without cookies.</p></div></section><h2 id="specifications"><a href="#specifications">Specifications</a></h2><table class="standard-table"><thead><tr><th scope="col">Specification</th></tr></thead><tbody><tr><td><a href="https://html.spec.whatwg.org/multipage/browsers.html#coep">HTML<!-- --> <br><small># <!-- -->coep</small></a></td></tr></tbody></table><!--$--><h2 id="browser_compatibility"><a href="#browser_compatibility">Browser compatibility</a></h2><lazy-compat-table></lazy-compat-table><!--/$--><section aria-labelledby="see_also"><h2 id="see_also"><a href="#see_also">See also</a></h2><div class="section-content"><ul>
+<li><a href="Cross-Origin-Opener-Policy.htm"><code>Cross-Origin-Opener-Policy</code></a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/crossOriginIsolated"><code>Window.crossOriginIsolated</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/crossOriginIsolated"><code>WorkerGlobalScope.crossOriginIsolated</code></a></li>
+<li><a href="https://web.dev/articles/why-coop-coep#coep" class="external" target="_blank">Cross Origin Opener Policy</a> in <em>Why you need "cross-origin isolated" for powerful features</em> on web.dev (2020)</li>
+<li><a href="https://docs.google.com/document/d/1zDlfvfTJ_9e8Jdc8ehuV4zMEu9ySMCiTGMS9y0GU92k/edit?tab=t.0" class="external" target="_blank">COOP and COEP explained: Artur Janc, Charlie Reis, Anne van Kesteren</a> (2020)</li>
+</ul></div></section></article></main></div></div></div></body></html>
